@@ -1,0 +1,116 @@
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Values.processing.namespace }}
+  labels:
+    app: {{ .Release.Name }}
+  annotations:
+    deployment.kubernetes.io/revision: '1'
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      name: {{ .Release.Name }}
+      labels:
+        app: {{ .Release.Name }}
+        type: {{ .Values.processing.namespace }}
+    spec:
+      terminationGracePeriodSeconds: 30
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: wrapperconfig
+                operator: In
+                values:
+                - l2
+      containers:
+      - name: {{ .Release.Name }}
+        {{- if .Values.simulator.simulateL0AioIpf }}
+        image: registry.tools.s1pdgs.eu/werum/processing/s1pro-core-ipf-execution-worker-simulators:{{ .Values.image.tag }}
+        {{- else }}
+        image: registry.tools.s1pdgs.eu/itt/qualification_test/s3-ipf0:latest
+        {{- end }}
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: service-config-volume
+          mountPath: /app/config
+        resources:
+          {{- toYaml .Values.resources | nindent 12 }}
+        ports:
+        - name: data
+          protocol: TCP
+          containerPort: {{ .Values.service.port }}
+        env:
+        - name: storage_user_id
+          valueFrom:
+            secretKeyRef:
+              name: obs
+              key: USER_ID
+        - name: storage_user_secret
+          valueFrom:
+            secretKeyRef:
+              name: obs
+              key: USER_SECRET
+        envFrom:
+        - configMapRef:
+            name: s1pdgs-config
+        - configMapRef:
+            name: s1pdgs-env
+        securityContext:
+          privileged: false
+        livenessProbe:
+          httpGet:
+            path: /app/status
+            port: {{ .Values.service.port }}
+          initialDelaySeconds: 10
+          periodSeconds: 60
+          timeoutSeconds: 5
+          
+      - name: {{ .Release.Name }}-mqi
+        image: registry.tools.s1pdgs.eu/werum/processing/s1pro-core-mqi-server:{{ .Values.image.tag }}
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: mqi-config-volume
+          mountPath: /app/config
+        ports:
+        - name: data
+          protocol: TCP
+          containerPort: {{ .Values.mqiService.port }}
+        envFrom:
+        - configMapRef:
+            name: s1pdgs-config
+        - configMapRef:
+            name: s1pdgs-env
+        livenessProbe:
+          httpGet:
+            path: /app/status
+            port: {{ .Values.mqiService.port }}
+          initialDelaySeconds: 10
+          periodSeconds: 60
+          timeoutSeconds: 5
+      tolerations:
+      - key: "node-role.kubernetes.io/processor"
+        operator: "Exists"
+        effect: "NoSchedule"    
+      imagePullSecrets:
+      - name: harbor-tools
+      - name: local-docker-registry2
+      restartPolicy: Always
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+      volumes:
+        - name: service-config-volume
+          configMap:
+            name: {{ .Release.Name }}-service-config
+        - name: mqi-config-volume
+          configMap:
+            name: {{ .Release.Name }}-mqi-config
+  serviceName: {{ .Release.Name }}-svc
+  revisionHistoryLimit: 10

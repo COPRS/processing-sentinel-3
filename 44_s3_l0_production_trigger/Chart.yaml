@@ -1,0 +1,5 @@
+apiVersion: v1
+appVersion: "s3-develop"
+description: S3 L0 Production Trigger
+name: s3-l0-production-trigger
+version: 0.19.0-SNAPSHOT

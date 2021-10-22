@@ -1,0 +1,64 @@
+spring:
+  main:
+    banner-mode: "off"
+  application:
+    name: s3-mqi-l0-ipf-preparation-worker
+    
+logging:
+  config: ${log4j_filename:config/log4j2_debug.yml}
+  
+# Kafka
+kafka:
+  bootstrap-servers: ${kafka_bootstrap-servers}                                         # host:port to use for establishing the initial connection to the Kafka cluster
+  hostname: ${HOSTNAME}                                                                 # Hostname
+  client-id: s3-l0-ipf-preparation-worker                                                                # ID to pass to the server when making 
+  error-topic: ${kafka_topic_errors}                                                    # Topic name for the errors
+  consumer:
+    group-id: s3-l0-ipf-preparation-worker                                             # Unique string that identifies the consumer group to which this consumer belongs
+    max-poll-records: 1                                                                 # Maximum number of records returned in a single call to poll().
+    max-poll-interval-ms: 3600000                                                       #
+    heartbeat-intv-ms: 3000                                                             # Expected time between heartbeats to the consumer coordinator.
+    session-timeout-ms: 10000                                                           #
+    auto-offset-reset: earliest                                                           # What to do when there is no initial offset in Kafka or if the current offset does not exist any more on the server (e.g. because that data has been deleted): earliest: automatically reset the offset to the earliest offset, latest: automatically reset the offset to the latest offset, none: throw exception to the consumer if no previous offset is found for the consumer's group,anything else: throw exception to the consumer.
+    offset-dft-mode: -3                                                            # !!!! Default offset seek mode when rebalance: -2: let the consumer, -1: start to the beginning offset, -0: start to the end offset
+  listener:
+    poll-timeout-ms: 500                                                                # Timeout to use when polling the consumer.
+  producer:
+    max-retries: 5                                                                      # When greater than zero, enables retrying of failed sends.
+    
+# Configuration per categories of products
+application:
+  hostname: ${HOSTNAME}                                                                 # Hostname
+  max-error-counter: 3                                                                  # 
+  stop-fixed-delay-ms: 3000                                                             # 
+  wait-next-ms: 1000                                                                    # Time to wait before getting next message when API is called
+  product-categories:
+    preparation-jobs:
+      consumption:
+        enable: true                                                                    # True if the category is enable for the service
+        topics-with-priority:                                                           # List of topics with priority
+          t-pdgs-l0-preparation-jobs: 1
+      publication:
+        enable: false                                                                  # True if the category is enable for the service
+        routing-file:                                                                 # Location of the routing file
+    level-jobs:
+      consumption:
+        enable: false                                                                    # True if the category is enable for the service
+        topics-with-priority:  
+          unknown: 0  
+      publication:
+        enable: true                                                                   #
+        routing-file: config/routing.xml
+    
+# REST controller
+server:
+  port: 8081                                                                            #
+  
+# App catlog
+persistence:
+  host-uri-catalog: http://s1pro-app-catalog-svc:8080                                         #
+  port-uri-other-app: 8080                                                              #
+  max-retries: 100                                                                        #
+  tempo-retry-ms: 1000                                                                    #
+  other-app:
+    suffix-uri: .s3-l0-ipf-preparation-worker-svc                                                  #
