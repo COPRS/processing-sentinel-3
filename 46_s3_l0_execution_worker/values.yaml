@@ -4,7 +4,7 @@
 replicaCount: 1
 
 image:
-  tag: develop
+  name: rs-core-s3-ipf-simulator
 
 service:
   port: 8080

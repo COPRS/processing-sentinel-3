@@ -6,7 +6,7 @@ spring:
     
 # Logging
 logging:
-  config: ${log4j_filename:config/log4j2_debug.yml}
+  config: ${log4j_config:log/log4j2.yml}
   
 mqi:
   host-uri: http://localhost:8081                               # the host and port for querying MQI server

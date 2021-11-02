@@ -5,7 +5,7 @@ spring:
     name: s3-l0-ipf-execution-worker
     
 logging:
-  config: ${log4j_filename:config/log4j2_debug.yml}
+  config: ${log4j_config:log/log4j2.yml}
     
 # REST controller
 server:
