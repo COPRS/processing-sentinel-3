@@ -39,8 +39,6 @@ spec:
           mountPath: /app/log
         - name: service-config-volume
           mountPath: /app/config
-        - name: data-localwd
-          mountPath: /data/localWD
         resources:
           {{- toYaml .Values.resources | nindent 12 }}
         ports:
