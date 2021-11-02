@@ -3,7 +3,11 @@
 
 replicaCount: 1
 
-image:
+# TODO: currently there is no docker image available containing the real ipf
+ipfImage:
+  name: rs-core-ipf-execution-worker
+
+ipfSimImage:
   name: rs-core-s3-ipf-simulator
 
 service:

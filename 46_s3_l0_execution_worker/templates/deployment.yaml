@@ -32,7 +32,11 @@ spec:
                 - {{ .Values.worker.label.value }}
       containers:
       - name: {{ .Release.Name }}
-        image: {{ .Values.image.registry }}/{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}
+        {{- if .Values.simulator.simulateS3L0Ipf }}
+        image: {{ .Values.image.registry }}/{{ .Values.image.repository }}/{{ .Values.ipfSimImage.name }}:{{ .Values.image.tag }}
+        {{- else }}
+        image: {{ .Values.image.registry }}/{{ .Values.image.repository }}/{{ .Values.ipfImage.name }}:{{ .Values.image.tag }}
+        {{- end }}
         imagePullPolicy: Always
         volumeMounts:
         - name: service-logging-config-volume
