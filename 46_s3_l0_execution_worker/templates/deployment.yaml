@@ -26,10 +26,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: wrapperconfig
+              - key: {{ .Values.worker.label.key }}
                 operator: In
                 values:
-                - l0
+                - {{ .Values.worker.label.value }}
       containers:
       - name: {{ .Release.Name }}
         image: {{ .Values.image.registry }}/{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}
