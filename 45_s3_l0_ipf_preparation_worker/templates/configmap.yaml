@@ -9,7 +9,7 @@ data:
   {{- range $path, $bytes := .Files.Glob "config/app/**" }}
   {{- $name := base $path }}
   {{ $name }} : |-
-{{ $files.Get $path | indent 4 }}
+{{ (tpl ($.Files.Get (printf "%s" $path)) $ ) | indent 4 }}
   {{- end }}
 
 ---
@@ -24,7 +24,7 @@ data:
   {{- range $path, $bytes := .Files.Glob "config/mqi/**" }}
   {{- $name := base $path }}
   {{ $name }} : |-
-{{ $files.Get $path | indent 4 }}
+{{ (tpl ($.Files.Get (printf "%s" $path)) $ ) | indent 4 }}
   {{- end }}
 ---
 apiVersion: v1
@@ -38,6 +38,6 @@ data:
   {{- range $path, $bytes := .Files.Glob "config/tasktables/**" }}
   {{- $name := base $path }}
   {{ $name }} : |-
-{{ $files.Get $path | indent 4 }}
+{{ (tpl ($.Files.Get (printf "%s" $path)) $ ) | indent 4 }}
   {{- end }}
 ---

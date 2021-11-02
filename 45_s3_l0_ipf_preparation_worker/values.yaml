@@ -4,7 +4,7 @@
 replicaCount: 1
 
 image:
-  tag: qt2
+  tag: develop
 
 service:
   port: 8080

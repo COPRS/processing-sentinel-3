@@ -12,6 +12,7 @@ spec:
     matchLabels:
       app: {{ .Release.Name }}
   replicas: {{ .Values.replicaCount }}
+  podManagementPolicy: Parallel
   template:
     metadata:
       name: {{ .Release.Name }}
@@ -28,18 +29,18 @@ spec:
               - key: wrapperconfig
                 operator: In
                 values:
-                - l2
+                - l0
       containers:
       - name: {{ .Release.Name }}
-        {{- if .Values.simulator.simulateL0AioIpf }}
-        image: registry.tools.s1pdgs.eu/werum/processing/s1pro-core-ipf-execution-worker-simulators:{{ .Values.image.tag }}
-        {{- else }}
-        image: registry.tools.s1pdgs.eu/itt/qualification_test/s3-ipf0:latest
-        {{- end }}
+        image: {{ .Values.image.registry }}/{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}
         imagePullPolicy: Always
         volumeMounts:
+        - name: service-logging-config-volume
+          mountPath: /app/log
         - name: service-config-volume
           mountPath: /app/config
+        - name: data-localwd
+          mountPath: /data/localWD
         resources:
           {{- toYaml .Values.resources | nindent 12 }}
         ports:
@@ -57,9 +58,26 @@ spec:
             secretKeyRef:
               name: obs
               key: USER_SECRET
+        - name: AMALFI_DB_URL
+          valueFrom:
+            secretKeyRef:
+              name: amalfi
+              key: AMALFI_DB_URL
+        - name: AMALFI_DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: amalfi
+              key: AMALFI_DB_USER
+        - name: AMALFI_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: amalfi
+              key: AMALFI_DB_PASS
         envFrom:
         - configMapRef:
             name: s1pdgs-config
+        - configMapRef:
+            name: s1pdgs-logging-config
         - configMapRef:
             name: s1pdgs-env
         securityContext:
@@ -73,9 +91,11 @@ spec:
           timeoutSeconds: 5
           
       - name: {{ .Release.Name }}-mqi
-        image: registry.tools.s1pdgs.eu/werum/processing/s1pro-core-mqi-server:{{ .Values.image.tag }}
+        image: {{ .Values.mqiImage.registry }}/{{ .Values.mqiImage.repository }}/{{ .Values.mqiImage.name }}:{{ .Values.mqiImage.tag }}
         imagePullPolicy: Always
         volumeMounts:
+        - name: service-logging-config-volume
+          mountPath: /app/log
         - name: mqi-config-volume
           mountPath: /app/config
         ports:
@@ -85,6 +105,8 @@ spec:
         envFrom:
         - configMapRef:
             name: s1pdgs-config
+        - configMapRef:
+            name: s1pdgs-logging-config
         - configMapRef:
             name: s1pdgs-env
         livenessProbe:
@@ -106,6 +128,9 @@ spec:
       securityContext: {}
       schedulerName: default-scheduler
       volumes:
+        - name: service-logging-config-volume
+          configMap:
+            name: s1pdgs-logging-config
         - name: service-config-volume
           configMap:
             name: {{ .Release.Name }}-service-config

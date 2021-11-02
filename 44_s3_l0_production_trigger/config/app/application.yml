@@ -48,6 +48,7 @@ tasktable:
 
 process:
   level: S3_L0                                                        # Level for job generator 
+  product-type: S3_L0_Granule
   hostname: ${HOSTNAME}                                            # Hostname 
   fixed-delay-ms: 200                                              # (Fixed delay) Dealy in milliseconds between 2 next messages
   initial-delay-ms: 5000                                           # Initial delay in missliseconds before the first next message

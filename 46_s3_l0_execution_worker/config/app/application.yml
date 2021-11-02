@@ -23,11 +23,6 @@ kafka:
   producer:
     # When greater than zero, enables retrying of failed sends
     max-retries: 10
-
-metadata:
-  host: ${catalog_rest_host} 
-  rest-api_nb-retry: 3  
-  rest-api_tempo-retry-ms: 3000 
     
 process:
   level: S3_L0                              # application level (L0/L1)

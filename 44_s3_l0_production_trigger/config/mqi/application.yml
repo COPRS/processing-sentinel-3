@@ -67,6 +67,7 @@ server:
   
 # App catlog
 persistence:
+  message-persistence-strategy: {{ .Values.mqi.persistence.messagePersistenceStrategy }}
   host-uri-catalog: http://s1pro-app-catalog-svc:8080                                         #
   port-uri-other-app: 8080                                                              #
   max-retries: 100                                                                        #
