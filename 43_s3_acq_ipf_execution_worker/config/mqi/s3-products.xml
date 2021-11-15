@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<routing description="routing for publishing product of category S3 GRANULES">
+	<default_route description="default route of product family S3 GRANULES">
+		<family>S3_GRANULES</family>
+		<route_to>
+			<topic>t-pdgs-s3-acq-production-events</topic>
+		</route_to>
+	</default_route>
+</routing>
