@@ -59,7 +59,7 @@ status:
 
 tasktable:
   # Filename of the tasktable to use
-  name: TaskTable.AIOP.xml
+  name: TaskTable_S3A_ACQ_00_01.xml
 
 process:
   # Level for job generator, possible values: L0, L0_SEGMENT, L1, L2, SPP_MBU, SPP_OBS, S3_L0, S3_L1, S3_L2, S3_PDU
