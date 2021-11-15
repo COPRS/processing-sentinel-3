@@ -1,0 +1,7 @@
+apiVersion: v1
+appVersion: "develop"
+description: S1PRO S3 ACQ IPF Preparation Worker
+name: s1pro-s3-acq-ipf-preparation-worker
+version: 3.33.0-SNAPSHOT
+maintainers:
+  - name: Werum Software & Systems
