@@ -4,7 +4,7 @@
 	<default_route description="default route of product family S3 GRANULES">
 		<family>S3_GRANULES</family>
 		<route_to>
-			<topic>t-pdgs-aio-l0-segment-production-events</topic>
+			<topic>t-pdgs-s3-acq-production-events</topic>
 		</route_to>
 	</default_route>
 </routing>
