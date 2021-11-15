@@ -168,7 +168,7 @@ level-products:
 aiop:
   # Configuration for Processing Station Name
   station-codes:
-    cgs1: MTI_
+    cgs1: MTI3
     cgs2: SGS_
     cgs3: MPS_
     cgs4: NSG_
