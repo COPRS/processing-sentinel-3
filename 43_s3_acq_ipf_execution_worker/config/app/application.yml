@@ -60,6 +60,8 @@ process:
   threshold-sm : 3
   # ghost threshold WV
   threshold-wv : 30
+  # disable name change from ISIP to SAFE
+  change-isip-to-safe: false
   
 mqi:
   # The host and port for querying MQI server
