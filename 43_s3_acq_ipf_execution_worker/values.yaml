@@ -34,7 +34,7 @@ s1pro_s3_acq_ipf_execution_worker_mqi:
     xmx: "512m"
 
 acqIpfSimImage:
-  name: rs-core-s3-ipf-simulator
+  name: rs-core-acqsimulator
 
 acqIpfImage:
   name: s1pro-core-ipf-execution-worker-s3-acq
