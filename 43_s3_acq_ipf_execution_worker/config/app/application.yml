@@ -27,7 +27,7 @@ kafka:
     
 process:
   # application level (L0/L1)
-  level: L0
+  level: S3_L0
   # Hostname
   hostname: ${HOSTNAME}
   # Working directory (parent) for IPF execution
