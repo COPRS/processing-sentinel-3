@@ -16,3 +16,11 @@ service:
 mqiService:
   port: 8081
 
+s1pro_s3_l0_ipf_execution_worker:
+  javaOpts: {}
+#   xms: "256m"
+#   xmx: "256m"
+  uploadCache:
+    location: "/opt/s3/uploadCache"
+    medium: "Memory"
+    size: "16Gi"

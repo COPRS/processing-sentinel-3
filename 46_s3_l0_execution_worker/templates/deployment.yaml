@@ -43,6 +43,10 @@ spec:
           mountPath: /app/log
         - name: service-config-volume
           mountPath: /app/config
+        - name: data-localwd
+          mountPath: /data/localWD
+        - name: s3-upload-cache
+          mountPath: {{ .Values.s1pro_s3_l0_ipf_execution_worker.uploadCache.location }}
         resources:
           {{- toYaml .Values.resources | nindent 12 }}
         ports:
@@ -139,5 +143,19 @@ spec:
         - name: mqi-config-volume
           configMap:
             name: {{ .Release.Name }}-mqi-config
+        - name: s3-upload-cache
+          emptyDir:
+            medium: {{ .Values.s1pro_s3_l0_ipf_execution_worker.uploadCache.medium }}
+            sizeLimit: {{ .Values.s1pro_s3_l0_ipf_execution_worker.uploadCache.size }}
   serviceName: {{ .Release.Name }}-svc
   revisionHistoryLimit: 10
+  volumeClaimTemplates:
+  - metadata:
+      name: data-localwd
+    spec:
+            # storageClassName: sc-ssd-delete
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 220Gi
