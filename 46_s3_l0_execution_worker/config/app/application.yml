@@ -58,4 +58,4 @@ dev:
   steps-activation:
     download: true                        # if false, the wrapper ignores the step around input downloading
     upload: true                          # if false, the wrapper ignores the step around outputs processing
-    erasing: true                         # if false, the wrapper ignores the step around working directory cleaning
+    erasing: false                         # if false, the wrapper ignores the step around working directory cleaning
