@@ -33,6 +33,8 @@ spec:
         image: {{ .Values.image.registry }}/{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}
         imagePullPolicy: Always
         volumeMounts:
+        - name: service-logging-config-volume
+          mountPath: /app/log
         - name: service-config-volume
           mountPath: /app/config
         - name: tasktables-config-volume
@@ -56,6 +58,8 @@ spec:
         - configMapRef:
             name: s1pdgs-config
         - configMapRef:
+            name: s1pdgs-logging-config
+        - configMapRef:
             name: s1pdgs-env
         securityContext:
           privileged: false
@@ -71,6 +75,8 @@ spec:
         image: {{ .Values.mqiImage.registry }}/{{ .Values.mqiImage.repository }}/{{ .Values.mqiImage.name }}:{{ .Values.mqiImage.tag }}
         imagePullPolicy: Always
         volumeMounts:
+        - name: service-logging-config-volume
+          mountPath: /app/log
         - name: mqi-config-volume
           mountPath: /app/config
         ports:
@@ -80,6 +86,8 @@ spec:
         envFrom:
         - configMapRef:
             name: s1pdgs-config
+        - configMapRef:
+            name: s1pdgs-logging-config
         - configMapRef:
             name: s1pdgs-env
         livenessProbe:
@@ -98,6 +106,9 @@ spec:
       securityContext: {}
       schedulerName: default-scheduler
       volumes:
+        - name: service-logging-config-volume
+          configMap:
+            name: s1pdgs-logging-config
         - name: service-config-volume
           configMap:
             name: {{ .Release.Name }}-service-config
