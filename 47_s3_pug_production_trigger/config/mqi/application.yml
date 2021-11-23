@@ -5,7 +5,7 @@ spring:
     name: s3-mqi-pug-production-trigger
     
 logging:
-  config: ${log4j_filename:config/log4j2.yml}
+  config: ${log4j_config:log/log4j2.yml}
   
 # Kafka
 kafka:
@@ -38,8 +38,6 @@ application:
         enable: true                                                                    # True if the category is enable for the service
         topics-with-priority:                                                           # List of topics with priority
           t-pdgs-l0-catalog-events: 1
-          t-pdgs-l1-catalog-events: 1
-          t-pdgs-l2-catalog-events: 1
       publication:
         enable: false                                                                   # True if the category is enable for the service
         routing-file:                                  # Location of the routing file

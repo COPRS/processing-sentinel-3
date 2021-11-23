@@ -5,7 +5,7 @@ spring:
     name: s3-mqi-pug-ipf-preparation-worker
     
 logging:
-  config: ${log4j_filename:config/log4j2.yml}
+  config: ${log4j_config:log/log4j2.yml}
   
 # Kafka
 kafka:
