@@ -88,9 +88,9 @@ spec:
           containerPort: {{ .Values.mqiService.port }}
         env:
         - name: JAVA_XMS
-          value: {{ .Values.s1pro_acq_production_trigger_mqi.javaOpts.xms }}
+          value: {{ .Values.s1pro_pug_production_trigger_mqi.javaOpts.xms }}
         - name: JAVA_XMX
-          value: {{ .Values.s1pro_acq_production_trigger_mqi.javaOpts.xmx }}
+          value: {{ .Values.s1pro_pug_production_trigger_mqi.javaOpts.xmx }}
         envFrom:
         - configMapRef:
             name: s1pdgs-config
