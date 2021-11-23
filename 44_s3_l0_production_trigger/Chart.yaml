@@ -1,7 +1,7 @@
 apiVersion: v1
 appVersion: "develop"
-description: S3 L0 Production Trigger
-name: s3-l0-production-trigger
+description: S1PRO S3 L0 Production Trigger
+name: s1pro-s3-l0-production-trigger
 version: 3.33.0-SNAPSHOT
 maintainers:
   - name: Werum Software & Systems

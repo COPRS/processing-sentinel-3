@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<routing description="routing for PreparationJobs">
+	<route description="route for S3_L0">
+		<input_key>t-pdgs-l0-catalog-events</input_key>
+		<output_key>S3_L0</output_key>
+		<route_to>
+			<topic>t-pdgs-pug-preparation-jobs</topic>
+		</route_to>
+	</route>
+	<route description="route for S3_L1_NRT">
+		<input_key>t-pdgs-l1-catalog-events</input_key>
+		<output_key>S3_L1_NRT</output_key>
+		<route_to>
+			<topic>t-pdgs-pug-preparation-jobs</topic>
+		</route_to>
+	</route>
+	<route description="route for S3_L2_NRT">
+		<input_key>t-pdgs-l2-catalog-events</input_key>
+		<output_key>S3_L2_NRT</output_key>
+		<route_to>
+			<topic>t-pdgs-pug-preparation-jobs</topic>
+		</route_to>
+	</route>
+</routing>

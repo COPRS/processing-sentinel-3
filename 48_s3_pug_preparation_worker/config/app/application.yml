@@ -1,0 +1,121 @@
+spring:
+  main:
+    banner-mode: "off"
+  application:
+    name: s3-pug-ipf-preparation-worker
+    
+# Logging
+logging:
+  config: ${log4j_filename:config/log4j2.yml}
+ 
+metadata:
+  host: ${catalog_rest_host} 
+  rest-api_nb-retry: 2  
+  rest-api_tempo-retry-ms: 1000 
+
+# KAFKA config for error queue
+kafka:
+  bootstrap-servers: ${kafka_bootstrap-servers:kafka-headless:9092}   # the bootstrap servers for KAFKA
+  group-id: error                                                # the group identifier to use for KAFKA publishers  
+  max-retries: 10                                                # number of retries if kafka is not available
+  error-topic: t-pdgs-errors
+
+appcatalog:
+  host-uri: http://s1pro-app-catalog-svc:8080                          # URI of the applicative data catalog APIs
+  max-retries: 100                                               # Nb Max of retry to connect API 
+  tempo-retry-ms: 1000                                           # Tempo before a retry to connect API  
+  tm-connect-ms: 5000                                            # Timeout of connections to the API  
+
+ipf-preparation-worker:
+  diroftasktables: /app/tasktables/                                # Directory where the task tables are located
+  maxnboftasktable: 14                                              # Maximal number of task tables in memory. The application will not start in there are more than this number tasktables in the directory
+  jobgenfixedrate: 1000                                             # (Fixed delay) Period between 2 generations
+  waitprimarycheck:                                                # Minimal time between two execution of the following method: checking the requirements to generate a job specific to the level
+    tempo: 30000
+    max-timelife-s: 720
+  waitmetadatainput:                                               # Minimal time between two execution of the following method: checking the global requirements to generate a job
+    tempo: 60000
+  defaultfamily: BLANK                                             # Default family of a output defined in the task table
+  inputfamilies:
+    "[\\w{10}G]": S3_GRANULES
+    "[\\w{10}X]": S3_AUX
+    "[\\w{3}0\\w{6}(?!(G|X))\\w{1}]": S3_L0
+    "[\\w{3}1\\w{6}(?!(G|X))\\w{1}]": S3_L1_NRT
+    "[\\w{3}2\\w{6}(?!(G|X))\\w{1}]": S3_L2_NRT
+  outputfamilies:
+    "[\\w{9}AX]": S3_AUX
+    "[\\w{9}(?!AX)\\w{2}]": S3_PUG
+  product-mode: NRT
+  product-categories:
+    preparation-jobs:
+      fixed-delay-ms: 500
+      init-delay-poll-ms: 2000    
+
+mqi:
+  host-uri: http://localhost:8081                                # URI of the MQI server APIs
+  max-retries: 45                                                 # Nb Max of retry to connect API REST
+  tempo-retry-ms: 2000                                           # Tempo before a retry to connect API REST
+    
+status:
+  delete-fixed-delay-ms: 1800000                                   # (fixed delay) period in milliseconds between 2 check if application shall be stopped or not
+  max-error-counter-processing: 3                                  # the number of consecutive processing errors leading to the state FATALERROR
+  max-error-counter-mqi: 30                                        # the number of consecutive MQI errors leading to the state FATALERROR
+
+process:
+  level: S3_PDU                                                        # Level for job generator 
+  hostname: ${HOSTNAME}                                            # Hostname
+  trigger-hostname: s3-pug-production-trigger-0 
+  mode: PROD                                                       #  
+  params:                                                    # !!!!  Use to configured the dynamic processing parameters in the generated jobOrder. Format map: key: value
+    Processing_Mode: NRT                      
+    Timeout: 300                     
+  loglevelstdout: INFO                                       # !!!!  Use to configured the LogLevelStdout in the generated jobOrder
+  loglevelstderr: INFO                                       # !!!!  Use to configured the LogLevelStderr in the generated jobOrder 
+  processingstation: WILE                                    # !!!!  Use to configured the ProcessingStation in the generated jobOrder                    
+  fixed-delay-ms: 200                                              # (Fixed delay) Dealy in milliseconds between 2 next messages
+  initial-delay-ms: 5000                                           # Initial delay in missliseconds before the first next message
+  processing-group: PUG
+  
+pdu:
+  config:
+    OL_0_EFR___:
+      type: STRIPE
+      reference: DUMP
+      length-in-s: 6060
+    OL_1_EFR___:
+      type: FRAME
+      length-in-s: 180
+    OL_1_ERR___:
+      type: STRIPE
+      reference: DUMP
+      length-in-s: 6600
+    OL_2_LFR___:
+      type: FRAME
+      length-in-s: 180
+    OL_2_LRR___:
+      type: STRIPE
+      reference: DUMP
+      length-in-s: 6600
+    SL_0_SLT___:
+      type: STRIPE
+      reference: DUMP
+      length-in-s: 6187
+    SL_1_RBT___:
+      type: FRAME
+      length-in-s: 180
+    SL_2_LST___:
+      type: FRAME
+      length-in-s: 180
+    SR_0_SRA___:
+      type: STRIPE
+      reference: ORBIT
+      length-in-s: 3029.6
+      offset-in-s: 1512.59
+    SR_1_SRA___:
+      type: STRIPE
+      reference: DUMP
+      length-in-s: 6187
+    SR_2_LAN___:
+      type: STRIPE
+      reference: DUMP
+      length-in-s: 6187

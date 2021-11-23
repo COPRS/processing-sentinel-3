@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<routing description="routing for publishing product of category LEVEL_SEGMENTS">
+	<route description="route for CAL">
+		<input_key>t-pdgs-pug-execution-jobs</input_key>
+		<output_key>S3_PUG</output_key>
+		<route_to>
+			<topic>t-pdgs-pug-production-events</topic>
+		</route_to>
+	</route>
+</routing>
