@@ -41,6 +41,17 @@ application:
       publication:
         enable: false                                                                   # True if the category is enable for the service
         routing-file:                                  # Location of the routing file
+    on-demand-event:
+      consumption:
+        # Dis/Enabled consumption for this category
+        enable: true
+        # List of topics with priority
+        topics-with-priority:
+          t-pdgs-operator-demand-events: 9
+      publication:
+        # Dis/Enabled publication for this category
+        enable: false
+        routing-file:
     preparation-jobs:
       consumption:
         enable: false                                                                   #
