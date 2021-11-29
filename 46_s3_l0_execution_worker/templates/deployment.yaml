@@ -26,10 +26,18 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
+              {{- if .Values.simulator.simulateS3L0PIpf }}
               - key: {{ .Values.worker.label.key }}
+              {{- else }}
+              - key: {{ .Values.processor.label.key }}
+              {{- end }}
                 operator: In
                 values:
+                {{- if .Values.simulator.simulateS3L0PIpf }}
                 - {{ .Values.worker.label.value }}
+                {{- else }}
+                - {{ .Values.processor.label.value.s3_l0p }}
+                {{- end }}
       containers:
       - name: {{ .Release.Name }}
         {{- if .Values.simulator.simulateS3L0Ipf }}

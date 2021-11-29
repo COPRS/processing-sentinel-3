@@ -36,7 +36,7 @@ spec:
                 {{- if .Values.simulator.simulateS3ACQIpf }}
                 - {{ .Values.worker.label.value }}
                 {{- else }}
-                - {{ .Values.processor.label.value.s3acq }}
+                - {{ .Values.processor.label.value.s3_acq }}
                 {{- end }}
       containers:
       - name: {{ .Release.Name }}

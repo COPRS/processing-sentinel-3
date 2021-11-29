@@ -20,15 +20,23 @@ spec:
         type: {{ .Values.processing.namespace }}
     spec:
       terminationGracePeriodSeconds: 30
-      #      affinity:
-      #  nodeAffinity:
-      #    requiredDuringSchedulingIgnoredDuringExecution:
-      #      nodeSelectorTerms:
-      #      - matchExpressions:
-      #        - key: wrapperconfig
-      #          operator: In
-      #          values:
-      #          - aio
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              {{- if .Values.simulator.simulateS3PUGIpf }}
+              - key: {{ .Values.worker.label.key }}
+              {{- else }}
+              - key: {{ .Values.processor.label.key }}
+              {{- end }}
+                operator: In
+                values:
+                {{- if .Values.simulator.simulateS3PUGIpf }}
+                - {{ .Values.worker.label.value }}
+                {{- else }}
+                - {{ .Values.processor.label.value.s3_pug }}
+                {{- end }}
       containers:
       - name: {{ .Release.Name }}
         {{- if .Values.simulator.simulateS3PUGIpf }}
