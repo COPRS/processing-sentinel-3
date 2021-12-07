@@ -40,7 +40,7 @@ spec:
                 {{- end }}
       containers:
       - name: {{ .Release.Name }}
-        {{- if .Values.simulator.simulateS3L0Ipf }}
+        {{- if .Values.simulator.simulateS3L0PIpf }}
         image: {{ .Values.image.registry }}/{{ .Values.image.repository }}/{{ .Values.ipfSimImage.name }}:{{ .Values.image.tag }}
         {{- else }}
         image: {{ .Values.image.registry }}/{{ .Values.image.repository }}/{{ .Values.ipfImage.name }}:{{ .Values.image.tag }}
