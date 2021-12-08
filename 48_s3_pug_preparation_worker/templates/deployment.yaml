@@ -12,7 +12,7 @@ spec:
   selector:
     matchLabels:
       app: {{ .Release.Name }}
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.replicaCount.s3_pug_preparation_worker }}
   template:
     metadata:
       name: {{ .Release.Name }}
