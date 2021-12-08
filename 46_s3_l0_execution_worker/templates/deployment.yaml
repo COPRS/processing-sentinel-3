@@ -11,7 +11,7 @@ spec:
   selector:
     matchLabels:
       app: {{ .Release.Name }}
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.replicaCount.s3_l0_execution_worker }}
   podManagementPolicy: Parallel
   template:
     metadata:
