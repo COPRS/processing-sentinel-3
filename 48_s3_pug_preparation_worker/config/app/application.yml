@@ -33,7 +33,7 @@ ipf-preparation-worker:
   jobgenfixedrate: 1000                                             # (Fixed delay) Period between 2 generations
   waitprimarycheck:                                                # Minimal time between two execution of the following method: checking the requirements to generate a job specific to the level
     tempo: 30000
-    max-timelife-s: 720
+    max-timelife-s: {{ .Values.s3.processing.l0p.maxTimeLife }}
   waitmetadatainput:                                               # Minimal time between two execution of the following method: checking the global requirements to generate a job
     tempo: 60000
   defaultfamily: BLANK                                             # Default family of a output defined in the task table
