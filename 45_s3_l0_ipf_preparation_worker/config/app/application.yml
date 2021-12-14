@@ -79,7 +79,7 @@ process:
     Timeout: 300                     
   loglevelstdout: INFO                                       # !!!!  Use to configured the LogLevelStdout in the generated jobOrder
   loglevelstderr: INFO                                       # !!!!  Use to configured the LogLevelStderr in the generated jobOrder 
-  processingstation: WILE                                    # !!!!  Use to configured the ProcessingStation in the generated jobOrder                    
+  processingstation: S3__                                    # !!!!  Use to configured the ProcessingStation in the generated jobOrder                    
   fixed-delay-ms: 200                                              # (Fixed delay) Dealy in milliseconds between 2 next messages
   initial-delay-ms: 5000                                           # Initial delay in missliseconds before the first next message
   processing-group: L0_NRT
