@@ -168,12 +168,13 @@ level-products:
 aiop:
   # Configuration for Processing Station Name
   station-codes:
-    cgs1: MTI3
+    cgs1: MTI_
     cgs2: SGS_
     cgs3: MPS_
     cgs4: NSG_
     cgs5: INS_
     edrs: WILE
+    s3xx: S3__
   # Configuration for Dynamic Parameter PT_Assembly
   pt-assembly:
     cgs1: "yes"
@@ -182,6 +183,7 @@ aiop:
     cgs4: "yes"
     cgs5: "yes"
     edrs: "yes"
+    s3xx: "yes"
   # Configuration for Dynamic Parameter Processing_Mode
   processing-mode:
     cgs1: FAST24
@@ -190,6 +192,7 @@ aiop:
     cgs4: FAST24
     cgs5: FAST24
     edrs: FAST24
+    s3xx: FAST24
   # Configuration for Dynamic Parameter Reprocessing_Mode
   reprocessing-mode:
     cgs1: FAST24
@@ -198,6 +201,7 @@ aiop:
     cgs4: FAST24
     cgs5: FAST24
     edrs: FAST24
+    s3xx: FAST24
   # Configuration for Dynamic Parameter TimeoutSec
   timeout-sec:
     cgs1: {{ .Values.preparator.aio.timeoutSec.cgs1 }}
@@ -206,6 +210,7 @@ aiop:
     cgs4: {{ .Values.preparator.aio.timeoutSec.cgs4 }}
     cgs5: {{ .Values.preparator.aio.timeoutSec.cgs5 }}
     edrs: {{ .Values.preparator.aio.timeoutSec.edrs }}
+    s3xx: {{ .Values.preparator.aio.timeoutSec.edrs }}
   # Minimal waiting time to wait until primary search times out (for testing purposes if product start time is in the past)
   minimal-waiting-time-sec: {{ .Values.preparator.aio.minimalWaitingTimeSec }}
   # Configuration for Job Order Parameter NRTOutputPath
@@ -220,6 +225,7 @@ aiop:
     cgs4: "{{ .Values.preparator.aio.descramble.cgs4 }}"
     cgs5: "{{ .Values.preparator.aio.descramble.cgs5 }}"
     edrs: "{{ .Values.preparator.aio.descramble.edrs }}"
+    s3xx: "{{ .Values.preparator.aio.timeoutSec.edrs }}"
   # Configuration for Job Order Parameter RSEncode  
   rs-encode:
     cgs1: "{{ .Values.preparator.aio.rsEncode.cgs1 }}"
@@ -228,3 +234,4 @@ aiop:
     cgs4: "{{ .Values.preparator.aio.rsEncode.cgs4 }}"
     cgs5: "{{ .Values.preparator.aio.rsEncode.cgs5 }}"
     edrs: "{{ .Values.preparator.aio.rsEncode.edrs }}"
+    s3xx: "{{ .Values.preparator.aio.rsEncode.edrs }}"
