@@ -87,4 +87,4 @@ dev:
     # if false, the wrapper ignores the step around outputs processing
     upload: true
     # if false, the wrapper ignores the step around working directory cleaning
-    erasing: false
+    erasing: true
