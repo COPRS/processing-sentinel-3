@@ -1,13 +1,6 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-# TODO: currently there is no docker image available containing the real ipf
-ipfImage:
-  name: rs-core-ipf-execution-worker
-
-ipfSimImage:
-  name: rs-core-s3-ipf-simulator
-
 service:
   port: 8080
   
@@ -22,3 +15,9 @@ s1pro_s3_l0_ipf_execution_worker:
     location: "/opt/s3/uploadCache"
     medium: "Memory"
     size: "16Gi"
+    
+ipfImage:
+  name: rs-ipf-s3-l0
+
+ipfSimImage:
+  name: rs-core-s3-ipf-simulator
