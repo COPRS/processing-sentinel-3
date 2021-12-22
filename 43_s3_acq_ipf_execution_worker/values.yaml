@@ -37,4 +37,4 @@ acqIpfSimImage:
   name: rs-core-acqsimulator
 
 acqIpfImage:
-  name: s1pro-core-ipf-execution-worker-s3-acq
+  name: rs-ipf-s3-acq
