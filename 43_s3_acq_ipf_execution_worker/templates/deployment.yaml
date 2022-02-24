@@ -43,7 +43,7 @@ spec:
         {{- if .Values.simulator.simulateS3ACQIpf }}
         image: {{ .Values.image.registry }}/{{ .Values.image.repository }}/{{ .Values.acqIpfSimImage.name }}:{{ .Values.image.tag }}
         {{- else }}
-        image: {{ .Values.image.registry }}/{{ .Values.image.repository }}/{{ .Values.acqIpfSimImage.name }}:{{ .Values.image.tag }}
+        image: {{ .Values.image.registry }}/{{ .Values.image.repository }}/{{ .Values.acqIpfImage.name }}:{{ .Values.image.tag }}
         {{- end }}
         imagePullPolicy: Always
         volumeMounts:

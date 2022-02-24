@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0-rc10] - 2022-02-24
+### Added
+- RS-282: Fixing issue that S3 ACQ always using simulator
+
+### Changed
+- N/A
+
+### Removed
+- RS-XX: S3 PUG workflows are removed as they are not planned for V1 anymore
+
 ## [0.3.0-rc1] - 2022-01-18
 ### Added
 - RS-151: S3 ACQ containers with real IPFs are build
