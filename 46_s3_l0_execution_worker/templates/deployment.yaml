@@ -1,0 +1,169 @@
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Values.processing.namespace }}
+  labels:
+    app: {{ .Release.Name }}
+  annotations:
+    deployment.kubernetes.io/revision: '1'
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  replicas: {{ .Values.replicaCount.s3_l0_execution_worker }}
+  podManagementPolicy: Parallel
+  template:
+    metadata:
+      name: {{ .Release.Name }}
+      labels:
+        app: {{ .Release.Name }}
+        type: {{ .Values.processing.namespace }}
+    spec:
+      terminationGracePeriodSeconds: 30
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              {{- if .Values.simulator.simulateS3L0PIpf }}
+              - key: {{ .Values.worker.label.key }}
+              {{- else }}
+              - key: {{ .Values.processor.label.key }}
+              {{- end }}
+                operator: In
+                values:
+                {{- if .Values.simulator.simulateS3L0PIpf }}
+                - {{ .Values.worker.label.value }}
+                {{- else }}
+                - {{ .Values.processor.label.value.s3_l0p }}
+                {{- end }}
+      containers:
+      - name: {{ .Release.Name }}
+        {{- if .Values.simulator.simulateS3L0PIpf }}
+        image: {{ .Values.image.registry }}/{{ .Values.image.repository }}/{{ .Values.ipfSimImage.name }}:{{ .Values.image.tag }}
+        {{- else }}
+        image: {{ .Values.image.registry }}/{{ .Values.image.repository }}/{{ .Values.ipfImage.name }}:{{ .Values.image.tag }}
+        {{- end }}
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: service-logging-config-volume
+          mountPath: /app/log
+        - name: service-config-volume
+          mountPath: /app/config
+        - name: data-localwd
+          mountPath: /data/localWD
+        - name: s3-upload-cache
+          mountPath: {{ .Values.s1pro_s3_l0_ipf_execution_worker.uploadCache.location }}
+        resources:
+          {{- toYaml .Values.resources | nindent 12 }}
+        ports:
+        - name: data
+          protocol: TCP
+          containerPort: {{ .Values.service.port }}
+        env:
+        - name: storage_user_id
+          valueFrom:
+            secretKeyRef:
+              name: obs
+              key: USER_ID
+        - name: storage_user_secret
+          valueFrom:
+            secretKeyRef:
+              name: obs
+              key: USER_SECRET
+        - name: AMALFI_DB_URL
+          valueFrom:
+            secretKeyRef:
+              name: amalfi
+              key: AMALFI_DB_URL
+        - name: AMALFI_DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: amalfi
+              key: AMALFI_DB_USER
+        - name: AMALFI_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: amalfi
+              key: AMALFI_DB_PASS
+        envFrom:
+        - configMapRef:
+            name: s1pdgs-config
+        - configMapRef:
+            name: s1pdgs-logging-config
+        - configMapRef:
+            name: s1pdgs-env
+        securityContext:
+          privileged: false
+        livenessProbe:
+          httpGet:
+            path: /app/status
+            port: {{ .Values.service.port }}
+          initialDelaySeconds: 10
+          periodSeconds: 60
+          timeoutSeconds: 5
+          
+      - name: {{ .Release.Name }}-mqi
+        image: {{ .Values.mqiImage.registry }}/{{ .Values.mqiImage.repository }}/{{ .Values.mqiImage.name }}:{{ .Values.mqiImage.tag }}
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: service-logging-config-volume
+          mountPath: /app/log
+        - name: mqi-config-volume
+          mountPath: /app/config
+        ports:
+        - name: data
+          protocol: TCP
+          containerPort: {{ .Values.mqiService.port }}
+        envFrom:
+        - configMapRef:
+            name: s1pdgs-config
+        - configMapRef:
+            name: s1pdgs-logging-config
+        - configMapRef:
+            name: s1pdgs-env
+        livenessProbe:
+          httpGet:
+            path: /app/status
+            port: {{ .Values.mqiService.port }}
+          initialDelaySeconds: 10
+          periodSeconds: 60
+          timeoutSeconds: 5
+      tolerations:
+      - key: "node-role.kubernetes.io/processor"
+        operator: "Exists"
+        effect: "NoSchedule"    
+      imagePullSecrets:
+      - name: harbor-tools
+      - name: local-docker-registry2
+      restartPolicy: Always
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+      volumes:
+        - name: service-logging-config-volume
+          configMap:
+            name: s1pdgs-logging-config
+        - name: service-config-volume
+          configMap:
+            name: {{ .Release.Name }}-service-config
+        - name: mqi-config-volume
+          configMap:
+            name: {{ .Release.Name }}-mqi-config
+        - name: s3-upload-cache
+          emptyDir:
+            medium: {{ .Values.s1pro_s3_l0_ipf_execution_worker.uploadCache.medium }}
+            sizeLimit: {{ .Values.s1pro_s3_l0_ipf_execution_worker.uploadCache.size }}
+  serviceName: {{ .Release.Name }}-svc
+  revisionHistoryLimit: 10
+  volumeClaimTemplates:
+  - metadata:
+      name: data-localwd
+    spec:
+            # storageClassName: sc-ssd-delete
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 220Gi

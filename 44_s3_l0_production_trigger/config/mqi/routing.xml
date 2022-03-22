@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<routing description="routing for PreparationJobs">
+	<route description="route for S3_GRANULES">
+		<input_key>t-pdgs-granules-catalog-events</input_key>
+		<output_key>S3_GRANULES</output_key>
+		<route_to>
+			<topic>t-pdgs-l0-preparation-jobs</topic>
+		</route_to>
+	</route>
+</routing>

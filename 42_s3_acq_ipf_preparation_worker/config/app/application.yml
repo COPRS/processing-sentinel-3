@@ -1,0 +1,237 @@
+spring:
+  main:
+    banner-mode: "off"
+  application:
+    name: s1pdgs-s3-acq-ipf-preparation-worker
+    
+# Logging
+logging:
+  config: ${log4j_config:log/log4j2.yml}
+ 
+# Metadata config
+metadata:
+  # Metadata Catalog host
+  host: ${catalog_rest_host}
+  # Maximal number of retries when query fails
+  rest-api_nb-retry: {{ .Values.metadataCatalog.restApiNbRetry }}
+  # Temporisation in ms between 2 retries
+  rest-api_tempo-retry-ms: {{ .Values.metadataCatalog.restApiTempoRetryMs }} 
+
+# Kafka config
+kafka:
+  # host:port to use for establishing the initial connection to the Kafka cluster
+  bootstrap-servers: ${kafka_bootstrap-servers}
+  # Hostname
+  hostname: ${HOSTNAME}
+  # Topic name for the errors
+  error-topic: ${kafka_topic_errors}
+  # Kafka Producer config
+  producer:
+    # When greater than zero, enables retrying of failed sends
+    max-retries: 10
+
+appcatalog:
+  # URI of the applicative data catalog APIs
+  host-uri: http://s1pro-app-catalog-svc:8080
+  # Number of max retries to connect API
+  max-retries: 100
+  # TempoRetry rate for retries to connect API
+  tempo-retry-ms: 1000
+  # Timeout of connections to the API
+  tm-connect-ms: 5000
+
+
+ipf-preparation-worker:
+  # Directory where the task tables are located
+  diroftasktables: /app/tasktables/
+  # Maximal number of task tables in memory. The application will not start in there are more than this number tasktables in the directory
+  maxnboftasktable: 1
+  # (Fixed delay) Period between 2 generations
+  jobgenfixedrate: 1000
+  # Minimal time between two execution of the following method: checking the requirements to generate a job specific to the level
+  waitprimarycheck:
+    tempo: 30000
+  # Minimal time between two execution of the following method: checking the global requirements to generate a job
+  waitmetadatainput:
+    tempo: 60000
+  # Minimal time between two execution of the following method: finishing job after it has been sent to execution worker
+  waitaftersend:
+    tempo: 1800000
+  # Default family of a output defined in the task table
+  defaultfamily: BLANK
+  # Family assignation of a specific input
+  inputfamilies:
+    "[\\w{11}]": EDRS_SESSION
+  # Family assignation of a specific output
+  outputfamilies:
+    "[\\w{10}G]": S3_GRANULES
+  # Overlap per acquisition: map {acquisition -> overlap}
+  type-overlap:
+    EW: 8.2F
+    IW: 7.4F
+    SM: 7.7F
+    WV: 0.0F
+  #  Slice length per acquisition: map {acquisition -> slice length}
+  type-slice-length:
+    EW: 60.0F
+    IW: 25.0F
+    SM: 25.0F
+    WV: 0.0F
+  # Configuration of type name mapping between Task Table (left) and Job Order (right)
+  map-type-meta:
+    AUX_POE: AUX_POEORB
+    AUX_PRE: AUX_PREORB
+    AUX_RES: AUX_RESORB
+    SM_RAW__0S: S[1-6]_RAW__0S
+    SM_RAW__0A: S[1-6]_RAW__0A
+    SM_RAW__0C: S[1-6]_RAW__0C
+    SM_RAW__0N: S[1-6]_RAW__0N
+    AN_RAW__0S: N[1-6]_RAW__0S
+    AN_RAW__0A: N[1-6]_RAW__0A
+    AN_RAW__0C: N[1-6]_RAW__0C
+    AN_RAW__0N: N[1-6]_RAW__0N
+  # MQI Consumption configuration
+  product-categories:
+    preparation-jobs:
+      # Period in milliseconds between 2 polls of next message
+      fixed-delay-ms: 500
+      # Initial delay in milliseconds before starting consuming message
+      init-delay-poll-ms: 2000    
+
+mqi:
+  # The host and port for querying MQI server
+  host-uri: http://localhost:8081
+  # The maximal number of consecutive retries following a MQI request error, default is 3
+  max-retries: 45
+  # Time between retries in milliseconds, default is 1000
+  tempo-retry-ms: 2000
+
+# Application status configuration
+status:
+  # (fixed delay) period in milliseconds between 2 check if application shall be stopped or not, default is 3000
+  delete-fixed-delay-ms: 1800000
+  # The number of consecutive processing errors leading to the state FATALERROR, default is 100
+  max-error-counter-processing: 3
+  # The number of consecutive MQI errors leading to the state FATALERROR, default is 100
+  max-error-counter-mqi: 30
+
+process:
+  # Level for job generator
+  level: L0
+  # Hostname
+  hostname: ${HOSTNAME}
+  # Hostname of the production trigger (unused)
+  trigger-hostname: s1pro-s3-acq-production-trigger-0
+  # Application mode (PROD or TEST) (unused)
+  mode: PROD
+  # Use to configured the dynamic processing parameters in the generated jobOrder. Format map: key: value
+  params:
+    Processing_Mode: FAST24
+    Timeout: 300
+  # Use to configured the LogLevelStdout in the generated jobOrder
+  loglevelstdout: INFO
+  # Use to configured the LogLevelStderr in the generated jobOrder
+  loglevelstderr: INFO
+  # Use to configured the ProcessingStation in the generated jobOrder
+  processingstation: WILE
+  # Use to specify the regular expression to use for the output in the wrapper.
+  outputregexps:
+    SM_RAW__0S: ^S1[A-B]_S[1-6]_RAW__0S.*$
+    SM_RAW__0A: ^S1[A-B]_S[1-6]_RAW__0A.*$
+    SM_RAW__0C: ^S1[A-B]_S[1-6]_RAW__0C.*$
+    SM_RAW__0N: ^S1[A-B]_S[1-6]_RAW__0N.*$
+    AN_RAW__0S: ^S1[A-B]_N[1-6]_RAW__0S.*$
+    AN_RAW__0A: ^S1[A-B]_N[1-6]_RAW__0A.*$
+    AN_RAW__0C: ^S1[A-B]_N[1-6]_RAW__0C.*$
+    AN_RAW__0N: ^S1[A-B]_N[1-6]_RAW__0N.*$
+    ZS_RAW__0S: ^S1[A-B]_Z[1-6]_RAW__0S.*$
+    ZS_RAW__0A: ^S1[A-B]_Z[1-6]_RAW__0A.*$
+    ZS_RAW__0C: ^S1[A-B]_Z[1-6]_RAW__0C.*$
+    ZS_RAW__0N: ^S1[A-B]_Z[1-6]_RAW__0N.*$
+    REP_L0PSA_: ^S1[A|B|_]_OPER_REP_ACQ.*$
+    REP_EFEP_: ^S1[A|B|_]_OPER_REP_PASS.*.EOF$
+  # (Fixed delay) Delay in milliseconds between 2 next messages
+  fixed-delay-ms: 200
+  # Initial delay in milliseconds before the first next message
+  initial-delay-ms: 5000
+    
+level0:
+  # Local directory where the EDRS session file are temporarily uploaded to extract the raws list of the session
+  dir-extractor-sessions: /data/sessions/
+
+# Unused
+level-products:
+  pathroutingxmlfile:
+
+# Job Order configuration for AIO
+# Assembles the job order parameters for each station
+aiop:
+  # Configuration for Processing Station Name
+  station-codes:
+    cgs1: MTI_
+    cgs2: SGS_
+    cgs3: MPS_
+    cgs4: NSG_
+    cgs5: INS_
+    edrs: WILE
+    s3xx: S3__
+  # Configuration for Dynamic Parameter PT_Assembly
+  pt-assembly:
+    cgs1: "yes"
+    cgs2: "yes"
+    cgs3: "yes"
+    cgs4: "yes"
+    cgs5: "yes"
+    edrs: "yes"
+    s3xx: "yes"
+  # Configuration for Dynamic Parameter Processing_Mode
+  processing-mode:
+    cgs1: FAST24
+    cgs2: FAST24
+    cgs3: FAST24
+    cgs4: FAST24
+    cgs5: FAST24
+    edrs: FAST24
+    s3xx: FAST24
+  # Configuration for Dynamic Parameter Reprocessing_Mode
+  reprocessing-mode:
+    cgs1: FAST24
+    cgs2: FAST24
+    cgs3: FAST24
+    cgs4: FAST24
+    cgs5: FAST24
+    edrs: FAST24
+    s3xx: FAST24
+  # Configuration for Dynamic Parameter TimeoutSec
+  timeout-sec:
+    cgs1: {{ .Values.preparator.aio.timeoutSec.cgs1 }}
+    cgs2: {{ .Values.preparator.aio.timeoutSec.cgs2 }}
+    cgs3: {{ .Values.preparator.aio.timeoutSec.cgs3 }}
+    cgs4: {{ .Values.preparator.aio.timeoutSec.cgs4 }}
+    cgs5: {{ .Values.preparator.aio.timeoutSec.cgs5 }}
+    edrs: {{ .Values.preparator.aio.timeoutSec.edrs }}
+    s3xx: {{ .Values.preparator.aio.timeoutSec.cgs1 }}
+  # Minimal waiting time to wait until primary search times out (for testing purposes if product start time is in the past)
+  minimal-waiting-time-sec: {{ .Values.preparator.aio.minimalWaitingTimeSec }}
+  # Configuration for Job Order Parameter NRTOutputPath
+  nrt-output-path: /data/localWD/<WORKING_DIR_NUMBER>/NRT
+  # Configuration for Job Order Parameter PTOutputPath
+  pt-output-path: /data/localWD/<WORKING_DIR_NUMBER>/PT
+  # Configuration for Job Order Parameter Descramble
+  descramble:
+    cgs1: "{{ .Values.preparator.aio.descramble.cgs1 }}"
+    cgs2: "{{ .Values.preparator.aio.descramble.cgs2 }}"
+    cgs3: "{{ .Values.preparator.aio.descramble.cgs3 }}"
+    cgs4: "{{ .Values.preparator.aio.descramble.cgs4 }}"
+    cgs5: "{{ .Values.preparator.aio.descramble.cgs5 }}"
+    edrs: "{{ .Values.preparator.aio.descramble.edrs }}"
+    s3xx: "{{ .Values.preparator.aio.descramble.cgs1 }}"
+  # Configuration for Job Order Parameter RSEncode  
+  rs-encode:
+    cgs1: "{{ .Values.preparator.aio.rsEncode.cgs1 }}"
+    cgs2: "{{ .Values.preparator.aio.rsEncode.cgs2 }}"
+    cgs3: "{{ .Values.preparator.aio.rsEncode.cgs3 }}"
+    cgs4: "{{ .Values.preparator.aio.rsEncode.cgs4 }}"
+    cgs5: "{{ .Values.preparator.aio.rsEncode.cgs5 }}"
+    edrs: "{{ .Values.preparator.aio.rsEncode.edrs }}"
+    s3xx: "{{ .Values.preparator.aio.rsEncode.cgs1 }}"

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<routing description="routing for IngestionEvents">
+	<route description="route for EDRS_SESSIONS">
+		<input_key>t-pdgs-s3-session-file-catalog-events</input_key>
+		<output_key>EDRS_SESSION</output_key>
+		<route_to>
+			<topic>t-pdgs-s3-session-preparation-jobs</topic>
+		</route_to>
+	</route>
+</routing>

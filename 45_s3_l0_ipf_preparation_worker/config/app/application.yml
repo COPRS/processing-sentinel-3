@@ -1,0 +1,144 @@
+spring:
+  main:
+    banner-mode: "off"
+  application:
+    name: s3-l0-ipf-preparation-worker
+    
+# Logging
+logging:
+  config: ${log4j_config:log/log4j2.yml}
+ 
+metadata:
+  host: ${catalog_rest_host} 
+  rest-api_nb-retry: 2  
+  rest-api_tempo-retry-ms: 1000 
+
+# Kafka config
+kafka:
+  # host:port to use for establishing the initial connection to the Kafka cluster
+  bootstrap-servers: ${kafka_bootstrap-servers}
+  # Hostname
+  hostname: ${HOSTNAME}
+  # Topic name for the errors
+  error-topic: t-pdgs-errors
+  # Kafka Producer config
+  producer:
+    # When greater than zero, enables retrying of failed sends
+    max-retries: 10
+
+appcatalog:
+  host-uri: http://s1pro-app-catalog-svc:8080                          # URI of the applicative data catalog APIs
+  max-retries: 100                                               # Nb Max of retry to connect API 
+  tempo-retry-ms: 1000                                           # Tempo before a retry to connect API  
+  tm-connect-ms: 5000                                            # Timeout of connections to the API  
+
+ipf-preparation-worker:
+  diroftasktables: /app/tasktables/                                # Directory where the task tables are located
+  maxnboftasktable: 24                                              # Maximal number of task tables in memory. The application will not start in there are more than this number tasktables in the directory
+  jobgenfixedrate: 1000                                             # (Fixed delay) Period between 2 generations
+  waitprimarycheck:                                                # Minimal time between two execution of the following method: checking the requirements to generate a job specific to the level
+    tempo: 30000
+    max-timelife-s: {{ .Values.s3.processing.l0p.maxTimeLife }}
+  waitmetadatainput:                                               # Minimal time between two execution of the following method: checking the global requirements to generate a job
+    tempo: 60000
+  defaultfamily: BLANK                                             # Default family of a output defined in the task table
+  inputfamilies:
+    "[\\w{10}G]": S3_GRANULES
+    "[\\w{10}X]": S3_AUX
+    "[\\w{3}0\\w{6}(?!(G|X))\\w{1}]": S3_L0
+    "[\\w{3}1\\w{6}(?!(G|X))\\w{1}]": S3_L1_NRT
+    "[\\w{3}2\\w{6}(?!(G|X))\\w{1}]": S3_L2_NRT
+  outputfamilies:
+    "[\\w{10}X]": S3_AUX
+    "[\\w{3}0\\w{6}(?!(G|X))\\w{1}]": S3_L0
+    "[\\w{3}1\\w{6}(?!(G|X))\\w{1}]": S3_L1_NRT
+    "[\\w{3}2\\w{6}(?!(G|X))\\w{1}]": S3_L2_NRT
+  product-mode: NRT
+  product-categories:
+    preparation-jobs:
+      fixed-delay-ms: 500
+      init-delay-poll-ms: 2000    
+
+mqi:
+  host-uri: http://localhost:8081                                # URI of the MQI server APIs
+  max-retries: 45                                                 # Nb Max of retry to connect API REST
+  tempo-retry-ms: 2000                                           # Tempo before a retry to connect API REST
+    
+status:
+  delete-fixed-delay-ms: 1800000                                   # (fixed delay) period in milliseconds between 2 check if application shall be stopped or not
+  max-error-counter-processing: 3                                  # the number of consecutive processing errors leading to the state FATALERROR
+  max-error-counter-mqi: 30                                        # the number of consecutive MQI errors leading to the state FATALERROR
+
+process:
+  level: S3_L0                                                        # Level for job generator 
+  hostname: ${HOSTNAME}                                            # Hostname
+  trigger-hostname: s3-l0-production-trigger-0 
+  mode: PROD                                                       #  
+  params:                                                    # !!!!  Use to configured the dynamic processing parameters in the generated jobOrder. Format map: key: value
+    Processing_Mode: NRT                      
+    Timeout: 300                     
+  loglevelstdout: INFO                                       # !!!!  Use to configured the LogLevelStdout in the generated jobOrder
+  loglevelstderr: INFO                                       # !!!!  Use to configured the LogLevelStderr in the generated jobOrder 
+  processingstation: S3__                                    # !!!!  Use to configured the ProcessingStation in the generated jobOrder                    
+  fixed-delay-ms: 200                                              # (Fixed delay) Dealy in milliseconds between 2 next messages
+  initial-delay-ms: 5000                                           # Initial delay in missliseconds before the first next message
+  processing-group: L0_NRT
+  
+s3-type-adapter:
+  mpc-search:
+    S3A_MW_MWR_L0: 
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+    S3A_DO_DOP_L0: 
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+    S3A_TM_HKM_L0: 
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+    S3A_TM_HKM2_L0: 
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+    S3A_OL_EFR_L0: 
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+    S3A_OL_CR__L0: 
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+    S3A_SL_SLT_L0:
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+    S3A_SR_CAL_L0:
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+    S3B_MW_MWR_L0: 
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+    S3B_DO_DOP_L0: 
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+    S3B_TM_HKM_L0: 
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+    S3B_TM_HKM2_L0: 
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+    S3B_OL_EFR_L0: 
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+    S3B_OL_CR__L0: 
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+    S3B_SL_SLT_L0:
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+    S3B_SR_CAL_L0:
+      product-types: TM_0_NAT___
+      gap-threshold: 3.0
+  dyn-proc-params:
+    facilityName: LN1
+  optional-outputs:
+    S3A_OL_CR__L0: OL_0_CR0___,OL_0_CR1___
+    S3A_OL_EFR_L0: OL_0_EFR___
+    S3B_OL_CR__L0: OL_0_CR0___,OL_0_CR1___
+    S3B_OL_EFR_L0: OL_0_EFR___
+    

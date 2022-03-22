@@ -1,0 +1,23 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+service:
+  port: 8080
+  
+mqiService:
+  port: 8081
+
+s1pro_s3_l0_ipf_execution_worker:
+  javaOpts: {}
+#   xms: "256m"
+#   xmx: "256m"
+  uploadCache:
+    location: "/opt/s3/uploadCache"
+    medium: "Memory"
+    size: "16Gi"
+    
+ipfImage:
+  name: rs-ipf-s3-l0
+
+ipfSimImage:
+  name: rs-core-s3-ipf-simulator
