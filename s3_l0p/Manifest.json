@@ -1,0 +1,13 @@
+{
+	"ProcessorID": "s3_l0p",
+	"Version": "<VERSION>",
+	"ReleaseDate": "<RELEASE_DATE>",
+	"Mission": "S3",
+	"Level": [
+		"L0"
+	],
+	"Description": "The RS Addon contains the wrapper for the Sentinel-3 l0p processors",
+	"ReleaseItems": [
+		<RELEASE_ITEMS>
+	]
+}

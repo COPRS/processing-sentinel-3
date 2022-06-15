@@ -1,0 +1,13 @@
+{
+	"ProcessorID": "s3_acq",
+	"Version": "<VERSION>",
+	"ReleaseDate": "<RELEASE_DATE>",
+	"Mission": "S3",
+	"Level": [
+		"L0"
+	],
+	"Description": "The RS Addon contains the wrapper for the DDC, L0Pre and L0Post processors",
+	"ReleaseItems": [
+		<RELEASE_ITEMS>
+	]
+}
