@@ -1,5 +1,5 @@
 name: 'Build RS Addons'
-description: 'Build release artifacts for the RS S1 Addons chains'
+description: 'Build release artifacts for the RS S3 Addons chains'
 inputs:
   WERUM_ARTIFACTORY_USER:
     description: 'Username for Artifactory'
