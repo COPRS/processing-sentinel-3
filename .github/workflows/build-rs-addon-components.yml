@@ -2,9 +2,6 @@ name: Build RS Addons
 
 on:
   push:
-    paths:
-      - '/**'
-      - '.github/workflows/build-rs-addon-components.yml'
     branches:
       - '!main'
       - 'release/**'
