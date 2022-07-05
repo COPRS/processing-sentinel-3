@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0-rc1] - 2022-07-06
+
+### Added
+RS-217: Develop S3 ACQ processor as RS-add-on
+RS-219: Develop S3 L0P processor as RS-add-on
+
+### Changed
+N/A
+
+### Removed
+RS-XX: Removed old V1 style processing chains completely
+
 ## [0.3.0-rc10] - 2022-02-24
 ### Added
 - RS-282: Fixing issue that S3 ACQ always using simulator
