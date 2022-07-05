@@ -41,7 +41,7 @@ This software does have the following minimal requirements:
 
 ## Additional Resources 
 
-The preparation worker needs the task table for the IPF wrapped inside of the execution worker. To provide the preparation worker with the needed task table, a configmap will be created by the deployment script based on the file ``tasktable_configmap.yaml``. The resulting configmap contains the task table needed for the S1 ASP preparation worker, in order to create compatible job orders. 
+The preparation worker needs the task table for the IPF wrapped inside of the execution worker. To provide the preparation worker with the needed task table, a configmap will be created by the deployment script based on the file ``tasktable_configmap.yaml``. The resulting configmap contains the task table needed for the S3 ACQ preparation worker, in order to create compatible job orders. 
 
 The config map will be created in kubernetes in the processing namespace and will be named ``s3-acq-tasktables``, to be distinguishable from other tasktable configmaps.
 
@@ -202,8 +202,6 @@ The following description is just given for high priority workers:
 | ``app.execution-worker-high.dev.stepsActivation.erasing`` | Switch to determine whether or not the working directory shall be deleted (default: ``true``) |
 
 ## Deployer properties
-
-**TBD**
 
 The following table only contains a few properties used by the factory default configuration. For more information please refer to the [official documentation](https://docs.spring.io/spring-cloud-dataflow/docs/current/reference/htmlsingle/#configuration-kubernetes-deployer) or COPRS-ICD-ADST-001139201 - ICD RS core.
   
