@@ -183,6 +183,8 @@ The following description is just given for high priority workers:
 | ``app.execution-worker-high.process.threshold-sm`` | Threshold for length to determine if a file is a ghost candidate for polarisation SM (default: ``3``) |
 | ``app.execution-worker-high.process.threshold-wv`` | Threshold for length to determine if a file is a ghost candidate for polarisation WV (default: ``30``) |
 | ``app.execution-worker-high.process.path-job-order-xslt`` | Path to the job order xslt, that will be applied on the given joborder before sending it to the IPF |
+| ``app.execution-worker-high.process.productTypeEstimationEnabled`` | Enables estimated count for outputs  dependent on product types (default: false) |
+
 
 ### Development Configuration
 
