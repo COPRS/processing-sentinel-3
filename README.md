@@ -39,6 +39,8 @@ The S3 ACQ wrapper contains the IPFs DDC, L0Pre and L0Post processor as a single
 The following individual processing chains are available:
 * [S3 ACQ](./s3-acq/doc/ReleaseNote.md)
 * [S3 L0P](./s3-l0p/doc/ReleaseNote.md)
+* [S3 OL1](./s3-ol1/doc/ReleaseNote.md)
+* [S3 OL2](./s3-ol2/doc/ReleaseNote.md)
 
 For more information, please consult [https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-3](https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-3)
 
