@@ -1,8 +1,24 @@
-# RS Add-on - S3 OLCI L2
+:arrow_heading_up: Go back to the [Reference System Software repository](https://github.com/COPRS/reference-system-software) :arrow_heading_up:
+
+# RS Add-on - S3 L2 OLCI
+
+ 
+ * [RS Add-on S3 L2 OLCI](#rs-add-on---s3-l2-olci)
+    * [Overview](#overview)
+    * [Requirements](#requirements)
+    * [Additional Resources](#additional-resources)
+    * [Deployment Prerequisite](#deployment-prerequisite)
+    * [Processing Filter](#processing-filter)
+    * [Preparation Worker](#preparation-worker)
+    * [Execution Worker](#execution-worker)
+    * [Generic configuration part](#generic-configuration-part)
+    * [Deployer Properties](#deployer-properties)
+
+
 
 This add-on contains the configuration for the processing chain of the Sentinel-3 OL2 Processor. It is processing the outputs from the S3 OL1 workflow into S3 L2 products.
 
-## General
+## Overview
 
 ![overview](./media/overview.png "Overview")
 
