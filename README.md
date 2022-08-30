@@ -62,15 +62,29 @@ In order to deploy a RS Add-on the Ansible scripts from the [infrastructure repo
 ```
 ansible-playbook deploy-rs-addon.yaml \
     -i inventory/mycluster/hosts.ini \
-    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-docker-local/rs-addons/s3/RS_ADDON_S3-ACQ_<VERSION>.zip \
+    -e rs_addon_location=rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-ACQ_<VERSION>.zip \
     -e stream_name=S3_ACQ
 ```
 
 ```
 ansible-playbook deploy-rs-addon.yaml \
     -i inventory/mycluster/hosts.ini \
-    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-docker-local/rs-addons/s3/RS_ADDON_S3-L0P_<VERSION>.zip \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-L0P_<VERSION>.zip \
     -e stream_name=S3_L0P
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-OL1_<VERSION>.zip \
+    -e stream_name=S3_OL1
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-OL1_<VERSION>.zip \
+    -e stream_name=S3_OL2
 ```
 
 For further information on using the deployment script, please consult its [manual](https://github.com/COPRS/infrastructure/blob/e642b4e78782b3e5d649570e4a72b27cb42efeed/doc/how-to/RS%20Add-on%20-%20RS%20Core.md).
