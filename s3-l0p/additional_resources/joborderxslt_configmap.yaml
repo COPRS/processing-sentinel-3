@@ -35,6 +35,14 @@ data:
           <xsl:apply-templates select="@*|node()"/>
         </Config_File>
       </xsl:template>
+
+      <xsl:template match="Input">
+        <xsl:if test="File_Type != ''">
+          <Input>
+            <xsl:apply-templates select="@*|node()" />
+          </Input>
+        </xsl:if>
+      </xsl:template>
       
       <!-- Copy Template -->
       <xsl:template match="@*|node()">
