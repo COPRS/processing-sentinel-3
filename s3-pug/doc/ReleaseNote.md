@@ -1,9 +1,9 @@
 :arrow_heading_up: Go back to the [Reference System Software repository](https://github.com/COPRS/reference-system-software) :arrow_heading_up:
 
-# RS Add-on - S3 L0P
+# RS Add-on - S3 PUG
 
  
- * [RS Add-on S3 L0P](#rs-add-on---s3-l0p)
+ * [RS Add-on S3 PUG](#rs-add-on---s3-pug)
     * [Overview](#overview)
     * [Requirements](#requirements)
     * [Additional Resources](#additional-resources)
@@ -15,7 +15,7 @@
     * [Deployer Properties](#deployer-properties)
 
 
-This add-on contains the configuration for the S3 L0p workflow. It is processing the output from the S3 Acquisition workflow and processing the Data in L0 products.
+This add-on contains the configuration for the S3 PUG workflow. It is processing the output from the S3 L0, L1 and L2 production chains and creates the Product Dissemination Units (PDU).
 
 ## Overview
 
@@ -54,13 +54,13 @@ This software does have the following minimal requirements:
 
 ## Additional Resources 
 
-The preparation worker needs the task table for the IPF wrapped inside of the execution worker. To provide the preparation worker with the needed task table, a configmap will be created by the deployment script based on the file ``tasktable_configmap.yaml``. The resulting configmap contains the task table needed for the S3 L0 preparation worker, in order to create compatible job orders. 
+The preparation worker needs the task table for the IPF wrapped inside of the execution worker. To provide the preparation worker with the needed task table, a configmap will be created by the deployment script based on the file ``tasktable_configmap.yaml``. The resulting configmap contains the task tables needed for the S3 PUG preparation worker, in order to create compatible job orders. 
 
-The config map will be created in kubernetes in the processing namespace and will be named ``s3-l0p-tasktables``, to be distinguishable from other tasktable configmaps.
+The config map will be created in kubernetes in the processing namespace and will be named ``s3-pug-tasktables``, to be distinguishable from other tasktable configmaps.
 
-Additionally the S3 L0P chain needs a second configmap ``joborderxslt_configmap.yaml``. This configmap contains an xslt-file to convert the produced JobOrder to be compatible with the Sentinel-3 IPF.
+Additionally the S3 PUG chain needs a second configmap ``joborderxslt_configmap.yaml``. This configmap contains an xslt-file to convert the produced JobOrder to be compatible with the Sentinel-3 IPF.
 
-This config map will be created in kubernetes in the processing namespace and will be named ``s3-l0p-joborderxslt``, to be distinguishable from other tasktable configmaps.
+This config map will be created in kubernetes in the processing namespace and will be named ``s3-pug-joborderxslt``, to be distinguishable from other tasktable configmaps.
 
 # Deployment Prerequisite
 
@@ -75,10 +75,11 @@ The RS Addons are also having the component Preparation worker that is persistin
 
 The default configuration provided in the RS Core Component is expecting a secret "mongopreparation" in the namespace "processing" containing a field for PASSWORD and USERNAME that can be used in order to authenticate at the MongoDB.
 
-Please note that further initialization might be required. For the Preparation worker component please execute the following commands in the MongoDB in order to create the credentials for the secret:
+Please note that further initialization might be required. For the Preparation worker component please execute the following commands in the MongoDB in order to create the credentials for the secret and initially set the sequence-id for the appDataJob collection to 0:
 ``
 db.createUser({user: "<USER>", pwd: "<PASSWORD>", roles: [{ role: "readWrite", db: "coprs" }]})
 db.sequence.insert({_id: "appDataJob",seq: 0});
+``
 
 ## Processing Filter
 
@@ -89,7 +90,7 @@ The processing chain is using two different types of filters:
 
 | Property                   				                               | Details       |
 |---------------------------------------------------------------|---------------|
-|``app.message-filter.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression that will be performed on the event to decide if the event is applicable for a compression. E.g. for Sentinel-1 the filter configuration using productFamily and keyObjectStorage name of the product could be like: ``(payload.productFamily == 'S3_GRANULES') || ((payload.productFamily == 'S3_AUX') && (payload.keyObjectStorage matches '^S3\\w{2}AX___(BB2|FPO|FRO|OSF).*')) || ((payload.productFamily == 'S3_L0') && (payload.keyObjectStorage matches '^S3\\w{2}TM_0_NAT___.*'))``| 
+|``app.message-filter.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression that will be performed on the event to decide if the event is applicable for a compression. E.g. for Sentinel-3 the filter configuration using productFamily and keyObjectStorage name of the product could be like: ``((payload.productFamily == 'S3_AUX') && (payload.keyObjectStorage matches '^S3\\w{2}(AX___(BB2|FPO|FRO|OSF)_AX|(OL|SL)_(1|2)_(PCP|PLT)BAX|SY_2_(CVS|PCP|PLT|PVS)BAX).*')) || ((payload.productFamily == 'S3_L0') && (payload.keyObjectStorage matches '^^S3\\w{2}(OL_0_EFR|SL_0_SLT|SR_0_SRA|TM_0_NAT).*')) || ((payload.productFamily == 'S3_L1_NRT') && (payload.keyObjectStorage matches '^^S3\\w{2}(OL_1_E(F|R)R|SL_1_RBT|SR_1_SRA).*')) || ((payload.productFamily == 'S3_L2_NRT') && (payload.keyObjectStorage matches '^^S3\\w{2}(OL_2_L(F|R)R|SL_2_LST|SR_2_LAN|SY_2_(AOD|SYN|V10|VG1)).*'))``| 
 |``app.priority-filter-high.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression defining what request are supposed to be handled by the high priority chain. E.g. handling all S1 events with FAST24 timeliness: ``payload.preparationJob.keyObjectStorage matches '^S3\\w{2}TM_0_NAT_.*'``| 
 |``app.priority-filter-medium.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression defining what request are supposed to be handled by the medium priority chain. E.g. handling all S1 events with NRT timeliness. ``!(payload.preparationJob.keyObjectStorage matches '^S3\\w{2}TM_0_NAT_.*') && payload.timeliness == 'NRT'``| 
 |``app.priority-filter-low.filter.function.expression``|  [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression defining what request are supposed to be handled by the low priority chain. E.g. handling all events that are not having a timeliness: ``!(payload.preparationJob.keyObjectStorage matches '^S3\\w{2}TM_0_NAT_.*') && (payload.timeliness != 'NRT')``| 
@@ -122,10 +123,10 @@ The preparation worker is used in all Sentinel-1 and Sentinel-3 RS addon process
 
 | Property | Details |
 |----------|---------|
-| ``app.preparation-worker.process.level`` | Process level for the preparation worker. Controls level specific logic. For S3 L0P: ``S3_L0`` |
+| ``app.preparation-worker.process.level`` | Process level for the preparation worker. Controls level specific logic. For S3 PUG: ``S3_PDU`` |
 | ``app.preparation-worker.process.mode`` | Process mode for the preparation worker. Allowed values: ``PROD``, ``TEST`` (default: ``PROD``) |
 | ``app.preparation-worker.process.hostname`` | Hostname of the preparation worker (default: ``${HOSTNAME}``) |
-| ``app.preparation-worker.process.productType`` | ProductType of main inputs. Used for logging/reporting (default: ``S3_L0_Granule``) |
+| ``app.preparation-worker.process.productType`` | ProductType of main inputs. Used for logging/reporting (default: ``S3_Products``) |
 | ``app.preparation-worker.process.loglevelstdout`` | LogLevel for stdout of the IPF process wrapped in the execution worker (default: ``INFO``) |
 | ``app.preparation-worker.process.loglevelstderr`` | LogLevel for stderr of the IPF process wrapped in the execution worker (default: ``INFO``) |
 | ``app.preparation-worker.process.processingstation`` | Processing Station (default: ``S3__``) |
@@ -137,7 +138,7 @@ The preparation worker is used in all Sentinel-1 and Sentinel-3 RS addon process
 | Property | Details |
 |----------|---------|
 | ``app.preparation-worker.worker.diroftasktables`` | Directory, where the tasktables can be found (default: ``/app/tasktables``) |
-| ``app.preparation-worker.worker.maxnboftasktable`` | Number of task tables. For S3 L0P: ``24`` |
+| ``app.preparation-worker.worker.maxnboftasktable`` | Number of task tables. For S3 PUG: ``24`` |
 | ``app.preparation-worker.worker.defaultfamily`` | Default ProductFamily for product types not found in inputfamilies or outputfamilies (default: ``BLANK``) |
 | ``app.preparation-worker.worker.inputfamiliesstr`` | Key-Value pairs of mappings of product types to ProductFamily for input product types |
 | ``app.preparation-worker.worker.outputfamiliesstr`` | Key-Value pairs of mappings of product types to ProductFamily for output product types |
@@ -149,7 +150,7 @@ The preparation worker is used in all Sentinel-1 and Sentinel-3 RS addon process
 
 | Property | Details |
 |----------|---------|
-| ``app.preparation-worker.tasktable.routingKeyTemplate`` | Template how to match incoming messages onto the routing mapping configured in ``routing``. For S3 L0P: ``$(product.productType)_$(product.satelliteId)`` |
+| ``app.preparation-worker.tasktable.routingKeyTemplate`` | Template how to match incoming messages onto the routing mapping configured in ``routing``. For S3 PUG: ``$(product.productType)_$(product.satelliteId)`` |
 | ``app.preparation-worker.tasktable.routing`` | Map to determine tasktable to use for an incoming message, to create new AppDataJobs for the preparation worker |
 
 
@@ -157,10 +158,20 @@ The preparation worker is used in all Sentinel-1 and Sentinel-3 RS addon process
 
 | Property | Details |
 |----------|---------|
-| ``app.preparation-worker.s3-type-adapter.mpc-search.<product_type>.product-types`` | List of Product Types to apply the MultipleProductCoverSearch Extension for Sentinel-3 on |
-| ``app.preparation-worker.s3-type-adapter.mpc-search.<product_type>.gap-threshold`` | Threshhold in seconds, defining when a gap is big enough to be recognized as a gap and therefor signaling, that the currently found products are not enough to cover the interval |
-| ``app.preparation-worker.s3-type-adapter.dyn-proc-params`` | Map of static key value pairs, that should be added to JobOrder |
-| ``app.preparation-worker.s3-type-adapter.optional-outputs.<product_type>`` | List of optional outputs of tasktable, that shall be produced. |
+| ``app.preparation-worker.pdu.config.<product_type>.type`` | Type of the PDU for the given product type. Default: FRAME. Allowed values: FRAME, STRIPE, TILE |
+| ``app.preparation-worker.pdu.config.<product_type>.reference`` | Reference point for length and offset for PDU generation. Default: ORBIT. Allowed values: DUMP, ORBIT |
+| ``app.preparation-worker.pdu.config.<product_type>.length-in-s`` | Length of PDUs to be created. Double value. |
+| ``app.preparation-worker.pdu.config.<product_type>.offset-in-s`` | Offset of the start from the reference point. Double value |
+
+## Housekeeping
+
+The Housekeeping service shall have the same configuration as the preparation worker, in order for timeout jobs to be correctly composed. In order for the housekeeping mechanism to function properly the following properties have to be set additionally:
+
+| Property | Details |
+|----------|---------|
+| ``app.housekeep.spring.cloud.stream.function.definition`` | Has to be set to the value ``houseKeepAppDataJobs`` |
+| ``app.housekeep.worker.maxAgeJobMs`` | List of timeouts, when to delete old jobs from the system. Timeout is configured in milliseconds and seperately for each of the possible AppDataJobState: ``waiting``, ``dispatching``, ``generating``, ``terminated``. The most important ones to configure are ``generating`` and ``terminated``. Default: 604800000 (7 days) |
+| ``app.time.spring.integration.poller.fixed-rate`` | Configuration how often the housekeeping mechanism should be triggered (how often the Housekeeper should check the database for old jobs and timeout jobs). Default: 60s |
 
 ## Execution Worker
 
@@ -183,7 +194,7 @@ The following description is just given for high priority workers:
 
 | Property | Details |
 |----------|---------|
-| ``app.execution-worker-high.process.level`` | Process level for the execution worker. Controls level specific logic. For S3 L0P: ``S3_L0`` |
+| ``app.execution-worker-high.process.level`` | Process level for the execution worker. Controls level specific logic. For S3 PUG: ``S3_PDU`` |
 | ``app.execution-worker-high.process.hostname`` | Hostname of the execution worker (default: ``${HOSTNAME}``) |
 | ``app.execution-worker-high.process.workingDir`` | Working directory for the execution worker. Location where the currently processed AppDataJob will be saved (default: ``/data/localWD``) |
 | ``app.execution-worker-high.process.tm-proc-stop-s`` | Seconds how long the cleaning of a JobProcessing may take in seconds (default: ``300``) |

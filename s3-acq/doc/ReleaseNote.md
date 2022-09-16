@@ -170,6 +170,16 @@ As the S3 ACQ preparation-worker uses the same product type adapter as the S1 AI
 | ``app.preparation-worker.aiop.nrt-output-path`` | Value for dynamic processing parameter ``NRTOutputPath`` (default: ``/data/localWD/%WORKING_DIR_NUMBER%/NRT``). ``%WORKING_DIR_NUMER%`` will be replaced by the actual working directory number for the JobOrder |
 | ``app.preparation-worker.aiop.pt-output-path`` | Value for dynamic processing parameter ``PTOutputPath`` (default: ``/data/localWD/%WORKING_DIR_NUMBER%/PT``). ``%WORKING_DIR_NUMER%`` will be replaced by the actual working directory number for the JobOrder |
 
+## Housekeeping
+
+The Housekeeping service shall have the same configuration as the preparation worker, in order for timeout jobs to be correctly composed. In order for the housekeeping mechanism to function properly the following properties have to be set additionally:
+
+| Property | Details |
+|----------|---------|
+| ``app.housekeep.spring.cloud.stream.function.definition`` | Has to be set to the value ``houseKeepAppDataJobs`` |
+| ``app.housekeep.worker.maxAgeJobMs`` | List of timeouts, when to delete old jobs from the system. Timeout is configured in milliseconds and seperately for each of the possible AppDataJobState: ``waiting``, ``dispatching``, ``generating``, ``terminated``. The most important ones to configure are ``generating`` and ``terminated``. Default: 604800000 (7 days) |
+| ``app.time.spring.integration.poller.fixed-rate`` | Configuration how often the housekeeping mechanism should be triggered (how often the Housekeeper should check the database for old jobs and timeout jobs). Default: 60s |
+
 ## Execution Worker
 
 For each priority chain a separate configuration needs to be created. The configuration is however identically and applicable for:
