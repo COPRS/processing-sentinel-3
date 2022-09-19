@@ -25,6 +25,11 @@ The following individual processing chains are available:
 * [S3 L0P](./s3-l0p/doc/ReleaseNote.md)
 * [S3 OL1](./s3-ol1/doc/ReleaseNote.md)
 * [S3 OL2](./s3-ol2/doc/ReleaseNote.md)
+* [S3 MW1](./s3-mw1/doc/ReleaseNote.md)
+* [S3 SL1](./s3-sl1/doc/ReleaseNote.md)
+* [S3 SL2](./s3-sl2/doc/ReleaseNote.md)
+* [S3 SR1](./s3-sr1/doc/ReleaseNote.md)
+* [S3 PUG](./s3-pug/doc/ReleaseNote.md)
 
 For more information, please consult [https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-3](https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-3)
 
@@ -74,6 +79,41 @@ ansible-playbook deploy-rs-addon.yaml \
     -i inventory/mycluster/hosts.ini \
     -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-OL1_<VERSION>.zip \
     -e stream_name=S3_OL2
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-MW1_<VERSION>.zip \
+    -e stream_name=S3_MW1
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SL1_<VERSION>.zip \
+    -e stream_name=S3_SL1
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SL2_<VERSION>.zip \
+    -e stream_name=S3_SL2
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SR1_<VERSION>.zip \
+    -e stream_name=S3_SR1
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-PUG_<VERSION>.zip \
+    -e stream_name=S3_PUG
 ```
 
 For further information on using the deployment script, please consult its [manual](https://github.com/COPRS/infrastructure/blob/e642b4e78782b3e5d649570e4a72b27cb42efeed/doc/how-to/RS%20Add-on%20-%20RS%20Core.md).
