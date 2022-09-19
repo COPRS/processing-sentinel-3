@@ -1,9 +1,9 @@
 :arrow_heading_up: Go back to the [Reference System Software repository](https://github.com/COPRS/reference-system-software) :arrow_heading_up:
 
-# RS Add-on - S3 Acquisition
+# RS Add-on - S3 PUG
 
  
- * [RS Add-on S3 Acquisition](#rs-add-on---s3-acquisition)
+ * [RS Add-on S3 PUG](#rs-add-on---s3-pug)
     * [Overview](#overview)
     * [Requirements](#requirements)
     * [Additional Resources](#additional-resources)
@@ -15,15 +15,13 @@
     * [Deployer Properties](#deployer-properties)
 
 
-This add-on contains the configuration for the S3 Acquisition workflow. In the legacy system for this workflow the IPF DDC, L0Pre, L0Post had been performed. As the DDC is however a daemonized system, it is not really compatible with the COPRS styled addons.
-
-Thus a wrapper was created to provide a ESA Generic ICD compatible interface for all processors. Thus when a S3 EDRS Session is processed by the system the wrapper will be invoked and processing the data with all three processors.
+This add-on contains the configuration for the S3 PUG workflow. It is processing the output from the S3 L0, L1 and L2 production chains and creates the Product Dissemination Units (PDU).
 
 ## Overview
 
 ![overview](./media/overview.png "Overview")
 
-The chain will start from the topic catalog event and watching out for new services there. The message filter will ensure that just EDRS sessions and related auxiliary files are consumed by the chain. All other product types will be discard and no processing occurs. Just if the request is not filtered it will be send to the Preparation worker. Its major task is to ensure that all required products for a production are available. According to the task table of the AIOP it will check if all required auxiliary files can be found in the catalog via the Metadata Search Controller. Additionally it will verify that all required chunks of the session are ingested into the catalog already as well.
+The chain will start from the topic catalog event and watching out for new services there. The message filter will ensure that just products and related auxiliary files are consumed by the chain. All other product types will be discard and no processing occurs. Just if the request is not filtered it will be send to the Preparation worker. Its major task is to ensure that all required products for a production are available. According to the task table it will check if all required auxiliary files can be found in the catalog via the Metadata Search Controller. Additionally it will verify that all required chunks of the session are ingested into the catalog already as well.
 
 If the production is not ready yet the request will be persisted and discarded. Once a new relevant product for the chain arrives, it will check again if all required input products are available. When all suitable products are available the job order will be generated and send to the execution worker. Note that after the Preparation Worker there are three chains available that are gated by a priority filter that allows to split the request regarding their priority on different groups of execution workers. This can be used to priorize certain types of request.
 
@@ -56,9 +54,13 @@ This software does have the following minimal requirements:
 
 ## Additional Resources 
 
-The preparation worker needs the task table for the IPF wrapped inside of the execution worker. To provide the preparation worker with the needed task table, a configmap will be created by the deployment script based on the file ``tasktable_configmap.yaml``. The resulting configmap contains the task table needed for the S3 ACQ preparation worker, in order to create compatible job orders. 
+The preparation worker needs the task table for the IPF wrapped inside of the execution worker. To provide the preparation worker with the needed task table, a configmap will be created by the deployment script based on the file ``tasktable_configmap.yaml``. The resulting configmap contains the task tables needed for the S3 PUG preparation worker, in order to create compatible job orders. 
 
-The config map will be created in kubernetes in the processing namespace and will be named ``s3-acq-tasktables``, to be distinguishable from other tasktable configmaps.
+The config map will be created in kubernetes in the processing namespace and will be named ``s3-pug-tasktables``, to be distinguishable from other tasktable configmaps.
+
+Additionally the S3 PUG chain needs a second configmap ``joborderxslt_configmap.yaml``. This configmap contains an xslt-file to convert the produced JobOrder to be compatible with the Sentinel-3 IPF.
+
+This config map will be created in kubernetes in the processing namespace and will be named ``s3-pug-joborderxslt``, to be distinguishable from other tasktable configmaps.
 
 # Deployment Prerequisite
 
@@ -73,10 +75,11 @@ The RS Addons are also having the component Preparation worker that is persistin
 
 The default configuration provided in the RS Core Component is expecting a secret "mongopreparation" in the namespace "processing" containing a field for PASSWORD and USERNAME that can be used in order to authenticate at the MongoDB.
 
-Please note that further initialization might be required. For the Preparation worker component please execute the following commands in the MongoDB in order to create the credentials for the secret:
+Please note that further initialization might be required. For the Preparation worker component please execute the following commands in the MongoDB in order to create the credentials for the secret and initially set the sequence-id for the appDataJob collection to 0:
 ``
 db.createUser({user: "<USER>", pwd: "<PASSWORD>", roles: [{ role: "readWrite", db: "coprs" }]})
 db.sequence.insert({_id: "appDataJob",seq: 0});
+``
 
 ## Processing Filter
 
@@ -87,10 +90,10 @@ The processing chain is using two different types of filters:
 
 | Property                   				                               | Details       |
 |---------------------------------------------------------------|---------------|
-|``app.message-filter.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression that will be performed on the event to decide if the event is applicable for a compression. E.g. for Sentinel-1 the filter configuration using productFamily and keyObjectStorage name of the product could be like: ``((payload.productFamily == 'EDRS_SESSION') && (payload.missionId == 'S3'))``| 
-|``app.priority-filter-high.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression defining what request are supposed to be handled by the high priority chain. E.g. handling all S1 events with FAST24 timeliness: ``payload.timeliness == 'NRT'``| 
-|``app.priority-filter-medium.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression defining what request are supposed to be handled by the medium priority chain. E.g. handling all S1 events with NRT timeliness. ``payload.timeliness == 'STC'``| 
-|``app.priority-filter-low.filter.function.expression``|  [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression defining what request are supposed to be handled by the low priority chain. E.g. handling all events that are not having a timeliness: ``(payload.timeliness != 'NRT') && (payload.timeliness != 'STC')``| 
+|``app.message-filter.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression that will be performed on the event to decide if the event is applicable for a compression. E.g. for Sentinel-3 the filter configuration using productFamily and keyObjectStorage name of the product could be like: ``((payload.productFamily == 'S3_AUX') && (payload.keyObjectStorage matches '^S3\\w{2}(AX___(BB2|FPO|FRO|OSF)_AX|(OL|SL)_(1|2)_(PCP|PLT)BAX|SY_2_(CVS|PCP|PLT|PVS)BAX).*')) || ((payload.productFamily == 'S3_L0') && (payload.keyObjectStorage matches '^^S3\\w{2}(OL_0_EFR|SL_0_SLT|SR_0_SRA|TM_0_NAT).*')) || ((payload.productFamily == 'S3_L1_NRT') && (payload.keyObjectStorage matches '^^S3\\w{2}(OL_1_E(F|R)R|SL_1_RBT|SR_1_SRA).*')) || ((payload.productFamily == 'S3_L2_NRT') && (payload.keyObjectStorage matches '^^S3\\w{2}(OL_2_L(F|R)R|SL_2_LST|SR_2_LAN|SY_2_(AOD|SYN|V10|VG1)).*'))``| 
+|``app.priority-filter-high.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression defining what request are supposed to be handled by the high priority chain. E.g. handling all S1 events with FAST24 timeliness: ``payload.preparationJob.keyObjectStorage matches '^S3\\w{2}TM_0_NAT_.*'``| 
+|``app.priority-filter-medium.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression defining what request are supposed to be handled by the medium priority chain. E.g. handling all S1 events with NRT timeliness. ``!(payload.preparationJob.keyObjectStorage matches '^S3\\w{2}TM_0_NAT_.*') && payload.timeliness == 'NRT'``| 
+|``app.priority-filter-low.filter.function.expression``|  [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression defining what request are supposed to be handled by the low priority chain. E.g. handling all events that are not having a timeliness: ``!(payload.preparationJob.keyObjectStorage matches '^S3\\w{2}TM_0_NAT_.*') && (payload.timeliness != 'NRT')``| 
 
 ## Preparation Worker
 
@@ -120,13 +123,13 @@ The preparation worker is used in all Sentinel-1 and Sentinel-3 RS addon process
 
 | Property | Details |
 |----------|---------|
-| ``app.preparation-worker.process.level`` | Process level for the preparation worker. Controls level specific logic. For S3 ACQ: ``L0`` |
+| ``app.preparation-worker.process.level`` | Process level for the preparation worker. Controls level specific logic. For S3 PUG: ``S3_PDU`` |
 | ``app.preparation-worker.process.mode`` | Process mode for the preparation worker. Allowed values: ``PROD``, ``TEST`` (default: ``PROD``) |
 | ``app.preparation-worker.process.hostname`` | Hostname of the preparation worker (default: ``${HOSTNAME}``) |
-| ``app.preparation-worker.process.productType`` | ProductType of main inputs. Used for logging/reporting (default: ``EdrsSession``) |
+| ``app.preparation-worker.process.productType`` | ProductType of main inputs. Used for logging/reporting (default: ``S3_Products``) |
 | ``app.preparation-worker.process.loglevelstdout`` | LogLevel for stdout of the IPF process wrapped in the execution worker (default: ``INFO``) |
 | ``app.preparation-worker.process.loglevelstderr`` | LogLevel for stderr of the IPF process wrapped in the execution worker (default: ``INFO``) |
-| ``app.preparation-worker.process.processingstation`` | Processing Station (default: ``WILE``) |
+| ``app.preparation-worker.process.processingstation`` | Processing Station (default: ``S3__``) |
 | ``app.preparation-worker.process.params`` | Dynamic processing parameters for the job order. Contains a map of key value pairs |
 | ``app.preparation-worker.process.outputregexps`` | Map to match regular expressions to output file types. Key: output file type, Value: regular expression used for file names |
 
@@ -135,7 +138,7 @@ The preparation worker is used in all Sentinel-1 and Sentinel-3 RS addon process
 | Property | Details |
 |----------|---------|
 | ``app.preparation-worker.worker.diroftasktables`` | Directory, where the tasktables can be found (default: ``/app/tasktables``) |
-| ``app.preparation-worker.worker.maxnboftasktable`` | Number of task tables. For S3 ACQ: ``1`` |
+| ``app.preparation-worker.worker.maxnboftasktable`` | Number of task tables. For S3 PUG: ``24`` |
 | ``app.preparation-worker.worker.defaultfamily`` | Default ProductFamily for product types not found in inputfamilies or outputfamilies (default: ``BLANK``) |
 | ``app.preparation-worker.worker.inputfamiliesstr`` | Key-Value pairs of mappings of product types to ProductFamily for input product types |
 | ``app.preparation-worker.worker.outputfamiliesstr`` | Key-Value pairs of mappings of product types to ProductFamily for output product types |
@@ -147,28 +150,18 @@ The preparation worker is used in all Sentinel-1 and Sentinel-3 RS addon process
 
 | Property | Details |
 |----------|---------|
-| ``app.preparation-worker.tasktable.routingKeyTemplate`` | Template how to match incoming messages onto the routing mapping configured in ``routing``. For S3 ACQ: ``${product.productType}`` |
+| ``app.preparation-worker.tasktable.routingKeyTemplate`` | Template how to match incoming messages onto the routing mapping configured in ``routing``. For S3 PUG: ``$(product.productType)_$(product.satelliteId)`` |
 | ``app.preparation-worker.tasktable.routing`` | Map to determine tasktable to use for an incoming message, to create new AppDataJobs for the preparation worker |
 
 
 ### Product type specific configuration part
 
-#### AIOP Configuration
-
-As the S3 ACQ preparation-worker uses the same product type adapter as the S1 AIOP (they both process EDRS_SESSION products), the product type specific part is the same as the one from the S1 AIOP chain.
-
 | Property | Details |
 |----------|---------|
-| ``app.preparation-worker.aiop.station-codes`` | Map for the station codes. Used to compound all map-properties below. |
-| ``app.preparation-worker.aiop.pt-assembly`` | Map for property values for each station code to fill JobOrder Parameter ``PT_Assembly`` |
-| ``app.preparation-worker.aiop.processing-mode`` | Map for property values for each station code to fill JobOrder Parameter ``Processing_Mode`` |
-| ``app.preparation-worker.aiop.reprocessing-mode.`` | Map for property values for each station code to fill JobOrder Parameter ``Reprocessing_Mode`` |
-| ``app.preparation-worker.aiop.timeout-sec`` | Map for property values for each station code to fill JobOrder Parameter ``TimeoutSec`` |
-| ``app.preparation-worker.aiop.descramble`` | Map for property values for each station code to fill JobOrder Parameter ``Descramble`` |
-| ``app.preparation-worker.aiop.rs-encode`` | Map for property values for each station code to fill JobOrder Parameter ``RSEncode`` |
-| ``app.preparation-worker.aiop.minimal-waiting-time-sec`` | Determines how long a job should wait before running into a timeout in seconds (currently not used) (default: ``360000``) |
-| ``app.preparation-worker.aiop.nrt-output-path`` | Value for dynamic processing parameter ``NRTOutputPath`` (default: ``/data/localWD/%WORKING_DIR_NUMBER%/NRT``). ``%WORKING_DIR_NUMER%`` will be replaced by the actual working directory number for the JobOrder |
-| ``app.preparation-worker.aiop.pt-output-path`` | Value for dynamic processing parameter ``PTOutputPath`` (default: ``/data/localWD/%WORKING_DIR_NUMBER%/PT``). ``%WORKING_DIR_NUMER%`` will be replaced by the actual working directory number for the JobOrder |
+| ``app.preparation-worker.pdu.config.<product_type>.type`` | Type of the PDU for the given product type. Default: FRAME. Allowed values: FRAME, STRIPE, TILE |
+| ``app.preparation-worker.pdu.config.<product_type>.reference`` | Reference point for length and offset for PDU generation. Default: ORBIT. Allowed values: DUMP, ORBIT |
+| ``app.preparation-worker.pdu.config.<product_type>.length-in-s`` | Length of PDUs to be created. Double value. |
+| ``app.preparation-worker.pdu.config.<product_type>.offset-in-s`` | Offset of the start from the reference point. Double value |
 
 ## Housekeeping
 
@@ -201,7 +194,7 @@ The following description is just given for high priority workers:
 
 | Property | Details |
 |----------|---------|
-| ``app.execution-worker-high.process.level`` | Process level for the execution worker. Controls level specific logic. For S3 ACQ: ``S3_L0`` |
+| ``app.execution-worker-high.process.level`` | Process level for the execution worker. Controls level specific logic. For S3 PUG: ``S3_PDU`` |
 | ``app.execution-worker-high.process.hostname`` | Hostname of the execution worker (default: ``${HOSTNAME}``) |
 | ``app.execution-worker-high.process.workingDir`` | Working directory for the execution worker. Location where the currently processed AppDataJob will be saved (default: ``/data/localWD``) |
 | ``app.execution-worker-high.process.tm-proc-stop-s`` | Seconds how long the cleaning of a JobProcessing may take in seconds (default: ``300``) |
@@ -215,12 +208,8 @@ The following description is just given for high priority workers:
 | ``app.execution-worker-high.process.threshold-iw`` | Threshold for length to determine if a file is a ghost candidate for polarisation IW (default: ``3``) |
 | ``app.execution-worker-high.process.threshold-sm`` | Threshold for length to determine if a file is a ghost candidate for polarisation SM (default: ``3``) |
 | ``app.execution-worker-high.process.threshold-wv`` | Threshold for length to determine if a file is a ghost candidate for polarisation WV (default: ``30``) |
-| ``app.execution-worker-high.process.change-isip-to-safe`` | Whether or not to change the extension of the resulting file names to SAFE (default: false) |
+| ``app.execution-worker-high.process.path-job-order-xslt`` | Path to the job order xslt, that will be applied on the given joborder before sending it to the IPF |
 | ``app.execution-worker-high.process.productTypeEstimationEnabled`` | Enables estimated count for outputs  dependent on product types (default: false) |
-| ``app.execution-worker-high.process.productTypeEstimationOutputFamily``| Product Family of output type, e.g. S3_GRNULES for Sentinel-3 ACQ processing or L0_SEGMENT for Sentinel-1 AIOP processing |
-| ``app.execution-worker-high.process.productTypeEstimatedCount.<typX>.regexp``| Regular expression matching the output product type, e.g. OL_0_EFR__G.  The paramter ``count`` is configured to be the count of types matching this regex |
-| ``app.execution-worker-high.process.productTypeEstimatedCount.<typX>.count`` | Number of outputs estimated fot the specified regex |
-
 
 
 ### Development Configuration
@@ -230,6 +219,7 @@ The following description is just given for high priority workers:
 | ``app.execution-worker-high.dev.stepsActivation.download`` | Switch to determine whether or not inputs shall be downloaded (default: ``true``) |
 | ``app.execution-worker-high.dev.stepsActivation.upload`` | Switch to determine whether or not outputs shall be uploaded (default: ``true``) |
 | ``app.execution-worker-high.dev.stepsActivation.erasing`` | Switch to determine whether or not the working directory shall be deleted (default: ``true``) |
+
 
 ## Deployer properties
 
