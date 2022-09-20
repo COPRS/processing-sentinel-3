@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: s3-ol1-tasktables
+  name: s3-sl1-tasktables
   namespace: processing
 
 data:
