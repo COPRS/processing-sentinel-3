@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- in this routing file acquisition is actually the productType. Reason 
+	is the configuration in the corresponding application.yml -->
+
+<level_products_routing>
+	<!-- Satellite A -->
+	
+	<level_products_route>
+		<level_products_from>
+			<acquisition>OL_1_EFR___</acquisition>
+			<satellite_id>A</satellite_id>
+		</level_products_from>
+		<level_products_to>
+			<task_tables>
+				<task_table>TaskTable_S3A_OL2_FR_05_02.xml</task_table>
+			</task_tables>
+		</level_products_to>
+	</level_products_route>
+	
+	<level_products_route>
+		<level_products_from>
+			<acquisition>OL_1_ERR___</acquisition>
+			<satellite_id>A</satellite_id>
+		</level_products_from>
+		<level_products_to>
+			<task_tables>
+				<task_table>TaskTable_S3A_OL2_RR_05_02.xml</task_table>
+			</task_tables>
+		</level_products_to>
+	</level_products_route>
+	
+	<level_products_route>
+		<level_products_from>
+			<acquisition>SL_1_RBT___</acquisition>
+			<satellite_id>A</satellite_id>
+		</level_products_from>
+		<level_products_to>
+			<task_tables>
+				<task_table>TaskTable_S3A_SL2_05_02.xml</task_table>
+			</task_tables>
+		</level_products_to>
+	</level_products_route>
+	
+	<level_products_route>
+		<level_products_from>
+			<acquisition>SR_1_SRA___</acquisition>
+			<satellite_id>A</satellite_id>
+		</level_products_from>
+		<level_products_to>
+			<task_tables>
+				<task_table>TaskTable_S3A_SM2_05_02.xml</task_table>
+			</task_tables>
+		</level_products_to>
+	</level_products_route>
+	
+	<!-- <level_products_route>
+		<level_products_from>
+			<acquisition>OL_1_EFR___</acquisition>
+			<satellite_id>A</satellite_id>
+		</level_products_from>
+		<level_products_to>
+			<task_tables>
+				<task_table>TaskTable_S3A_SY2_05_02.xml</task_table>
+			</task_tables>
+		</level_products_to>
+	</level_products_route>
+	 -->
+	
+	<!-- Satellite B -->
+
+	<level_products_route>
+		<level_products_from>
+			<acquisition>OL_1_EFR___</acquisition>
+			<satellite_id>B</satellite_id>
+		</level_products_from>
+		<level_products_to>
+			<task_tables>
+				<task_table>TaskTable_S3B_OL2_FR_05_02.xml</task_table>
+			</task_tables>
+		</level_products_to>
+	</level_products_route>
+	
+	<level_products_route>
+		<level_products_from>
+			<acquisition>OL_1_ERR___</acquisition>
+			<satellite_id>B</satellite_id>
+		</level_products_from>
+		<level_products_to>
+			<task_tables>
+				<task_table>TaskTable_S3A_OL2_RR_05_02.xml</task_table>
+			</task_tables>
+		</level_products_to>
+	</level_products_route>
+	
+	<level_products_route>
+		<level_products_from>
+			<acquisition>SL_1_RBT___</acquisition>
+			<satellite_id>B</satellite_id>
+		</level_products_from>
+		<level_products_to>
+			<task_tables>
+				<task_table>TaskTable_S3B_SL2_05_02.xml</task_table>
+			</task_tables>
+		</level_products_to>
+	</level_products_route>
+	
+	<level_products_route>
+		<level_products_from>
+			<acquisition>SR_1_SRA___</acquisition>
+			<satellite_id>B</satellite_id>
+		</level_products_from>
+		<level_products_to>
+			<task_tables>
+				<task_table>TaskTable_S3B_SM2_05_02.xml</task_table>
+			</task_tables>
+		</level_products_to>
+	</level_products_route>
+	
+	<!-- <level_products_route>
+		<level_products_from>
+			<acquisition>OL_1_EFR___</acquisition>
+			<satellite_id>B</satellite_id>
+		</level_products_from>
+		<level_products_to>
+			<task_tables>
+				<task_table>TaskTable_S3B_SY2_05_02.xml</task_table>
+			</task_tables>
+		</level_products_to>
+	</level_products_route> -->
+	
+</level_products_routing>
