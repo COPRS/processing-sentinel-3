@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0-rc1] - 2022-09-28
+
+### Added
+
+RS-502: Develop S3 PUG processor as a RS-add-on
+RS-528: Create S3_SR1 processor as RS add-on
+RS-530: Create S3_MW1 processor as RS add-on
+RS-532: Create S3_SL1 processor as RS add-on
+RS-533: Create S3_SL2 processor as RS add-on
+
+
+### Changed
+
+RS-434: Realign CFI version with F1 for S3 L0P RS add-on
+RS-512: Script "S3ACQWrapperScript.sh" failed
+RS-517: Too many loops due to symbolic links on S3 ACQ execution worker
+RS-555: s3-l0p addon: s3-l0p processor fails when an input in the job order is empty
+RS-556: rs-addons S1 and S3: wap timeouts are too low
+
+### Removed
+N/A
+
 ## [1.5.0-rc1] - 2022-08-31
 
 ### Added
@@ -16,6 +38,17 @@ RS-501: Changed location where RS Core Components and images are pushed to
 ### Changed
 
 RS-497: Update documentation to be easy to use
+
+### Removed
+N/A
+
+## [1.4.1-rc1] - 2022-09-22
+
+### Added
+N/A
+
+### Changed
+RS-XX: Merging documentation updates from develop into V1.1
 
 ### Removed
 N/A
