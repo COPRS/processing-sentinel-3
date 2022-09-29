@@ -1,0 +1,32 @@
+name: Build RS Addons
+
+on:
+  push:
+    branches:
+      - '!main'
+      - 'release/**'
+      - 'develop**'
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+-rc[0-9]+"
+      - "[0-9]+.[0-9]+.[0-9]+"
+  workflow_dispatch:
+      
+env:
+  RS_CORE_FOLDER: . 
+  ARTIFACTORY_BASE: artifactory.coprs.esa-copernicus.eu
+  ARTIFACTORY_PROJECT_COMMON: rs-docker
+  ARTIFACTORY_CORE_PROJECT: rs-addons/s3 
+  
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        component: [s3-l0p, s3-acq]
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-core-components
+      with:
+        WERUM_ARTIFACTORY_USER: ${{ secrets.WERUM_ARTIFACTORY_USER }}
+        WERUM_ARTIFACTORY_PASSWORD: ${{ secrets.WERUM_ARTIFACTORY_PASSWORD }}

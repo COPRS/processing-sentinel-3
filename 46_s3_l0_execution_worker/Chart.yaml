@@ -1,7 +1,0 @@
-apiVersion: v1
-appVersion: "develop"
-description: S1PRO S3 L0 Execution worker
-name: s1pro-s3-l0-execution-worker
-version: 3.33.0-SNAPSHOT
-maintainers:
-  - name: Werum Software & Systems
