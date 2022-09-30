@@ -49,14 +49,14 @@ In order to deploy a RS Add-on the Ansible scripts from the [infrastructure repo
 ```
 ansible-playbook deploy-rs-addon.yaml \
     -i inventory/mycluster/hosts.ini \
-    -e rs_addon_location=rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-ACQ_<VERSION>.zip \
+    -e rs_addon_location=rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-docker/rs-addons/s3/RS_ADDON_S3-ACQ_<VERSION>.zip \
     -e stream_name=S3_ACQ
 ```
 
 ```
 ansible-playbook deploy-rs-addon.yaml \
     -i inventory/mycluster/hosts.ini \
-    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-L0P_<VERSION>.zip \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-docker/rs-addons/s3/RS_ADDON_S3-L0P_<VERSION>.zip \
     -e stream_name=S3_L0P
 ```
 
