@@ -1,9 +1,9 @@
 :arrow_heading_up: Go back to the [Reference System Software repository](https://github.com/COPRS/reference-system-software) :arrow_heading_up:
 
-# RS Add-on - S3 L1 OLCI
+# RS Add-on - S3 L1 OLCI NTC
 
  
- * [RS Add-on S3 L1 OLCI](#rs-add-on---s3-l1-olci)
+ * [RS Add-on S3 L1 OLCI NTC](#rs-add-on---s3-l1-olci)
     * [Overview](#overview)
     * [Requirements](#requirements)
     * [Additional Resources](#additional-resources)
@@ -15,7 +15,7 @@
     * [Deployer Properties](#deployer-properties)
 
 
-This add-on contains the configuration for the processing chain of the Sentinel-3 OL1 Processor. It is processing the outputs from the S3 L0 workflow into S3 L1 products.
+This add-on contains the configuration for the processing chain of the Sentinel-3 OL1 Processor. It is processing the outputs from the S3 PUG workflow into S3 L1 NTC products.
 
 ## Overview
 
@@ -58,11 +58,11 @@ This software does have the following minimal requirements:
 
 The preparation worker needs the task table for the IPF wrapped inside of the execution worker. To provide the preparation worker with the needed task table, a configmap will be created by the deployment script based on the file ``tasktable_configmap.yaml``. The resulting configmap contains the task table needed for the preparation worker, in order to create compatible job orders. 
 
-The config map will be created in kubernetes in the processing namespace and will be named ``s3-ol1-tasktables``, to be distinguishable from other tasktable configmaps.
+The config map will be created in kubernetes in the processing namespace and will be named ``s3-ol1-ntc-tasktables``, to be distinguishable from other tasktable configmaps.
 
 Additionally the chain needs a second configmap ``joborderxslt_configmap.yaml``. This configmap contains an xslt-file to convert the produced JobOrder to be compatible with the Sentinel-3 IPF.
 
-This config map will be created in kubernetes in the processing namespace and will be named ``s3-ol1-joborderxslt``, to be distinguishable from other tasktable configmaps.
+This config map will be created in kubernetes in the processing namespace and will be named ``s3-ol1-ntc-joborderxslt``, to be distinguishable from other tasktable configmaps.
 
 # Deployment Prerequisite
 
@@ -84,17 +84,11 @@ db.sequence.insert({_id: "appDataJob",seq: 0});
 
 ## Processing Filter
 
-The processing chain is using two different types of filters:
-
-* A filter used as a gate to decide what products shall be processed (``message-filter``)
-* Multiple filters that decides upon the priority of the event (``priority-filter-<high|medium|low>``)
+The processing chain is using a message filter in order to select the list of matching products from the common ``catalog-event`` topic:
 
 | Property                   				                               | Details       |
 |---------------------------------------------------------------|---------------|
 |``app.message-filter.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression that will be performed on the event to decide if the event is applicable for a compression. E.g. for Sentinel-1 the filter configuration using productFamily and keyObjectStorage name of the product could be like: ``(payload.productFamily == 'S3_GRANULES') || ((payload.productFamily == 'S3_AUX') && (payload.keyObjectStorage matches '^S3\\w{2}AX___(BB2|FPO|FRO|OSF).*')) || ((payload.productFamily == 'S3_L0') && (payload.keyObjectStorage matches '^S3\\w{2}TM_0_NAT___.*'))``| 
-|``app.priority-filter-high.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression defining what request are supposed to be handled by the high priority chain. E.g. handling all S1 events with FAST24 timeliness: ``payload.preparationJob.keyObjectStorage matches '^S3\\w{2}TM_0_NAT_.*'``| 
-|``app.priority-filter-medium.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression defining what request are supposed to be handled by the medium priority chain. E.g. handling all S1 events with NRT timeliness. ``!(payload.preparationJob.keyObjectStorage matches '^S3\\w{2}TM_0_NAT_.*') && payload.timeliness == 'NRT'``| 
-|``app.priority-filter-low.filter.function.expression``|  [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression defining what request are supposed to be handled by the low priority chain. E.g. handling all events that are not having a timeliness: ``!(payload.preparationJob.keyObjectStorage matches '^S3\\w{2}TM_0_NAT_.*') && (payload.timeliness != 'NRT')``| 
 
 ## Preparation Worker
 
@@ -124,10 +118,10 @@ The preparation worker is used in all Sentinel-1 and Sentinel-3 RS addon process
 
 | Property | Details |
 |----------|---------|
-| ``app.preparation-worker.process.level`` | Process level for the preparation worker. Controls level specific logic. For S3 L0P: ``S3_L0`` |
+| ``app.preparation-worker.process.level`` | Process level for the preparation worker. Controls level specific logic. For S3 OL1 NTC: ``S3_L1`` |
 | ``app.preparation-worker.process.mode`` | Process mode for the preparation worker. Allowed values: ``PROD``, ``TEST`` (default: ``PROD``) |
 | ``app.preparation-worker.process.hostname`` | Hostname of the preparation worker (default: ``${HOSTNAME}``) |
-| ``app.preparation-worker.process.productType`` | ProductType of main inputs. Used for logging/reporting (default: ``S3_L0_Granule``) |
+| ``app.preparation-worker.process.productType`` | ProductType of main inputs. Used for logging/reporting (default: ``S3_L0_PDU``) |
 | ``app.preparation-worker.process.loglevelstdout`` | LogLevel for stdout of the IPF process wrapped in the execution worker (default: ``INFO``) |
 | ``app.preparation-worker.process.loglevelstderr`` | LogLevel for stderr of the IPF process wrapped in the execution worker (default: ``INFO``) |
 | ``app.preparation-worker.process.processingstation`` | Processing Station (default: ``S3__``) |
@@ -139,7 +133,7 @@ The preparation worker is used in all Sentinel-1 and Sentinel-3 RS addon process
 | Property | Details |
 |----------|---------|
 | ``app.preparation-worker.worker.diroftasktables`` | Directory, where the tasktables can be found (default: ``/app/tasktables``) |
-| ``app.preparation-worker.worker.maxnboftasktable`` | Number of task tables. For S3 L0P: ``24`` |
+| ``app.preparation-worker.worker.maxnboftasktable`` | Number of task tables. For S3 OL1 NTC: ``24`` |
 | ``app.preparation-worker.worker.defaultfamily`` | Default ProductFamily for product types not found in inputfamilies or outputfamilies (default: ``BLANK``) |
 | ``app.preparation-worker.worker.inputfamiliesstr`` | Key-Value pairs of mappings of product types to ProductFamily for input product types |
 | ``app.preparation-worker.worker.outputfamiliesstr`` | Key-Value pairs of mappings of product types to ProductFamily for output product types |
@@ -151,7 +145,7 @@ The preparation worker is used in all Sentinel-1 and Sentinel-3 RS addon process
 
 | Property | Details |
 |----------|---------|
-| ``app.preparation-worker.tasktable.routingKeyTemplate`` | Template how to match incoming messages onto the routing mapping configured in ``routing``. For S3 L0P: ``$(product.productType)_$(product.satelliteId)`` |
+| ``app.preparation-worker.tasktable.routingKeyTemplate`` | Template how to match incoming messages onto the routing mapping configured in ``routing``. For S3 OL1 NTC: ``$(product.productType)_$(product.satelliteId)`` |
 | ``app.preparation-worker.tasktable.routing`` | Map to determine tasktable to use for an incoming message, to create new AppDataJobs for the preparation worker |
 
 
@@ -176,50 +170,42 @@ The Housekeeping service shall have the same configuration as the preparation wo
 
 ## Execution Worker
 
-For each priority chain a separate configuration needs to be created. The configuration is however identically and applicable for:
-
-* app.execution-worker-high
-* app.execution-worker-medium
-* app.execution-worker-low
-
-The following description is just given for high priority workers:
-
 ### Important SCDF Properties
 
 | Property | Details |
 |----------|---------|
-| ``app.execution-worker-high.spring.cloud.stream.kafka.bindings.input.consumer.configuration.max.poll.records`` | Number of records that are pulled in batch when retrieving new messages for the kafka consumer. Tests have shown, that for reliable processing this property shall be set to ``1`` |
-| ``app.execution-worker-high.spring.cloud.stream.kafka.bindings.input.consumer.configuration.max.poll.interval.ms`` | Number of milliseconds how long the processing of one kafka message shall take, before consumer is kicked from consumer group by the kafka broker. This property is very important for the processing of long-running tasks. |
+| ``app.execution-worker.spring.cloud.stream.kafka.bindings.input.consumer.configuration.max.poll.records`` | Number of records that are pulled in batch when retrieving new messages for the kafka consumer. Tests have shown, that for reliable processing this property shall be set to ``1`` |
+| ``app.execution-worker.spring.cloud.stream.kafka.bindings.input.consumer.configuration.max.poll.interval.ms`` | Number of milliseconds how long the processing of one kafka message shall take, before consumer is kicked from consumer group by the kafka broker. This property is very important for the processing of long-running tasks. |
 
 ### Process Configuration
 
 | Property | Details |
 |----------|---------|
-| ``app.execution-worker-high.process.level`` | Process level for the execution worker. Controls level specific logic. For S3 L0P: ``S3_L0`` |
-| ``app.execution-worker-high.process.hostname`` | Hostname of the execution worker (default: ``${HOSTNAME}``) |
-| ``app.execution-worker-high.process.workingDir`` | Working directory for the execution worker. Location where the currently processed AppDataJob will be saved (default: ``/data/localWD``) |
-| ``app.execution-worker-high.process.tm-proc-stop-s`` | Seconds how long the cleaning of a JobProcessing may take in seconds (default: ``300``) |
-| ``app.execution-worker-high.process.tm-proc-one-task-s`` | Seconds how long one task is allowed to run for in seconds (default: ``600``) |
-| ``app.execution-worker-high.process.tm-proc-all-tasks-s`` | Seconds how long all tasks at sum are allowed to run for in seconds (default: ``7200``) |
-| ``app.execution-worker-high.process.size-batch-upload`` | Number of outputs, that should be uploaded in parallel (default: ``2``) |
-| ``app.execution-worker-high.process.size-batch-download`` | Number of inputs, that should be downloaded in parallel (default: ``10``) |
-| ``app.execution-worker-high.process.wap-nb-max-loop`` | Number of retries when checking if process is active (default: ``12``) |
-| ``app.execution-worker-high.process.wap-tempo-s`` | Seconds how long to wait between each check if process is active (default: ``10``) |
-| ``app.execution-worker-high.process.threshold-ew`` | Threshold for length to determine if a file is a ghost candidate for polarisation EW (default: ``3``) |
-| ``app.execution-worker-high.process.threshold-iw`` | Threshold for length to determine if a file is a ghost candidate for polarisation IW (default: ``3``) |
-| ``app.execution-worker-high.process.threshold-sm`` | Threshold for length to determine if a file is a ghost candidate for polarisation SM (default: ``3``) |
-| ``app.execution-worker-high.process.threshold-wv`` | Threshold for length to determine if a file is a ghost candidate for polarisation WV (default: ``30``) |
-| ``app.execution-worker-high.process.path-job-order-xslt`` | Path to the job order xslt, that will be applied on the given joborder before sending it to the IPF |
-| ``app.execution-worker-high.process.productTypeEstimationEnabled`` | Enables estimated count for outputs  dependent on product types (default: false) |
+| ``app.execution-worker.process.level`` | Process level for the execution worker. Controls level specific logic. For S3 OL1 NTC: ``S3_L1`` |
+| ``app.execution-worker.process.hostname`` | Hostname of the execution worker (default: ``${HOSTNAME}``) |
+| ``app.execution-worker.process.workingDir`` | Working directory for the execution worker. Location where the currently processed AppDataJob will be saved (default: ``/data/localWD``) |
+| ``app.execution-worker.process.tm-proc-stop-s`` | Seconds how long the cleaning of a JobProcessing may take in seconds (default: ``300``) |
+| ``app.execution-worker.process.tm-proc-one-task-s`` | Seconds how long one task is allowed to run for in seconds (default: ``600``) |
+| ``app.execution-worker.process.tm-proc-all-tasks-s`` | Seconds how long all tasks at sum are allowed to run for in seconds (default: ``7200``) |
+| ``app.execution-worker.process.size-batch-upload`` | Number of outputs, that should be uploaded in parallel (default: ``2``) |
+| ``app.execution-worker.process.size-batch-download`` | Number of inputs, that should be downloaded in parallel (default: ``10``) |
+| ``app.execution-worker.process.wap-nb-max-loop`` | Number of retries when checking if process is active (default: ``12``) |
+| ``app.execution-worker.process.wap-tempo-s`` | Seconds how long to wait between each check if process is active (default: ``10``) |
+| ``app.execution-worker.process.threshold-ew`` | Threshold for length to determine if a file is a ghost candidate for polarisation EW (default: ``3``) |
+| ``app.execution-worker.process.threshold-iw`` | Threshold for length to determine if a file is a ghost candidate for polarisation IW (default: ``3``) |
+| ``app.execution-worker.process.threshold-sm`` | Threshold for length to determine if a file is a ghost candidate for polarisation SM (default: ``3``) |
+| ``app.execution-worker.process.threshold-wv`` | Threshold for length to determine if a file is a ghost candidate for polarisation WV (default: ``30``) |
+| ``app.execution-worker.process.path-job-order-xslt`` | Path to the job order xslt, that will be applied on the given joborder before sending it to the IPF |
+| ``app.execution-worker.process.productTypeEstimationEnabled`` | Enables estimated count for outputs  dependent on product types (default: false) |
 
 
 ### Development Configuration
 
 | Property | Details |
 |----------|---------|
-| ``app.execution-worker-high.dev.stepsActivation.download`` | Switch to determine whether or not inputs shall be downloaded (default: ``true``) |
-| ``app.execution-worker-high.dev.stepsActivation.upload`` | Switch to determine whether or not outputs shall be uploaded (default: ``true``) |
-| ``app.execution-worker-high.dev.stepsActivation.erasing`` | Switch to determine whether or not the working directory shall be deleted (default: ``true``) |
+| ``app.execution-worker.dev.stepsActivation.download`` | Switch to determine whether or not inputs shall be downloaded (default: ``true``) |
+| ``app.execution-worker.dev.stepsActivation.upload`` | Switch to determine whether or not outputs shall be uploaded (default: ``true``) |
+| ``app.execution-worker.dev.stepsActivation.erasing`` | Switch to determine whether or not the working directory shall be deleted (default: ``true``) |
 
 
 ## Deployer properties
