@@ -23,17 +23,11 @@ Thus a wrapper was created to provide a ESA Generic ICD compatible interface for
 
 ![overview](./media/overview.png "Overview")
 
-The chain will start from the topic catalog event and watching out for new services there. The message filter will ensure that just EDRS sessions and related auxiliary files are consumed by the chain. All other product types will be discard and no processing occurs. Just if the request is not filtered it will be send to the Preparation worker. Its major task is to ensure that all required products for a production are available. According to the task table of the AIOP it will check if all required auxiliary files can be found in the catalog via the Metadata Search Controller. Additionally it will verify that all required chunks of the session are ingested into the catalog already as well.
+The chain will start from the topic catalog event and watching out for new services there. The message filter will ensure that just EDRS sessions and related auxiliary files are consumed by the chain. All other product types will be discard and no processing occurs. Just if the request is not filtered it will be send to the Preparation worker. Its major task is to ensure that all required products for a production are available. 
 
-If the production is not ready yet the request will be persisted and discarded. Once a new relevant product for the chain arrives, it will check again if all required input products are available. When all suitable products are available the job order will be generated and send to the execution worker. Note that after the Preparation Worker there are three chains available that are gated by a priority filter that allows to split the request regarding their priority on different groups of execution workers. This can be used to priorize certain types of request.
+If the production is not ready yet the request will be persisted and discarded. Once a new relevant product for the chain arrives, it will check again if all required input products are available.
 
-The execution chains does handle three different priorities:
-
-* High
-* Medium
-* Low
-
-These can be used to honour the different requirements on timeliness. Each priority will have a filter that can be configured to determine the priority of the incoming event and decide which priority will be responsible for performing the processing. It is possible to scale the different worker priorities individually as it might be required to spawn more workers for the high priorities than for the lower ones.
+Please note that the S3 RS-Addons are not having priority filter. The different timeliness are handled by RS Addon-ons on its own as configuration and workflows can be different for the timeliness. Thus no priority filter is used. Thus one the preparation worker created a job, the execution worker will consume it and executing the processing. In order to increase the amount of products that can be processed in parallel, please scale up the execution workers to have a higher overall throughtput.
 
 For details, please see [Processing Chain Design](https://github.com/COPRS/reference-system-documentation/blob/develop/components/production%20common/Architecture%20Design%20Document/004%20-%20Software%20Component%20Design.md#processing)
 
@@ -52,7 +46,7 @@ This software does have the following minimal requirements:
 |                             |             |
 
 *These resource requirements are applicable for one worker. There may be many instances of workers, see scaling up workers for more details.
-** This amount had been used in previous operational S1 environment. The disk size might be lower depending on the products that are processed. This needs to be at least twice of the product size of the biggest product. An additional margin of 10% is recommended however.
+** This amount had been used in previous operational environment. The disk size might be lower depending on the products that are processed. This needs to be at least twice of the product size of the biggest product. An additional margin of 10% is recommended however.
 
 ## Additional Resources 
 
@@ -83,14 +77,10 @@ db.sequence.insert({_id: "appDataJob",seq: 0});
 The processing chain is using two different types of filters:
 
 * A filter used as a gate to decide what products shall be processed (``message-filter``)
-* Multiple filters that decides upon the priority of the event (``priority-filter-<high|medium|low>``)
 
 | Property                   				                               | Details       |
 |---------------------------------------------------------------|---------------|
-|``app.message-filter.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression that will be performed on the event to decide if the event is applicable for a compression. E.g. for Sentinel-1 the filter configuration using productFamily and keyObjectStorage name of the product could be like: ``((payload.productFamily == 'EDRS_SESSION') && (payload.missionId == 'S3'))``| 
-|``app.priority-filter-high.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression defining what request are supposed to be handled by the high priority chain. E.g. handling all S1 events with FAST24 timeliness: ``payload.timeliness == 'NRT'``| 
-|``app.priority-filter-medium.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression defining what request are supposed to be handled by the medium priority chain. E.g. handling all S1 events with NRT timeliness. ``payload.timeliness == 'STC'``| 
-|``app.priority-filter-low.filter.function.expression``|  [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression defining what request are supposed to be handled by the low priority chain. E.g. handling all events that are not having a timeliness: ``(payload.timeliness != 'NRT') && (payload.timeliness != 'STC')``| 
+|``app.message-filter.filter.function.expression``| A [SpEL](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html) expression that 
 
 ## Preparation Worker
 
@@ -182,44 +172,38 @@ The Housekeeping service shall have the same configuration as the preparation wo
 
 ## Execution Worker
 
-For each priority chain a separate configuration needs to be created. The configuration is however identically and applicable for:
-
-* app.execution-worker-high
-* app.execution-worker-medium
-* app.execution-worker-low
-
-The following description is just given for high priority workers:
+The Sentinel-3 workflows are not having a priority filter and there is just a single execution worker per chain.
 
 ### Important SCDF Properties
 
 | Property | Details |
 |----------|---------|
-| ``app.execution-worker-high.spring.cloud.stream.kafka.bindings.input.consumer.configuration.max.poll.records`` | Number of records that are pulled in batch when retrieving new messages for the kafka consumer. Tests have shown, that for reliable processing this property shall be set to ``1`` |
-| ``app.execution-worker-high.spring.cloud.stream.kafka.bindings.input.consumer.configuration.max.poll.interval.ms`` | Number of milliseconds how long the processing of one kafka message shall take, before consumer is kicked from consumer group by the kafka broker. This property is very important for the processing of long-running tasks. |
+| ``app.execution-worker.spring.cloud.stream.kafka.bindings.input.consumer.configuration.max.poll.records`` | Number of records that are pulled in batch when retrieving new messages for the kafka consumer. Tests have shown, that for reliable processing this property shall be set to ``1`` |
+| ``app.execution-worker.spring.cloud.stream.kafka.bindings.input.consumer.configuration.max.poll.interval.ms`` | Number of milliseconds how long the processing of one kafka message shall take, before consumer is kicked from consumer group by the kafka broker. This property is very important for the processing of long-running tasks. |
 
 ### Process Configuration
 
 | Property | Details |
 |----------|---------|
-| ``app.execution-worker-high.process.level`` | Process level for the execution worker. Controls level specific logic. For S3 ACQ: ``S3_L0`` |
-| ``app.execution-worker-high.process.hostname`` | Hostname of the execution worker (default: ``${HOSTNAME}``) |
-| ``app.execution-worker-high.process.workingDir`` | Working directory for the execution worker. Location where the currently processed AppDataJob will be saved (default: ``/data/localWD``) |
-| ``app.execution-worker-high.process.tm-proc-stop-s`` | Seconds how long the cleaning of a JobProcessing may take in seconds (default: ``300``) |
-| ``app.execution-worker-high.process.tm-proc-one-task-s`` | Seconds how long one task is allowed to run for in seconds (default: ``600``) |
-| ``app.execution-worker-high.process.tm-proc-all-tasks-s`` | Seconds how long all tasks at sum are allowed to run for in seconds (default: ``7200``) |
-| ``app.execution-worker-high.process.size-batch-upload`` | Number of outputs, that should be uploaded in parallel (default: ``2``) |
-| ``app.execution-worker-high.process.size-batch-download`` | Number of inputs, that should be downloaded in parallel (default: ``10``) |
-| ``app.execution-worker-high.process.wap-nb-max-loop`` | Number of retries when checking if process is active (default: ``12``) |
-| ``app.execution-worker-high.process.wap-tempo-s`` | Seconds how long to wait between each check if process is active (default: ``10``) |
-| ``app.execution-worker-high.process.threshold-ew`` | Threshold for length to determine if a file is a ghost candidate for polarisation EW (default: ``3``) |
-| ``app.execution-worker-high.process.threshold-iw`` | Threshold for length to determine if a file is a ghost candidate for polarisation IW (default: ``3``) |
-| ``app.execution-worker-high.process.threshold-sm`` | Threshold for length to determine if a file is a ghost candidate for polarisation SM (default: ``3``) |
-| ``app.execution-worker-high.process.threshold-wv`` | Threshold for length to determine if a file is a ghost candidate for polarisation WV (default: ``30``) |
-| ``app.execution-worker-high.process.change-isip-to-safe`` | Whether or not to change the extension of the resulting file names to SAFE (default: false) |
-| ``app.execution-worker-high.process.productTypeEstimationEnabled`` | Enables estimated count for outputs  dependent on product types (default: false) |
-| ``app.execution-worker-high.process.productTypeEstimationOutputFamily``| Product Family of output type, e.g. S3_GRNULES for Sentinel-3 ACQ processing or L0_SEGMENT for Sentinel-1 AIOP processing |
-| ``app.execution-worker-high.process.productTypeEstimatedCount.<typX>.regexp``| Regular expression matching the output product type, e.g. OL_0_EFR__G.  The paramter ``count`` is configured to be the count of types matching this regex |
-| ``app.execution-worker-high.process.productTypeEstimatedCount.<typX>.count`` | Number of outputs estimated fot the specified regex |
+| ``app.execution-worker.process.level`` | Process level for the execution worker. Controls level specific logic. For S3 ACQ: ``S3_L0`` |
+| ``app.execution-worker.process.hostname`` | Hostname of the execution worker (default: ``${HOSTNAME}``) |
+| ``app.execution-worker.process.workingDir`` | Working directory for the execution worker. Location where the currently processed AppDataJob will be saved (default: ``/data/localWD``) |
+| ``app.execution-worker.process.tm-proc-stop-s`` | Seconds how long the cleaning of a JobProcessing may take in seconds (default: ``300``) |
+| ``app.execution-workerprocess.tm-proc-one-task-s`` | Seconds how long one task is allowed to run for in seconds (default: ``600``) |
+| ``app.execution-worker.process.tm-proc-all-tasks-s`` | Seconds how long all tasks at sum are allowed to run for in seconds (default: ``7200``) |
+| ``app.execution-worker.process.size-batch-upload`` | Number of outputs, that should be uploaded in parallel (default: ``2``) |
+| ``app.execution-worker.process.size-batch-download`` | Number of inputs, that should be downloaded in parallel (default: ``10``) |
+| ``app.execution-worker.process.wap-nb-max-loop`` | Number of retries when checking if process is active (default: ``12``) |
+| ``app.execution-worker.process.wap-tempo-s`` | Seconds how long to wait between each check if process is active (default: ``10``) |
+| ``app.execution-worker.process.threshold-ew`` | Threshold for length to determine if a file is a ghost candidate for polarisation EW (default: ``3``) |
+| ``app.execution-worker.process.threshold-iw`` | Threshold for length to determine if a file is a ghost candidate for polarisation IW (default: ``3``) |
+| ``app.execution-worker.process.threshold-sm`` | Threshold for length to determine if a file is a ghost candidate for polarisation SM (default: ``3``) |
+| ``app.execution-worker.process.threshold-wv`` | Threshold for length to determine if a file is a ghost candidate for polarisation WV (default: ``30``) |
+| ``app.execution-worker.process.change-isip-to-safe`` | Whether or not to change the extension of the resulting file names to SAFE (default: false) |
+| ``app.execution-worker.process.productTypeEstimationEnabled`` | Enables estimated count for outputs  dependent on product types (default: false) |
+| ``app.execution-worker.process.productTypeEstimationOutputFamily``| Product Family of output type, e.g. S3_GRNULES for Sentinel-3 ACQ processing or L0_SEGMENT for Sentinel-1 AIOP processing |
+| ``app.execution-worker.process.productTypeEstimatedCount.<typX>.regexp``| Regular expression matching the output product type, e.g. OL_0_EFR__G.  The paramter ``count`` is configured to be the count of types matching this regex |
+| ``app.execution-worker.process.productTypeEstimatedCount.<typX>.count`` | Number of outputs estimated fot the specified regex |
 
 
 
@@ -227,9 +211,9 @@ The following description is just given for high priority workers:
 
 | Property | Details |
 |----------|---------|
-| ``app.execution-worker-high.dev.stepsActivation.download`` | Switch to determine whether or not inputs shall be downloaded (default: ``true``) |
-| ``app.execution-worker-high.dev.stepsActivation.upload`` | Switch to determine whether or not outputs shall be uploaded (default: ``true``) |
-| ``app.execution-worker-high.dev.stepsActivation.erasing`` | Switch to determine whether or not the working directory shall be deleted (default: ``true``) |
+| ``app.execution-worker.dev.stepsActivation.download`` | Switch to determine whether or not inputs shall be downloaded (default: ``true``) |
+| ``app.execution-worker.dev.stepsActivation.upload`` | Switch to determine whether or not outputs shall be uploaded (default: ``true``) |
+| ``app.execution-worker.dev.stepsActivation.erasing`` | Switch to determine whether or not the working directory shall be deleted (default: ``true``) |
 
 ## Deployer properties
 
