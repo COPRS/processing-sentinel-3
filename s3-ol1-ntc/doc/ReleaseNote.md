@@ -23,17 +23,9 @@ This add-on contains the configuration for the processing chain of the Sentinel-
 
 The chain will start from the topic catalog event and watching out for new products there. The message filter will ensure that just suitable products for this chain and related auxiliary files are consumed by the chain. All other product types will be discard and no processing occurs. 
 
-Just if the request is not filtered it will be send to the Preparation worker. Its major task is to ensure that all required products for a production are available. According to the task table it will check if all required auxiliary files can be found in the catalog via the Metadata Search Controller. Additionally it will verify that all required chunks of the session are ingested into the catalog already as well.
+If the production is not ready yet the request will be persisted and discarded. Once a new relevant product for the chain arrives, it will check again if all required input products are available.
 
-If the production is not ready yet the request will be persisted and discarded. Once a new relevant product for the chain arrives, it will check again if all required input products are available. When all suitable products are available the job order will be generated and send to the execution worker. Note that after the Preparation Worker there are three chains available that are gated by a priority filter that allows to split the request regarding their priority on different groups of execution workers. This can be used to priorize certain types of request.
-
-The execution chains does handle three different priorities:
-
-* High
-* Medium
-* Low
-
-These can be used to honour the different requirements on timeliness. Each priority will have a filter that can be configured to determine the priority of the incoming event and decide which priority will be responsible for performing the processing. It is possible to scale the different worker priorities individually as it might be required to spawn more workers for the high priorities than for the lower ones.
+Please note that the S3 RS-Addons are not having priority filter. The different timeliness are handled by RS Addon-ons on its own as configuration and workflows can be different for the timeliness. Thus no priority filter is used. Thus one the preparation worker created a job, the execution worker will consume it and executing the processing. In order to increase the amount of products that can be processed in parallel, please scale up the execution workers to have a higher overall throughtput.
 
 For details, please see [Processing Chain Design](https://github.com/COPRS/production-common/blob/develop/docs/architecture/README.md#processing)
 
@@ -52,7 +44,7 @@ This software does have the following minimal requirements:
 |                             |             |
 
 *These resource requirements are applicable for one worker. There may be many instances of workers, see scaling up workers for more details.
-** This amount had been used in previous operational S1 environment. The disk size might be lower depending on the products that are processed. This needs to be at least twice of the product size of the biggest product. An additional margin of 10% is recommended however.
+** This amount had been used in previous operational environment. The disk size might be lower depending on the products that are processed. This needs to be at least twice of the product size of the biggest product. An additional margin of 10% is recommended however.
 
 ## Additional Resources 
 
@@ -169,6 +161,8 @@ The Housekeeping service shall have the same configuration as the preparation wo
 | ``app.time.spring.integration.poller.fixed-rate`` | Configuration how often the housekeeping mechanism should be triggered (how often the Housekeeper should check the database for old jobs and timeout jobs). Default: 60s |
 
 ## Execution Worker
+
+The Sentinel-3 workflows are not having a priority filter and there is just a single execution worker per chain.
 
 ### Important SCDF Properties
 
