@@ -164,13 +164,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>OL_0_EFRINT</File_Type>
+                  <Type>OL_0_EFRINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -288,7 +288,7 @@ data:
                 <Output>
                   <Destination>DB</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>OL_0_EFR___</File_Type>
+                  <Type>OL_0_EFR___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -328,7 +328,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -530,13 +530,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>OL_1_EFRINT</File_Type>
+                  <Type>OL_1_EFRINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -633,7 +633,7 @@ data:
                 <Output>
                   <Destination>DBPROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>OL_1_EFR___</File_Type>
+                  <Type>OL_1_EFR___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -673,7 +673,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -937,13 +937,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>OL_1_ERRINT</File_Type>
+                  <Type>OL_1_ERRINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -1040,7 +1040,7 @@ data:
                 <Output>
                   <Destination>DBPROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>OL_1_ERR___</File_Type>
+                  <Type>OL_1_ERR___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -1080,7 +1080,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -1344,13 +1344,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>OL_2_LFRINT</File_Type>
+                  <Type>OL_2_LFRINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -1447,7 +1447,7 @@ data:
                 <Output>
                   <Destination>DBPROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>OL_2_LFR___</File_Type>
+                  <Type>OL_2_LFR___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -1487,7 +1487,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -1807,13 +1807,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>OL_2_LRRINT</File_Type>
+                  <Type>OL_2_LRRINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -1910,7 +1910,7 @@ data:
                 <Output>
                   <Destination>DBPROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>OL_2_LRR___</File_Type>
+                  <Type>OL_2_LRR___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -1950,7 +1950,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -2237,13 +2237,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SL_0_SLTINT</File_Type>
+                  <Type>SL_0_SLTINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -2361,7 +2361,7 @@ data:
                 <Output>
                   <Destination>DB</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SL_0_SLT___</File_Type>
+                  <Type>SL_0_SLT___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -2401,7 +2401,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -2603,13 +2603,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SL_1_RBTINT</File_Type>
+                  <Type>SL_1_RBTINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -2706,7 +2706,7 @@ data:
                 <Output>
                   <Destination>DBPROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SL_1_RBT___</File_Type>
+                  <Type>SL_1_RBT___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -2746,7 +2746,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -2992,13 +2992,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SL_2_AODINT</File_Type>
+                  <Type>SL_2_AODINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -3095,7 +3095,7 @@ data:
                 <Output>
                   <Destination>DB</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SL_2_AOD___</File_Type>
+                  <Type>SL_2_AOD___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -3135,7 +3135,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -3303,13 +3303,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SL_2_FRPINT</File_Type>
+                  <Type>SL_2_FRPINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -3406,7 +3406,7 @@ data:
                 <Output>
                   <Destination>DB</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SL_2_FRP___</File_Type>
+                  <Type>SL_2_FRP___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -3446,7 +3446,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -3648,13 +3648,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SL_2_LSTINT</File_Type>
+                  <Type>SL_2_LSTINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -3751,7 +3751,7 @@ data:
                 <Output>
                   <Destination>DBPROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SL_2_LST___</File_Type>
+                  <Type>SL_2_LST___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -3791,7 +3791,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -4078,13 +4078,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SR_0_SRAINT</File_Type>
+                  <Type>SR_0_SRAINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -4202,7 +4202,7 @@ data:
                 <Output>
                   <Destination>DB</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SR_0_SRA___</File_Type>
+                  <Type>SR_0_SRA___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -4242,7 +4242,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -4415,13 +4415,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SR_1_SRAINT</File_Type>
+                  <Type>SR_1_SRAINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -4518,7 +4518,7 @@ data:
                 <Output>
                   <Destination>DBPROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SR_1_SRA_A_</File_Type>
+                  <Type>SR_1_SRA_A_</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -4558,7 +4558,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -4731,13 +4731,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SR_1_SRAINT</File_Type>
+                  <Type>SR_1_SRAINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -4834,7 +4834,7 @@ data:
                 <Output>
                   <Destination>DBPROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SR_1_SRA_BS</File_Type>
+                  <Type>SR_1_SRA_BS</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -4874,7 +4874,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -5042,13 +5042,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SR_1_SRAINT</File_Type>
+                  <Type>SR_1_SRAINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -5145,7 +5145,7 @@ data:
                 <Output>
                   <Destination>DB</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SR_1_SRA___</File_Type>
+                  <Type>SR_1_SRA___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -5185,7 +5185,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -5353,13 +5353,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SR_2_LANINT</File_Type>
+                  <Type>SR_2_LANINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -5456,7 +5456,7 @@ data:
                 <Output>
                   <Destination>DB</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SR_2_LAN___</File_Type>
+                  <Type>SR_2_LAN___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -5496,7 +5496,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -5738,13 +5738,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SY_2_AODINT</File_Type>
+                  <Type>SY_2_AODINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -5841,7 +5841,7 @@ data:
                 <Output>
                   <Destination>DBPROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SY_2_AOD___</File_Type>
+                  <Type>SY_2_AOD___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -5881,7 +5881,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -6198,13 +6198,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SY_2_SYNINT</File_Type>
+                  <Type>SY_2_SYNINT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -6301,7 +6301,7 @@ data:
                 <Output>
                   <Destination>DBPROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SY_2_SYN___</File_Type>
+                  <Type>SY_2_SYN___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -6341,7 +6341,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -6653,13 +6653,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SY_2_V10INT</File_Type>
+                  <Type>SY_2_V10INT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -6756,7 +6756,7 @@ data:
                 <Output>
                   <Destination>DBPROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SY_2_V10___</File_Type>
+                  <Type>SY_2_V10___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -6796,7 +6796,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -7108,13 +7108,13 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SY_2_VG1INT</File_Type>
+                  <Type>SY_2_VG1INT</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>PDUStatistics</File_Type>
+                  <Type>PDUStatistics</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -7211,7 +7211,7 @@ data:
                 <Output>
                   <Destination>DBPROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>SY_2_VG1___</File_Type>
+                  <Type>SY_2_VG1___</Type>
                   <File_Name_Type>Directory</File_Name_Type>
                 </Output>
               </List_of_Outputs>
@@ -7251,7 +7251,7 @@ data:
                 <Output>
                   <Destination>PROC</Destination>
                   <Mandatory>Yes</Mandatory>
-                  <File_Type>REPORT</File_Type>
+                  <Type>REPORT</Type>
                   <File_Name_Type>Regexp</File_Name_Type>
                 </Output>
               </List_of_Outputs>
