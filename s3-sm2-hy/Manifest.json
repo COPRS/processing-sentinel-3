@@ -1,0 +1,13 @@
+{
+	"ProcessorID": "s3_sm2_hy",
+	"Version": "<VERSION>",
+	"ReleaseDate": "<RELEASE_DATE>",
+	"Mission": "S3",
+	"Level": [
+		"L2"
+	],
+	"Description": "The RS Addon contains the Sentinel-3 SM2-HY Processing Chain",
+	"ReleaseItems": [
+		<RELEASE_ITEMS>
+	]
+}
