@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: s3-sm2-li-tasktables
+  namespace: processing
+
+data:
+  TaskTable_S3A_SM2_LI.xml: |
+  TaskTable_S3B_SM2_LI.xml: |
