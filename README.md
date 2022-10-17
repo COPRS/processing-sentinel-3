@@ -29,6 +29,9 @@ The following individual processing chains are available:
 * [S3 SL1](./s3-sl1/doc/ReleaseNote.md)
 * [S3 SL2](./s3-sl2/doc/ReleaseNote.md)
 * [S3 SR1](./s3-sr1/doc/ReleaseNote.md)
+* [S3 SM HY](./s3-sm2-hy/doc/ReleaseNote.md)
+* [S3 SM LI](./s3-sm2-li/doc/ReleaseNote.md)
+* [S3 SM SI](./s3-sm2-si/doc/ReleaseNote.md)
 * [S3 PUG](./s3-pug/doc/ReleaseNote.md)
 
 For more information, please consult [https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-3](https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-3)
