@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: s3-sm2-hy-joborderxslt
+  name: s3-sm2-si-joborderxslt
   namespace: processing
 
 data:

@@ -1,9 +1,9 @@
 :arrow_heading_up: Go back to the [Reference System Software repository](https://github.com/COPRS/reference-system-software) :arrow_heading_up:
 
-# RS Add-on - S3 L2 SM2 HY
+# RS Add-on - S3 L2 SM2 SI
 
  
- * [RS Add-on S3 L2 SM2 HY](#rs-add-on---s3-l2-sm2-hy)
+ * [RS Add-on S3 L2 SM2 SI](#rs-add-on---s3-l2-sm2-si)
     * [Overview](#overview)
     * [Requirements](#requirements)
     * [Additional Resources](#additional-resources)
@@ -15,7 +15,7 @@
     * [Deployer Properties](#deployer-properties)
 
 
-This add-on contains the configuration for the processing chain of the Sentinel-3 SM2-HY Processor. It is processing the outputs from the S3 L1 workflow into S3 L2 products.
+This add-on contains the configuration for the processing chain of the Sentinel-3 SM2-SI Processor. It is processing the outputs from the S3 L1 workflow into S3 L2 products.
 
 ## Overview
 
@@ -54,7 +54,7 @@ The config map will be created in kubernetes in the processing namespace and wil
 
 Additionally the chain needs a second configmap ``joborderxslt_configmap.yaml``. This configmap contains an xslt-file to convert the produced JobOrder to be compatible with the Sentinel-3 IPF.
 
-This config map will be created in kubernetes in the processing namespace and will be named ``s3-sm2-hy-joborderxslt``, to be distinguishable from other tasktable configmaps.
+This config map will be created in kubernetes in the processing namespace and will be named ``s3-sm2-si-joborderxslt``, to be distinguishable from other tasktable configmaps.
 
 # Deployment Prerequisite
 
