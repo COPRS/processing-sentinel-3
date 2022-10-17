@@ -5,7 +5,7 @@ metadata:
   namespace: processing
 
 data:
-  TaskTable_S3A_SR1_SRA_07_02.xml: |
+  TaskTable_S3A_SR1_SRA_07_03.xml: |
     <?xml version="1.0" encoding="UTF-8"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="taskTable.xsd">
         <Processor_Name>S3A_SR1</Processor_Name>
@@ -1034,7 +1034,7 @@ data:
     </Ipf_Task_Table>
 
 
-  TaskTable_S3B_SR1_SRA_07_02.xml: |
+  TaskTable_S3B_SR1_SRA_07_03.xml: |
     <?xml version="1.0" encoding="UTF-8"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="taskTable.xsd">
         <Processor_Name>S3B_SR1</Processor_Name>
