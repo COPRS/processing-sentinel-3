@@ -475,8 +475,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>0</T0>
                       <T1>10800.0</T1>
                       <minResults>1</minResults>
@@ -493,8 +492,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>0</T0>
                       <T1>10800.0</T1>
                       <minResults>1</minResults>
@@ -511,8 +509,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>0</T0>
                       <T1>10800.0</T1>
                       <minResults>1</minResults>
@@ -529,8 +526,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>0</T0>
                       <T1>10800.0</T1>
                       <minResults>1</minResults>
@@ -547,8 +543,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>0</T0>
                       <T1>10800.0</T1>
                       <minResults>1</minResults>
@@ -565,8 +560,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>0</T0>
                       <T1>10800.0</T1>
                       <minResults>1</minResults>
@@ -616,8 +610,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>50.0</T0>
                       <T1>50.0</T1>
                       <minResults>1</minResults>
@@ -634,8 +627,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>50.0</T0>
                       <T1>50.0</T1>
                       <minResults>1</minResults>
@@ -652,8 +644,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>50.0</T0>
                       <T1>50.0</T1>
                       <minResults>1</minResults>
@@ -1980,7 +1971,7 @@ data:
           </List_of_Tasks>
         </Pool>
       </List_of_Pools>
-    </Ipf_Task_Table>  
+    </Ipf_Task_Table>
   TaskTable_S3B_SM2_HY.xml: |
     <?xml version="1.0" encoding="UTF-8"?>
     <Ipf_Task_Table
@@ -2451,8 +2442,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>0</T0>
                       <T1>10800.0</T1>
                       <minResults>1</minResults>
@@ -2469,8 +2459,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>0</T0>
                       <T1>10800.0</T1>
                       <minResults>1</minResults>
@@ -2487,8 +2476,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>0</T0>
                       <T1>10800.0</T1>
                       <minResults>1</minResults>
@@ -2505,8 +2493,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>0</T0>
                       <T1>10800.0</T1>
                       <minResults>1</minResults>
@@ -2523,8 +2510,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>0</T0>
                       <T1>10800.0</T1>
                       <minResults>1</minResults>
@@ -2541,8 +2527,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>0</T0>
                       <T1>10800.0</T1>
                       <minResults>1</minResults>
@@ -2592,8 +2577,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>50.0</T0>
                       <T1>50.0</T1>
                       <minResults>1</minResults>
@@ -2610,8 +2594,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>50.0</T0>
                       <T1>50.0</T1>
                       <minResults>1</minResults>
@@ -2628,8 +2611,7 @@ data:
                     <Alternative>
                       <Order>1</Order>
                       <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersectWithoutDuplicates
-                      </Retrieval_Mode>
+                      <Retrieval_Mode>ValIntersectWithoutDuplicates</Retrieval_Mode>
                       <T0>50.0</T0>
                       <T1>50.0</T1>
                       <minResults>1</minResults>
