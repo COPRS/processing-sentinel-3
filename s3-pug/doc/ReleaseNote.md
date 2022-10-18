@@ -46,6 +46,44 @@ This software does have the following minimal requirements:
 *These resource requirements are applicable for one worker. There may be many instances of workers, see scaling up workers for more details.
 ** This amount had been used in previous operational environment. The disk size might be lower depending on the products that are processed. This needs to be at least twice of the product size of the biggest product. An additional margin of 10% is recommended however.
 
+## Known limitations
+
+The original tasktables extracted from the PUG CFI are not in the format that is expected by the COPRS software. Thus the tasktables had been altered manually to be in line with the expectation.
+
+Please keep this in mind when using a new version of the PUG CFI. It is required to change the element `<file_type>` to "`<type>` for outputs types. E.g. change the following finding:
+
+```
+			   <Output>
+                  <Destination>PROC</Destination>
+                  <Mandatory>Yes</Mandatory>
+                  <File_Type>OL_0_EFRINT</File_Type>
+                  <File_Name_Type>Directory</File_Name_Type>
+                </Output>
+                <Output>
+                  <Destination>PROC</Destination>
+                  <Mandatory>Yes</Mandatory>
+                  <File_Type>PDUStatistics</File_Type>
+                  <File_Name_Type>Directory</File_Name_Type>
+                </Output>
+```
+   
+to:
+
+```
+                <Output>
+                  <Destination>PROC</Destination>
+                  <Mandatory>Yes</Mandatory>
+                  <Type>OL_0_EFRINT</Type>
+                  <File_Name_Type>Directory</File_Name_Type>
+                </Output>
+                <Output>
+                  <Destination>PROC</Destination>
+                  <Mandatory>Yes</Mandatory>
+                  <Type>PDUStatistics</Type>
+                  <File_Name_Type>Directory</File_Name_Type>
+                </Output>
+```
+
 ## Additional Resources 
 
 The preparation worker needs the task table for the IPF wrapped inside of the execution worker. To provide the preparation worker with the needed task table, a configmap will be created by the deployment script based on the file ``tasktable_configmap.yaml``. The resulting configmap contains the task tables needed for the S3 PUG preparation worker, in order to create compatible job orders. 
