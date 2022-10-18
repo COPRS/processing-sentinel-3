@@ -1019,7 +1019,7 @@ data:
                             </Output>
                             <Output>
                                 <Destination>DB</Destination>
-                                <Mandatory>No</Mandatory>
+                                <Mandatory>Yes</Mandatory>
                                 <Type>SR_1_SRA_A_</Type>
                                 <File_Name_Type>Directory</File_Name_Type>
                             </Output>
@@ -2048,7 +2048,7 @@ data:
                             </Output>
                             <Output>
                                 <Destination>DB</Destination>
-                                <Mandatory>No</Mandatory>
+                                <Mandatory>Yes</Mandatory>
                                 <Type>SR_1_SRA_A_</Type>
                                 <File_Name_Type>Directory</File_Name_Type>
                             </Output>
