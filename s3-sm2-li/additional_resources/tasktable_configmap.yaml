@@ -5,7 +5,7 @@ metadata:
   namespace: processing
 
 data:
-  TaskTable_S3A_SM2_LI.xml: |
+  TaskTable_S3A_SM2_LI_07_02.xml: |
     <?xml version="1.0" encoding="UTF-8"?>
     <Ipf_Task_Table
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -1972,7 +1972,7 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_SM2_LI.xml: |
+  TaskTable_S3B_SM2_LI_07_02.xml: |
     <?xml version="1.0" encoding="UTF-8"?>
     <Ipf_Task_Table
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
