@@ -50,7 +50,7 @@ This software does have the following minimal requirements:
 
 The preparation worker needs the task table for the IPF wrapped inside of the execution worker. To provide the preparation worker with the needed task table, a configmap will be created by the deployment script based on the file ``tasktable_configmap.yaml``. The resulting configmap contains the task table needed for the preparation worker, in order to create compatible job orders. 
 
-The config map will be created in kubernetes in the processing namespace and will be named ``s3-l0p-tasktables``, to be distinguishable from other tasktable configmaps.
+The config map will be created in kubernetes in the processing namespace and will be named ``s3-sr1-tasktables``, to be distinguishable from other tasktable configmaps.
 
 Additionally the chain needs a second configmap ``joborderxslt_configmap.yaml``. This configmap contains an xslt-file to convert the produced JobOrder to be compatible with the Sentinel-3 IPF.
 
