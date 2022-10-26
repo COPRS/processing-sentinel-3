@@ -160,6 +160,27 @@ The Housekeeping service shall have the same configuration as the preparation wo
 | ``app.housekeep.worker.maxAgeJobMs`` | List of timeouts, when to delete old jobs from the system. Timeout is configured in milliseconds and seperately for each of the possible AppDataJobState: ``waiting``, ``dispatching``, ``generating``, ``terminated``. The most important ones to configure are ``generating`` and ``terminated``. Default: 604800000 (7 days) |
 | ``app.time.spring.integration.poller.fixed-rate`` | Configuration how often the housekeeping mechanism should be triggered (how often the Housekeeper should check the database for old jobs and timeout jobs). Default: 60s |
 
+## Cronbased-Trigger
+
+The Cronbased-Trigger service is responsible to check the MetadataSearchController if there are any new products generated since the last execution. This application has a configurable cron expression to adjust the load on the system by adjusting the timings the STC and NTC workflows are performed. 
+
+| Property | Details |
+|----------|---------|
+| ``app.trigger.spring.cloud.stream.function.bindings.cronbasedTrigger-in-0`` | Has to be set to the value ``input`` |
+| ``app.trigger.spring.cloud.stream.function.bindings.cronbasedTrigger-out-0`` | Has to be set to the value ``output`` |
+| ``app.trigger.spring.cloud.stream.function.definition`` | Has to be set to the value ``cronbasedTrigger`` |
+| ``app.trigger.mongodb.host`` | Host for the MongoDB Connection. Default: ``mongodb-0.mongodb-headless.database.svc.cluster.local`` |
+| ``app.trigger.mongodb.port`` | Port for the MongoDB Connection. Default: ``27017`` |
+| ``app.trigger.mongodb.database`` | Database to use for the MongoDB Connection. Default: ``coprs`` |
+| ``app.trigger.mongodb.username`` | Username for the MongoDB Connection. Default: ``${MONGO_USERNAME}`` |
+| ``app.trigger.mongodb.password`` | Password for the MongoDB Connection. Default: ``${MONGO_PASSWORD}`` |
+| ``app.trigger.metadata.metadataHostname`` | Hostname and Port for the MetadataSearchController. Default: ``rs-metadata-catalog-searchcontroller-svc:8080`` |
+| ``app.trigger.metadata.nbretry`` | Retries performed while querying the MetadataSearchController. Default: ``3`` |
+| ``app.trigger.metadata.temporetryms`` | Timeout between Retries while queryable. Default: ``1000`` |
+| ``app.trigger.trigger.config.<productType>.cron`` |  Default: ``0 */15 * * * *`` |
+| ``app.trigger.trigger.config.<productType>.family`` | Default: ``S3_PUG`` |
+| ``app.trigger.trigger.config.<productType>.satelliteIds`` | Default: ``A,B`` |
+
 ## Execution Worker
 
 The Sentinel-3 workflows are not having a priority filter and there is just a single execution worker per chain.
