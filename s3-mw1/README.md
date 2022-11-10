@@ -4,4 +4,4 @@
 
 This chain contains the configuration for the processing chain of the Sentinel-3 MW1 Processor.
 
-For more information please refer to the [Software Release Notes](./doc/SRN.md).
+For more information please refer to the [Software Release Notes](./doc/ReleaseNote.md).
