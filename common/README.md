@@ -13,19 +13,24 @@ Each RS Add-on just uses a specific configuration of these generic components. T
 Following components of the COPRS shall be installed and running
 - [COPRS Infrastructure](https://github.com/COPRS/infrastructure)
 OBS Buckets, Kubernetes Secrets and ES indices shall be created.
-- See [COPRS OBS Bucket](/processing-common/doc/buckets.md)
-- See [COPRS Kubernetes Secret](/processing-common/doc/secrets.md)
-- See [COPRS Search Controller)(/rs-processing-common)
+- See [COPRS OBS Bucket](https://github.com/COPRS/production-common/blob/main/processing-common/doc/buckets.md)
+- See [COPRS Kubernetes Secret](https://github.com/COPRS/production-common/blob/main/processing-common/doc/secret.md)
+- See [COPRS Search Controller)(https://github.com/COPRS/production-common/tree/main/rs-processing-common)
 
-The RS Add-ons are also having the component Preparation worker that is persisting existing jobs that are not ready to run (e.g. missing inputs). In order to work correctly it will require MongoDB as persistence layer. For further general information regarding the creation of a secret for the  MongoDB instance, please see [COPRS MongoDB](/processing-common/doc/secrets.md)
+The RS Add-ons are also having the component Preparation worker that is persisting existing jobs that are not ready to run (e.g. missing inputs). In order to work correctly it will require MongoDB as persistence layer. For further general information regarding the creation of a secret for the  MongoDB instance, please see [COPRS MongoDB](https://github.com/COPRS/production-common/blob/main/processing-common/doc/secrets.md)
 
 The default configuration provided in the RS Core Component is expecting a secret "mongopreparation" in the namespace "processing" containing a field for PASSWORD and USERNAME that can be used in order to authenticate at the MongoDB.
 
 Please note that further initialization might be required. For the Preparation worker component please execute the following commands in the MongoDB in order to create the credentials for the secret:
-``
+
+```
 db.createUser({user: "<USER>", pwd: "<PASSWORD>", roles: [{ role: "readWrite", db: "coprs" }]})
 db.sequence.insert({_id: "appDataJob",seq: 0});
-``
+db.appDataJob.createIndex({"_id":1, "generation.taskTable":1}) 
+db.appDataJob.createIndex({"state":1, "generation.state":1, "generation.taskTable":1})
+```
+
+Be aware that also the creation of the indices are very important to ensure that the queries on the Mongo database are fast even if lots of requests are within the system.
 
 ## Configuration Parameters
 
