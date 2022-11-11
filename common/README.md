@@ -78,6 +78,18 @@ Please note that the preparation worker is a generic component and thus some par
 | ``app.preparation-worker.mongodb.username`` | Username to query and update documents in the MongoDB (default: ``${MONGO_USERNAME}``, Environment variable extracted from the secret ``mongoprepration``) |
 | ``app.preparation-worker.mongodb.password`` | Password for the user to query and update documents in the MongoDB (default: ``${MONGO_PASSWORD}``, Environment variable extracted from the secret ``mongoprepration``) |
 
+##### Prometheus Metrics Configuration
+
+The preparation-worker application exposes a Gauge metric ``rs_pending_processing_job`` on the ``actuator/prometheus`` endpoint (if activated).
+This metric includes some tags in order to differenciate the different preparation-worker metrics from another.
+This configuration section includes the values for the different tags.
+
+| Property | Details |
+|----------|---------|
+| ``app.preparation-worker.metrics.mission`` | Value for the tag ``mission`` |
+| ``app.preparation-worker.metrics.level`` | Value for the tag ``level`` |
+| ``app.preparation-worker.metrics.addonName`` | Value for the tag ``addonName`` |
+
 ##### Metadata Search Controller Connection
 
 | Property | Details |
