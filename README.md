@@ -20,10 +20,12 @@ The S3 ACQ wrapper contains the IPFs DDC, L0Pre and L0Post processor as a single
 
  ## Available RS Addons
  
-The following individual processing chains are available:
+The following individual NRT processing chains are available:
 * [S3 ACQ](./s3-acq/doc/ReleaseNote.md)
 * [S3 L0P](./s3-l0p/doc/ReleaseNote.md)
 * [S3 OL1](./s3-ol1/doc/ReleaseNote.md)
+* [S3 OL1 RAC](./s3-ol1-rac/doc/ReleaseNote.md)
+* [S3 OL1 SPC](./s3-ol1-spc/doc/ReleaseNote.md)
 * [S3 OL2](./s3-ol2/doc/ReleaseNote.md)
 * [S3 MW1](./s3-mw1/doc/ReleaseNote.md)
 * [S3 SL1](./s3-sl1/doc/ReleaseNote.md)
@@ -33,6 +35,10 @@ The following individual processing chains are available:
 * [S3 SM LI](./s3-sm2-li/doc/ReleaseNote.md)
 * [S3 SM SI](./s3-sm2-si/doc/ReleaseNote.md)
 * [S3 PUG](./s3-pug/doc/ReleaseNote.md)
+
+The following individual NTC/STC processing chains are available:
+* [S3 OL1 NTC](./s3-ol1-ntc/doc/ReleaseNote.md)
+* [S3 SY2 NTC](./s3-sy2-ntc/doc/ReleaseNote.md)
 
 For more information, please consult [https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-3](https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-3)
 

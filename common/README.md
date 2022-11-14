@@ -97,6 +97,7 @@ This configuration section includes the values for the different tags.
 | ``app.preparation-worker.metadata.metadataHostname`` | Hostname and port to connect to the search controller (default: ``rs-metadata-catalog-searchcontroller-svc:8080``) |
 | ``app.preparation-worker.metadata.nbretry`` | Number of retries, when a query fails (default: ``3``) |
 | ``app.preparation-worker.metadata.temporetryms`` | Timeout between retries in milliseconds (default: ``1000``) |
+| ``app.preparation-worker.metadata.valintersectnoduplicatesworkaround`` | Allows to activate the workaround for the selection policy ValIntersectWithoutDuplicates that will replace it with ValIntersect during the startup. By default this is deactivated (default: ``false``) |
 
 ##### Process Configuration 
 
