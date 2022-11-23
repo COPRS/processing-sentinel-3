@@ -36,7 +36,7 @@ The following individual NRT processing chains are available:
 * [S3 SM SI](./s3-sm2-si/doc/ReleaseNote.md)
 * [S3 PUG](./s3-pug/doc/ReleaseNote.md)
 
-![overview](./media/rs_addons_s3_stc_overview.png "NTC Overview")
+![overview](./media/rs_addons_s3_ntc_overview.png "NTC Overview")
 
 The following individual NTC/STC processing chains are available:
 * [S3 OL1 NTC](./s3-ol1-ntc/doc/ReleaseNote.md)
