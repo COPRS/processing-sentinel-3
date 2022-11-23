@@ -19,11 +19,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- RS-659: S3_L0ACQ Remove priority filters
+- N/A
 
 ### Removed
 
-- N/A
+- RS-659: S3_L0ACQ Remove priority filters
+
 
 ## [1.7.0-rc1] - 2022-10-26
 
