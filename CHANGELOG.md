@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.0-rc1] - 2022-11-23
+
+### Added
+
+- RS-581: Create S3_SY2_NTC processor as RS add-on
+- RS-585: Create S3_SY2_AOD_NTC processor as RS add-on
+- RS-587: Perform E2E test with NTC OLCI workflow
+- RS-604: Create S3_SL2_FRP (NRT) processor as RS-add-on
+- RS-642: Centralized documentation of parameters used within RS add-ons
+- RS-670: Create S3_OL1_RAC (NRT) processor as RS add-on
+- RS-693: Create S3_OL1_SPC (NRT) processor as RS add-on
+
+
+### Changed
+
+- RS-659: S3_L0ACQ Remove priority filters
+
+### Removed
+
+- N/A
+
 ## [1.7.0-rc1] - 2022-10-26
 
 ### Added
