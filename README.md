@@ -16,7 +16,7 @@ Within this repository you can find the RS Add-ons the for the Sentinel-3 missio
 
 The following figure provides an overview about how the different RS Add-ons are chained into each other when all are deployed:
  
- ![overview](./media/rs_addons_s3_overview.png "Overview")
+ ![overview](./docs/media/rs_addons_s3_overview.png "Overview")
 
 The S3 ACQ wrapper contains the IPFs DDC, L0Pre and L0Post processor as a single step and will process EDRS Sessions into S3 granules. These granules are processed by the L0P processor into S3 L0 products.
  
@@ -36,7 +36,7 @@ The following individual NRT processing chains are available:
 * [S3 SM SI](./s3-sm2-si/doc/ReleaseNote.md)
 * [S3 PUG](./s3-pug/doc/ReleaseNote.md)
 
-![overview](./media/rs_addons_s3_ntc_overview.png "NTC Overview")
+![overview](./docs/media/rs_addons_s3_ntc_overview.png "NTC Overview")
 
 The following individual NTC/STC processing chains are available:
 * [S3 OL1 NTC](./s3-ol1-ntc/doc/ReleaseNote.md)

@@ -53,10 +53,10 @@ This config map will be created in kubernetes in the processing namespace and wi
 
 ## Deployment Prerequisite
 
-In order to operate this RS add-on there are some dependencies that needs to be deployed beforehand. For additional information, please consult the [common configuration](/common/README.md#deployment-prerequisite).
+In order to operate this RS add-on there are some dependencies that needs to be deployed beforehand. For additional information, please consult the [common configuration](/docs/common/README.md#deployment-prerequisite).
 
 ## Configuration
 
-The RS add-on is using a set of generic microservices from the RS Core. The configuration of these configuration parameters are not given within this document, but can be found in the [common documentation](/common/README.md) that is applicable for all RS add-ons.
+The RS add-on is using a set of generic microservices from the RS Core. The configuration of these configuration parameters are not given within this document, but can be found in the [common documentation](/docs/common/README.md) that is applicable for all RS add-ons.
 
-Workflows based on S3 STC or NTC are not triggered systematically, but by using a cron based trigger mechanism that will periodically scan for products since the last time they run. For each identified consolidated product a new job is created. Check out the configuration for the [Cronbased-Trigger](/common/README.md#cronbased-trigger) for more details.
+Workflows based on S3 STC or NTC are not triggered systematically, but by using a cron based trigger mechanism that will periodically scan for products since the last time they run. For each identified consolidated product a new job is created. Check out the configuration for the [Cronbased-Trigger](/docs/common/README.md#cronbased-trigger) for more details.

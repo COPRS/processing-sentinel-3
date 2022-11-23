@@ -52,10 +52,10 @@ This config map will be created in kubernetes in the processing namespace and wi
 
 ## Deployment Prerequisite
 
-In order to operate this RS add-on there are some dependencies that needs to be deployed beforehand. For additional information, please consult the [common configuration](/common/README.md#deployment-prerequisite).
+In order to operate this RS add-on there are some dependencies that needs to be deployed beforehand. For additional information, please consult the [common configuration](/docs/common/README.md#deployment-prerequisite).
 
 ## Configuration
 
-The RS add-on is using a set of generic microservices from the RS Core. The configuration of these configuration parameters are not given within this document, but can be found in the [common documentation](/common/README.md) that is applicable for all RS add-ons.
+The RS add-on is using a set of generic microservices from the RS Core. The configuration of these configuration parameters are not given within this document, but can be found in the [common documentation](/docs/common/README.md) that is applicable for all RS add-ons.
 
 There are no specific configurations existing for this RS add-on.

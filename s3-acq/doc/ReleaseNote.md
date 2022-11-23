@@ -52,6 +52,6 @@ The config map will be created in kubernetes in the processing namespace and wil
 
 ## Configuration
 
-The RS add-on is using a set of generic microservices from the RS Core. The configuration of these configuration parameters are not given within this document, but can be found in the [common documentation](/common/README.md) that is applicable for all RS add-ons.
+The RS add-on is using a set of generic microservices from the RS Core. The configuration of these configuration parameters are not given within this document, but can be found in the [common documentation](/docs/common/README.md) that is applicable for all RS add-ons.
 
 There are no specific configurations existing for this RS add-on.
