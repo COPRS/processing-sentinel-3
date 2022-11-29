@@ -40,6 +40,7 @@ The following individual NRT processing chains are available:
 
 The following individual NTC/STC processing chains are available:
 * [S3 OL1 NTC](./s3-ol1-ntc/doc/ReleaseNote.md)
+* [S3 SL1 NTC](./s3-sl1-ntc/doc/ReleaseNote.md)
 * [S3 SY2 NTC](./s3-sy2-ntc/doc/ReleaseNote.md)
 * [S3 SY2_AOD NTC](./s3-sy2-aod-ntc/doc/ReleaseNote.md)
 
@@ -165,6 +166,13 @@ ansible-playbook deploy-rs-addon.yaml \
     -i inventory/mycluster/hosts.ini \
     -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-OL1-NTC_<VERSION>.zip \
     -e stream_name=S3_OL1_NTC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SL1-NTC_<VERSION>.zip \
+    -e stream_name=S3_SL1_NTC
 ```
 
 ```
