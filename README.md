@@ -46,6 +46,7 @@ The following individual NTC/STC processing chains are available:
 * [S3 SY2 NTC](./s3-sy2-ntc/doc/ReleaseNote.md)
 * [S3 SY2_AOD NTC](./s3-sy2-aod-ntc/doc/ReleaseNote.md)
 * [S3 SY2_VGS NTC](./s3-sy2-vgs-ntc/doc/ReleaseNote.md)
+* [S3 PUG NTC](./s3-pug-ntc/doc/ReleaseNote.md)
 
 For more information, please consult [https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-3](https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-3)
 
@@ -220,6 +221,13 @@ ansible-playbook deploy-rs-addon.yaml \
     -i inventory/mycluster/hosts.ini \
     -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-PUG_<VERSION>.zip \
     -e stream_name=S3_PUG
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-PUG-NTC_<VERSION>.zip \
+    -e stream_name=S3_PUG_NTC
 ```
 
 For further information on using the deployment script, please consult its [manual](https://github.com/COPRS/infrastructure/blob/e642b4e78782b3e5d649570e4a72b27cb42efeed/doc/how-to/RS%20Add-on%20-%20RS%20Core.md).
