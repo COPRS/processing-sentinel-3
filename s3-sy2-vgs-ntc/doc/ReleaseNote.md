@@ -10,7 +10,7 @@
     * [Deployment Prerequisite](#deployment-prerequisite)
 
 
-This add-on contains the configuration for the processing chain of the Sentinel-3 SY2 VGS NTC Processor. It is processing the outputs from the S3 L1 workflow (OL1 and SL1) into S3 L2 products.
+This add-on contains the configuration for the processing chain of the Sentinel-3 SY2 VGS NTC Processor. It is processing the outputs from the S3 SY2 workflow into S3 SY2 VGS products.
 
 ## Overview
 
