@@ -41,8 +41,11 @@ The following individual NRT processing chains are available:
 The following individual NTC/STC processing chains are available:
 * [S3 OL1 NTC](./s3-ol1-ntc/doc/ReleaseNote.md)
 * [S3 SL1 NTC](./s3-sl1-ntc/doc/ReleaseNote.md)
+* [S3 SL2 NTC](./s3-sl2-ntc/doc/ReleaseNote.md)
+* [S3 SR1 NTC](./s3-sr1-ntc/doc/ReleaseNote.md)
 * [S3 SY2 NTC](./s3-sy2-ntc/doc/ReleaseNote.md)
 * [S3 SY2_AOD NTC](./s3-sy2-aod-ntc/doc/ReleaseNote.md)
+* [S3 SY2_VGS NTC](./s3-sy2-vgs-ntc/doc/ReleaseNote.md)
 
 For more information, please consult [https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-3](https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-3)
 
