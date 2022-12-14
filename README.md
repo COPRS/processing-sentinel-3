@@ -181,8 +181,29 @@ ansible-playbook deploy-rs-addon.yaml \
 ```
 ansible-playbook deploy-rs-addon.yaml \
     -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SL2-NTC_<VERSION>.zip \
+    -e stream_name=S3_SL2_NTC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SR1-NTC_<VERSION>.zip \
+    -e stream_name=S3_SR1_NTC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
     -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SY2-NTC_<VERSION>.zip \
     -e stream_name=S3_SY2_NTC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SY2-VGS-NTC_<VERSION>.zip \
+    -e stream_name=S3_SY2-VGS_NTC
 ```
 
 ```
