@@ -151,6 +151,46 @@ This configuration section includes the values for the different tags.
 | ``app.preparation-worker.aiop.nrt-output-path`` | Value for dynamic processing parameter ``NRTOutputPath`` (default: ``/data/localWD/%WORKING_DIR_NUMBER%/NRT``). ``%WORKING_DIR_NUMER%`` will be replaced by the actual working directory number for the JobOrder |
 | ``app.preparation-worker.aiop.pt-output-path`` | Value for dynamic processing parameter ``PTOutputPath`` (default: ``/data/localWD/%WORKING_DIR_NUMBER%/PT``). ``%WORKING_DIR_NUMER%`` will be replaced by the actual working directory number for the JobOrder |
 
+#### ASP Configuration
+
+| Property | Details |
+|----------|---------|
+| ``app.preparation-worker.l0asp.waiting-time-hours-minimal-fast`` | Timeout configuration. Currently not used. Jobs shall at longest wait for the maximum of sensingStopTime + nominal and jobCreationTime + minimal (default: ``1``) |
+| ``app.preparation-worker.l0asp.waiting-time-hours-nominal-fast`` | Timeout configuration. Currently not used. Jobs shall at longest wait for the maximum of sensingStopTime + nominal and jobCreationTime + minimal (default: ``36``) |
+| ``app.preparation-worker.l0asp.waiting-time-hours-minimal-nrt-pt`` | Timeout configuration. Currently not used. Jobs shall at longest wait for the maximum of sensingStopTime + nominal and jobCreationTime + minimal (default: ``1``) |
+| ``app.preparation-worker.l0asp.waiting-time-hours-nominal-nrt-pt`` | Timeout configuration. Currently not used. Jobs shall at longest wait for the maximum of sensingStopTime + nominal and jobCreationTime + minimal (default: ``36``) |
+
+#### S3TypeAdapter Configuration
+
+| Property | Details |
+|----------|---------|
+| ``app.preparation-worker.s3-type-adapter.mpc-search.<product_type>.product-types`` | List of Product Types to apply the MultipleProductCoverSearch Extension for Sentinel-3 on |
+| ``app.preparation-worker.s3-type-adapter.mpc-search.<product_type>.gap-threshold`` | Threshhold in seconds, defining when a gap is big enough to be recognized as a gap and therefor signaling, that the currently found products are not enough to cover the interval |
+| ``app.preparation-worker.s3-type-adapter.mpc-search.<product_type>.disable-first-last-waiting`` | Boolean flag to diable the waiting mechanism on the first and last granule of an orbit. |
+| ``app.preparation-worker.s3-type-adapter.range-search.<product_type>.product-type`` | Product Type to perform the RangeCover logic on. Ths logic is currently only used for the VISCAL product. |
+| ``app.preparation-worker.s3-type-adapter.range-search.<product_type>.anx-offset-in-s`` | Offset in seconds regarding the ANX time of the orbit to calculate bounds for product |
+| ``app.preparation-worker.s3-type-adapter.range-search.<product_type>.range-length-in-s`` | Length of the interval in seconds |
+| ``app.preparation-worker.s3-type-adapter.olci-calibration`` | List of processors on which the OLCI Calibration logic shall be executed |
+| ``app.preparation-worker.s3-type-adapter.dyn-proc-params`` | Map of static key value pairs, that should be added to JobOrder |
+| ``app.preparation-worker.s3-type-adapter.optional-outputs.<product_type>`` | List of optional outputs of tasktable, that shall be produced. |
+
+#### PUG Configuration
+
+| Property | Details |
+|----------|---------|
+| ``app.preparation-worker.pdu.config.<product_type>.type`` | Type of the PDU for the given product type. Default: FRAME. Allowed values: FRAME, STRIPE, TILE |
+| ``app.preparation-worker.pdu.config.<product_type>.reference`` | Reference point for length and offset for PDU generation. Default: ORBIT. Allowed values: DUMP, ORBIT |
+| ``app.preparation-worker.pdu.config.<product_type>.length-in-s`` | Length of PDUs to be created. Double value. |
+| ``app.preparation-worker.pdu.config.<product_type>.offset-in-s`` | Offset of the start from the reference point. Double value |
+| ``app.preparation-worker.pdu.config.<product_type>.gap-threshhold-in-s`` | Thresshold for the gap handler to determine if two products are handled as continuous |
+| ``app.preparation-worker.pdu.config.<product_type>.dyn-proc-params`` | Map of static values for the dynamic processing parameters on the job order |
+
+#### S3Synergy Configuration
+
+| Property | Details |
+|----------|---------|
+| ``app.preparation-worker.s3-synergy.dyn-proc-params`` | Map of static values for the dynamic processing parameters on the job order |
+
 ### Housekeeping
 
 The Housekeeping service does have the same configuration as the Preparation Worker, in order for timeout jobs to be correctly composed. In order for the housekeeping mechanism to function properly the following properties have to be set additionally:
