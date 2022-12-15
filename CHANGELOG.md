@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.0-rc1] - 2022-12-15
+
+### Added
+
+- RS-583: Adding RS-addon SY2_VGS_NTC 
+- RS-673: Adding RS-addon SL2 NTC
+- RS-674: Adding RS-addon SR1 NTC
+- RS-696: Adding RS-addon SL1 NTC
+
+
+### Changed
+
+- RS-712: A hotfix was applied that tries to improve performance for L0P by filtering out terminated jobs
+- RS-766: Updated tasktable for l0p as it was not in line with the latest IPF version
+
+### Removed
+
+- N/A
+
+
 ## [1.8.0-rc1] - 2022-11-23
 
 ### Added
