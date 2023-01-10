@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: s3-pug-ntc-tasktables
+  name: s3-pug-stc-tasktables
   namespace: processing
 
 data:

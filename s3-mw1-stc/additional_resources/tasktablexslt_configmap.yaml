@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: s3-pug-stc-tasktablexslt
+  name: s3-mw1-stc-tasktablexslt
   namespace: processing
 
 data:
