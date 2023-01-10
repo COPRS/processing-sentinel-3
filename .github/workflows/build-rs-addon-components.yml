@@ -23,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        component: [s3-pug, s3-pug-ntc, s3-pug-stc, s3-l0p, s3-acq, s3-ol1, s3-ol1-ntc, s3-ol2, s3-ol2-ntc, s3-sl1, s3-sl1-ntc, s3-sl2, s3-sl2-ntc, s3-sl2-frp, s3-sl2-frp-ntc, s3-sr1, s3-sr1-ntc, s3-mw1, s3-mw1-ntc, s3-mw1-stc, s3-ol1-spc, s3-ol1-rac, s3-sm2-hy, s3-sm2-li, s3-sm2-si, s3-sy2-ntc, s3-sy2-aod-ntc, s3-sy2-vgs-ntc]
+        component: [s3-pug, s3-pug-ntc, s3-pug-stc, s3-l0p, s3-acq, s3-ol1, s3-ol1-ntc, s3-ol2, s3-ol2-ntc, s3-sl1, s3-sl1-ntc, s3-sl2, s3-sl2-ntc, s3-sl2-frp, s3-sl2-frp-ntc, s3-sr1, s3-sr1-ntc, s3-sr1-stc, s3-mw1, s3-mw1-ntc, s3-mw1-stc, s3-ol1-spc, s3-ol1-rac, s3-sm2-hy, s3-sm2-li, s3-sm2-si, s3-sy2-ntc, s3-sy2-aod-ntc, s3-sy2-vgs-ntc]
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-core-components
