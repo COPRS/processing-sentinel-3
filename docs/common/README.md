@@ -218,6 +218,7 @@ The Cronbased-Trigger service is responsible to check the MetadataSearchControll
 | ``app.trigger.metadata.metadataHostname`` | Hostname and Port for the MetadataSearchController. Default: ``rs-metadata-catalog-searchcontroller-svc:8080`` |
 | ``app.trigger.metadata.nbretry`` | Retries performed while querying the MetadataSearchController. Default: ``3`` |
 | ``app.trigger.metadata.temporetryms`` | Timeout between Retries while queryable. Default: ``1000`` |
+| ``app.trigger.trigger.pod`` | Static name to identify entries in the database. Default: ```` |
 | ``app.trigger.trigger.config.<productType>.cron`` |  Default: ``0 */15 * * * *`` |
 | ``app.trigger.trigger.config.<productType>.family`` | Default: ``S3_PUG`` |
 | ``app.trigger.trigger.config.<productType>.satelliteIds`` | Default: ``A,B`` |
