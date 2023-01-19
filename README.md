@@ -30,6 +30,7 @@ The following individual NRT processing chains are available:
 * [S3 MW1](./s3-mw1/doc/ReleaseNote.md)
 * [S3 SL1](./s3-sl1/doc/ReleaseNote.md)
 * [S3 SL2](./s3-sl2/doc/ReleaseNote.md)
+* [S3 SL2 FRP](./s3-sl2-frp/doc/ReleaseNote.md)
 * [S3 SR1](./s3-sr1/doc/ReleaseNote.md)
 * [S3 SM HY](./s3-sm2-hy/doc/ReleaseNote.md)
 * [S3 SM LI](./s3-sm2-li/doc/ReleaseNote.md)
@@ -38,15 +39,26 @@ The following individual NRT processing chains are available:
 
 ![overview](./docs/media/rs_addons_s3_ntc_overview.png "NTC Overview")
 
-The following individual NTC/STC processing chains are available:
+The following individual NTC processing chains are available:
 * [S3 OL1 NTC](./s3-ol1-ntc/doc/ReleaseNote.md)
+* [S3 OL2 NTC](./s3-ol2-ntc/doc/ReleaseNote.md)
+* [S3 MW1 NTC](./s3-mw1-ntc/doc/ReleaseNote.md)
 * [S3 SL1 NTC](./s3-sl1-ntc/doc/ReleaseNote.md)
 * [S3 SL2 NTC](./s3-sl2-ntc/doc/ReleaseNote.md)
+* [S3 SL2 FRP NTC](./s3-sl2-frp-ntc/doc/ReleaseNote.md)
 * [S3 SR1 NTC](./s3-sr1-ntc/doc/ReleaseNote.md)
 * [S3 SY2 NTC](./s3-sy2-ntc/doc/ReleaseNote.md)
 * [S3 SY2_AOD NTC](./s3-sy2-aod-ntc/doc/ReleaseNote.md)
 * [S3 SY2_VGS NTC](./s3-sy2-vgs-ntc/doc/ReleaseNote.md)
 * [S3 PUG NTC](./s3-pug-ntc/doc/ReleaseNote.md)
+
+![overview](./docs/media/rs_addons_s3_stc_overview.png "STC Overview")
+The following individual NTC processing chains are available:
+* [S3 MW1 STC](./s3-mw1-stc/doc/ReleaseNote.md)
+* [S3 SR1 STC](./s3-sr1-stc/doc/ReleaseNote.md)
+* [S3 SY2 STC](./s3-sy2-stc/doc/ReleaseNote.md)
+* [S3 SY2_VGS STC](./s3-sy2-vgs-stc/doc/ReleaseNote.md)
+* [S3 PUG STC](./s3-pug-stc/doc/ReleaseNote.md)
 
 For more information, please consult [https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-3](https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-3)
 
