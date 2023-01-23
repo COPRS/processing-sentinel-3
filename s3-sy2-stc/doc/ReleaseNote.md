@@ -14,6 +14,8 @@ This add-on contains the configuration for the processing chain of the Sentinel-
 
 ## Overview
 
+![overview](./media/overview.png "Overview")
+
 The chain will start from the topic catalog event and watching out for new products there. The message filter will ensure that just suitable products for this chain and related auxiliary files are consumed by the chain. All other product types will be discard and no processing occurs. 
 
 If the production is not ready yet the request will be persisted and discarded. Once a new relevant product for the chain arrives, it will check again if all required input products are available.
