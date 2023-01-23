@@ -129,7 +129,7 @@ ansible-playbook deploy-rs-addon.yaml \
 ```
 ansible-playbook deploy-rs-addon.yaml \
     -i inventory/mycluster/hosts.ini \
-    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-OL1_<VERSION>.zip \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-OL2_<VERSION>.zip \
     -e stream_name=S3_OL2
 ```
 
@@ -152,6 +152,13 @@ ansible-playbook deploy-rs-addon.yaml \
     -i inventory/mycluster/hosts.ini \
     -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SL2_<VERSION>.zip \
     -e stream_name=S3_SL2
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SL2-FRP_<VERSION>.zip \
+    -e stream_name=S3_SL2_FRP
 ```
 
 ```
@@ -194,6 +201,13 @@ ansible-playbook deploy-rs-addon.yaml \
 ```
 ansible-playbook deploy-rs-addon.yaml \
     -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-OL2-NTC_<VERSION>.zip \
+    -e stream_name=S3_OL2_NTC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
     -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SL1-NTC_<VERSION>.zip \
     -e stream_name=S3_SL1_NTC
 ```
@@ -208,8 +222,36 @@ ansible-playbook deploy-rs-addon.yaml \
 ```
 ansible-playbook deploy-rs-addon.yaml \
     -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SL2-FRP-NTC_<VERSION>.zip \
+    -e stream_name=S3_SL2_FRP_NTC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
     -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SR1-NTC_<VERSION>.zip \
     -e stream_name=S3_SR1_NTC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SM2-HY-NTC_<VERSION>.zip \
+    -e stream_name=S3_SM2_HY_NTC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SM2-LI-NTC_<VERSION>.zip \
+    -e stream_name=S3_SM2_LI_NTC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SM2-SI-NTC_<VERSION>.zip \
+    -e stream_name=S3_SM2_SI_NTC
 ```
 
 ```
@@ -223,14 +265,93 @@ ansible-playbook deploy-rs-addon.yaml \
 ansible-playbook deploy-rs-addon.yaml \
     -i inventory/mycluster/hosts.ini \
     -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SY2-VGS-NTC_<VERSION>.zip \
-    -e stream_name=S3_SY2-VGS_NTC
+    -e stream_name=S3_SY2_VGS_NTC
 ```
 
 ```
 ansible-playbook deploy-rs-addon.yaml \
     -i inventory/mycluster/hosts.ini \
     -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SY2-AOD-NTC_<VERSION>.zip \
-    -e stream_name=S3_SY2-AOD_NTC
+    -e stream_name=S3_SY2_AOD_NTC
+```
+
+### STC
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-OL1-STC_<VERSION>.zip \
+    -e stream_name=S3_OL1_STC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-OL2-STC_<VERSION>.zip \
+    -e stream_name=S3_OL2_STC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SL1-STC_<VERSION>.zip \
+    -e stream_name=S3_SL1_STC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SL2-STC_<VERSION>.zip \
+    -e stream_name=S3_SL2_STC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SL2-FRP-STC_<VERSION>.zip \
+    -e stream_name=S3_SL2_FRP_STC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SR1-STC_<VERSION>.zip \
+    -e stream_name=S3_SR1_STC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SM2-HY-STC_<VERSION>.zip \
+    -e stream_name=S3_SM2_HY_STC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SM2-LI-STC_<VERSION>.zip \
+    -e stream_name=S3_SM2_LI_STC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SM2-SI-STC_<VERSION>.zip \
+    -e stream_name=S3_SM2_SI_STC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SY2-STC_<VERSION>.zip \
+    -e stream_name=S3_SY2_STC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-SY2-VGS-STC_<VERSION>.zip \
+    -e stream_name=S3_SY2_VGS_STC
 ```
 
 ### PUG
@@ -247,6 +368,13 @@ ansible-playbook deploy-rs-addon.yaml \
     -i inventory/mycluster/hosts.ini \
     -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-PUG-NTC_<VERSION>.zip \
     -e stream_name=S3_PUG_NTC
+```
+
+```
+ansible-playbook deploy-rs-addon.yaml \
+    -i inventory/mycluster/hosts.ini \
+    -e rs_addon_location=https://artifactory.coprs.esa-copernicus.eu/artifactory/rs-zip-private/rs-addons/s3/RS_ADDON_S3-PUG-STC_<VERSION>.zip \
+    -e stream_name=S3_PUG_STC
 ```
 
 For further information on using the deployment script, please consult its [manual](https://github.com/COPRS/infrastructure/blob/e642b4e78782b3e5d649570e4a72b27cb42efeed/doc/how-to/RS%20Add-on%20-%20RS%20Core.md).
