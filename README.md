@@ -46,6 +46,9 @@ The following individual NTC processing chains are available:
 * [S3 SL1 NTC](./s3-sl1-ntc/doc/ReleaseNote.md)
 * [S3 SL2 NTC](./s3-sl2-ntc/doc/ReleaseNote.md)
 * [S3 SL2 FRP NTC](./s3-sl2-frp-ntc/doc/ReleaseNote.md)
+* [S3 SM2 HY NTC](./s3-sm2-hy-ntc/doc/ReleaseNote.md)
+* [S3 SM2 LI NTC](./s3-sm2-li-ntc/doc/ReleaseNote.md)
+* [S3 SM2 SI NTC](./s3-sm2-si-ntc/doc/ReleaseNote.md)
 * [S3 SR1 NTC](./s3-sr1-ntc/doc/ReleaseNote.md)
 * [S3 SY2 NTC](./s3-sy2-ntc/doc/ReleaseNote.md)
 * [S3 SY2_AOD NTC](./s3-sy2-aod-ntc/doc/ReleaseNote.md)
@@ -53,8 +56,12 @@ The following individual NTC processing chains are available:
 * [S3 PUG NTC](./s3-pug-ntc/doc/ReleaseNote.md)
 
 ![overview](./docs/media/rs_addons_s3_stc_overview.png "STC Overview")
-The following individual NTC processing chains are available:
+
+The following individual STC processing chains are available:
 * [S3 MW1 STC](./s3-mw1-stc/doc/ReleaseNote.md)
+* [S3 SM2 HY STC](./s3-sm2-hy-stc/doc/ReleaseNote.md)
+* [S3 SM2 LI STC](./s3-sm2-li-stc/doc/ReleaseNote.md)
+* [S3 SM2 SI STC](./s3-sm2-si-stc/doc/ReleaseNote.md)
 * [S3 SR1 STC](./s3-sr1-stc/doc/ReleaseNote.md)
 * [S3 SY2 STC](./s3-sy2-stc/doc/ReleaseNote.md)
 * [S3 SY2_VGS STC](./s3-sy2-vgs-stc/doc/ReleaseNote.md)
