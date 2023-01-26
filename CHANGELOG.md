@@ -4,6 +4,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.0-rc1] - 2023-01-27
+
+### Added
+
+- RS-675: Adding RS-addon MW1 NTC
+- RS-676: Adding RS-addon SM2 LI NTC
+- RS-677: Adding RS-addon SM2 SI NTC
+- RS-678: Adding RS-addon SM2 HY NTC
+- RS-699: Adding RS-addon OL2 NTC
+- RS-700: Adding RS-addon MW1 STC
+- RS-701: Adding RS-addon SR1 STC
+- RS-702: Adding RS-addon SM2 LI STC
+- RS-703: Adding RS-addon SM2 SI STC
+- RS-704: Adding RS-addon SM2 HY STC
+- RS-729: Adding RS-addon SL2 FRP NTC
+- RS-732: Adding RS-addon SY2 STC
+- RS-733: Adding RS-addon SY2 VGS STC
+- RS-780: Adding RS-addon PUG STC
+
+### Changed
+
+- RS-769: Enable output estimation for L1 and L2 production chains
+
+### Removed
+
 ## [1.9.0-rc1] - 2022-12-15
 
 ### Added
