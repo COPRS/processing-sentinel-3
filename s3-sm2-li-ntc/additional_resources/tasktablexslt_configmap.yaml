@@ -18,6 +18,12 @@ data:
         </List_of_Dyn_ProcParam>
       </xsl:template>
 
+      <xsl:template match="Cfg_File">
+        <Cfg_Files>
+          <xsl:apply-templates select="@*|node()"/>
+        </Cfg_Files>
+      </xsl:template>
+
       <xsl:template match="Output/File_Type">
         <Type>
           <xsl:apply-templates select="@*|node()"/>
