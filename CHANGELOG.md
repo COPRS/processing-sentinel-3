@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.0-rc1] - 2023-02-22
+
+### Added
+
+- N/A
+
+### Changed
+
+- RS-808: Update tasktable.xslt for S3_OL1 to include Config_Files
+- RS-827: Fix stream-application-list.properties for S3_PUG* chains to reference correct IPF
+- RS-828: Update joborder.xslt for S3_PUG* chains to fix different handling of joborder by PUG IPF
+- RS-819: Fix default configuration of S3_SY2_AOD_NTC chain
+
+### Removed
+
+- N/A
+
 ## [1.10.0-rc1] - 2023-01-27
 
 ### Added
