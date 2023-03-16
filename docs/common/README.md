@@ -15,9 +15,9 @@ Following components of the COPRS shall be installed and running
 OBS Buckets, Kubernetes Secrets and ES indices shall be created.
 - See [COPRS OBS Bucket](https://github.com/COPRS/production-common/blob/main/processing-common/doc/buckets.md)
 - See [COPRS Kubernetes Secret](https://github.com/COPRS/production-common/blob/main/processing-common/doc/secret.md)
-- See [COPRS Search Controller)(https://github.com/COPRS/production-common/tree/main/rs-processing-common)
+- See [COPRS Search Controller](https://github.com/COPRS/production-common/tree/main/rs-processing-common)
 
-The RS Add-ons are also having the component Preparation worker that is persisting existing jobs that are not ready to run (e.g. missing inputs). In order to work correctly it will require MongoDB as persistence layer. For further general information regarding the creation of a secret for the  MongoDB instance, please see [COPRS MongoDB](https://github.com/COPRS/production-common/blob/main/processing-common/doc/secrets.md)
+The RS Add-ons are also having the component Preparation worker that is persisting existing jobs that are not ready to run (e.g. missing inputs). In order to work correctly it will require MongoDB as persistence layer. For further general information regarding the creation of a secret for the  MongoDB instance, please see [COPRS MongoDB](https://github.com/COPRS/production-common/blob/main/processing-common/doc/secret.md)
 
 The default configuration provided in the RS Core Component is expecting a secret "mongopreparation" in the namespace "processing" containing a field for PASSWORD and USERNAME that can be used in order to authenticate at the MongoDB.
 
