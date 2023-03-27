@@ -14,7 +14,7 @@ mkdir -p $TARGET
 
 DATE=$(date '+%Y-%m-%d')
 
-for dir in $(find . -type d -iname 's1*')
+for dir in $(find . -type d -iname 's3*')
 do
   echo "Building RS Add-on... $dir"
   
