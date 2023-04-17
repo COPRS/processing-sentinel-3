@@ -16,7 +16,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - RS-837: Adding dynamic parameter for hardware name that might prevent the PUG from crashing
 - RS-882: Updating tasktables for MW1 0.6.14
 
-
 ### Removed
 
 - N/A
