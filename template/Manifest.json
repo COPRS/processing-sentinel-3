@@ -1,0 +1,13 @@
+{
+	"ProcessorID": "template",
+	"Version": "<VERSION>",
+	"ReleaseDate": "<RELEASE_DATE>",
+	"Mission": "template",
+	"Level": [
+		"template"
+	],
+	"Description": "The RS Addon contains a template Processing Chain",
+	"ReleaseItems": [
+		<RELEASE_ITEMS>
+	]
+}

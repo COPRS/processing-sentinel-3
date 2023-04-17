@@ -1,0 +1,13 @@
+{
+	"ProcessorID": "s3_sl2_frp",
+	"Version": "<VERSION>",
+	"ReleaseDate": "<RELEASE_DATE>",
+	"Mission": "S3",
+	"Level": [
+		"L2"
+	],
+	"Description": "The RS Addon contains the Sentinel-3 SL2-FRP Processing Chain",
+	"ReleaseItems": [
+		<RELEASE_ITEMS>
+	]
+}

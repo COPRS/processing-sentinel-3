@@ -1,0 +1,13 @@
+{
+	"ProcessorID": "s3_sr1",
+	"Version": "<VERSION>",
+	"ReleaseDate": "<RELEASE_DATE>",
+	"Mission": "S3",
+	"Level": [
+		"L1"
+	],
+	"Description": "The RS Addon contains the Sentinel-3 SR1 Processing Chain",
+	"ReleaseItems": [
+		<RELEASE_ITEMS>
+	]
+}

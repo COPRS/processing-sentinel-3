@@ -1,0 +1,13 @@
+{
+	"ProcessorID": "s3_sl1_ntc",
+	"Version": "<VERSION>",
+	"ReleaseDate": "<RELEASE_DATE>",
+	"Mission": "S3",
+	"Level": [
+		"L1"
+	],
+	"Description": "The RS Addon contains the Sentinel-3 SL1 NTC Processing Chain",
+	"ReleaseItems": [
+		<RELEASE_ITEMS>
+	]
+}

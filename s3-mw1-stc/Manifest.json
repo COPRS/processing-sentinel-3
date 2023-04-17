@@ -1,0 +1,13 @@
+{
+	"ProcessorID": "s3_mw1_stc",
+	"Version": "<VERSION>",
+	"ReleaseDate": "<RELEASE_DATE>",
+	"Mission": "S3",
+	"Level": [
+		"L1"
+	],
+	"Description": "The RS Addon contains the Sentinel-3 MW1 STC Processing Chain",
+	"ReleaseItems": [
+		<RELEASE_ITEMS>
+	]
+}

@@ -43,6 +43,7 @@ runs:
       if [[ -e ${{ env.RS_CORE_FOLDER }}/${{ matrix.component }}/additional_resources ]] 
         then cp -r ${{ env.RS_CORE_FOLDER }}/${{ matrix.component }}/additional_resources/* ${{ steps.gen_filename.outputs.filename }}/${{ steps.gen_filename.outputs.filename }}_Executables/additional_resources
       fi
+      cat ${{ env.RS_CORE_FOLDER }}/docs/common/README.md >> ${{ env.RS_CORE_FOLDER }}/${{ matrix.component }}/doc/ReleaseNote.md
 
   - name: Create PDF
     uses: docker://ghcr.io/coprs/reference-system-software:dependencies_pandoc_latex

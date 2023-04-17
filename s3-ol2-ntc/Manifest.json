@@ -1,0 +1,13 @@
+{
+	"ProcessorID": "s3_ol2_NTC",
+	"Version": "<VERSION>",
+	"ReleaseDate": "<RELEASE_DATE>",
+	"Mission": "S3",
+	"Level": [
+		"L2"
+	],
+	"Description": "The RS Addon contains the Sentinel-3 OL2 NTC Processing Chain",
+	"ReleaseItems": [
+		<RELEASE_ITEMS>
+	]
+}

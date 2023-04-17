@@ -1,0 +1,13 @@
+{
+	"ProcessorID": "s3_sy2_vgs_ntc",
+	"Version": "<VERSION>",
+	"ReleaseDate": "<RELEASE_DATE>",
+	"Mission": "S3",
+	"Level": [
+		"L2"
+	],
+	"Description": "The RS Addon contains the Sentinel-3 SY2 VGS NTC Processing Chain",
+	"ReleaseItems": [
+		<RELEASE_ITEMS>
+	]
+}

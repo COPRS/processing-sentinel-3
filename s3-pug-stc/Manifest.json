@@ -1,0 +1,14 @@
+{
+	"ProcessorID": "s3_pug_stc",
+	"Version": "<VERSION>",
+	"ReleaseDate": "<RELEASE_DATE>",
+	"Mission": "S3",
+	"Level": [
+		"L1",
+		"L2"
+	],
+	"Description": "The RS Addon contains the wrapper for the Sentinel-3 PUG STC processors",
+	"ReleaseItems": [
+		<RELEASE_ITEMS>
+	]
+}
