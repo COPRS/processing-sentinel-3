@@ -38,9 +38,49 @@ data:
 
       <xsl:template match="Input">
         <xsl:if test="File_Type != ''">
-          <Input>
-            <xsl:apply-templates select="@*|node()" />
-          </Input>
+          <xsl:choose>
+            <xsl:when test="File_Name_Type[text()='Regexp']">
+              <xsl:element name="Input">
+                <xsl:variable name="fileName" select="current()/List_of_File_Names/File_Name" />
+
+                <xsl:element name="File_Type">
+                  <xsl:value-of select="current()/File_Type" />
+                </xsl:element>
+                <xsl:element name="File_Name_Type">
+                  <xsl:value-of select="current()/File_Name_Type" />
+                </xsl:element>
+                <xsl:element name="List_of_File_Names">
+                  <xsl:attribute name="count">1</xsl:attribute>
+                  <xsl:element name="File_Name">
+                    <xsl:call-template name="stripLast">
+                        <xsl:with-param name="pText" select="$fileName" />
+                      </xsl:call-template>
+                  </xsl:element>
+                </xsl:element>
+                <xsl:element name="List_of_Time_Intervals">
+                  <xsl:attribute name="count">1</xsl:attribute>
+                  <xsl:element name="Time_Interval">
+                    <xsl:element name="Start">
+                      <xsl:value-of select="current()/List_of_Time_Intervals/Time_Interval/Start" />
+                    </xsl:element>
+                    <xsl:element name="Stop">
+                      <xsl:value-of select="current()/List_of_Time_Intervals/Time_Interval/Stop" />
+                    </xsl:element>
+                    <xsl:element name="File_Name">
+                      <xsl:call-template name="stripLast">
+                        <xsl:with-param name="pText" select="$fileName" />
+                      </xsl:call-template>
+                    </xsl:element>
+                  </xsl:element>
+                </xsl:element>
+              </xsl:element>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:element name="Input">
+                <xsl:apply-templates select="@*|node()" />
+              </xsl:element>
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:if>
       </xsl:template>
       
@@ -50,5 +90,21 @@ data:
           <xsl:apply-templates select="@*|node()" />
         </xsl:copy>
       </xsl:template>
+
+      <!-- Strip last template (https://stackoverflow.com/questions/11166784/xslt-1-0-finding-the-last-occurence-and-taking-string-before) -->
+      <xsl:template name="stripLast">
+        <xsl:param name="pText"/>
+        <xsl:param name="pDelim" select="'/'"/>
+
+          <xsl:if test="contains($pText, $pDelim)">
+            <xsl:value-of select="substring-before($pText, $pDelim)"/>
+            <xsl:value-of select="$pDelim"/>
+            <xsl:call-template name="stripLast">
+              <xsl:with-param name="pText" select=
+              "substring-after($pText, $pDelim)"/>
+              <xsl:with-param name="pDelim" select="$pDelim"/>
+            </xsl:call-template>
+          </xsl:if>
+        </xsl:template>
         
     </xsl:stylesheet>
