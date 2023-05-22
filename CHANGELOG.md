@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.13.1-rc1] - 2023-05-17
+
+### Added
+
+- N/A
+
+### Changed
+
+- RS-894: [TRACE] S3-L0P task JobGenerator END trace is not stored on the Elastic Search.
+- RS-912: Updated xslt to fix tasktable for S3 SR1 NRT
+- RS-936: [S3 SR1 1.12 + WA 912] SR_1_SRA.bin failed with exit code 134
+
+
+### Removed
+
+- N/A
+
 ## [1.13.0-rc1] - 2023-03-30
 
 ### Added
