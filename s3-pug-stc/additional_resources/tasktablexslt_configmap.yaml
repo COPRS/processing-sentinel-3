@@ -36,7 +36,7 @@ data:
           <xsl:attribute name="count"><xsl:value-of select="$numberTasks" /></xsl:attribute>
           <xsl:for-each select="current()//Task">
             <xsl:variable name="PROCNAME" select="current()/Name[text()]" />
-            <xsl:if test="$PROCNAME != 'PUGReportGenerator' && '_BP' != substring($PROCNAME, string-length($PROCNAME) - 2)">
+            <xsl:if test="$PROCNAME != 'PUGReportGenerator' and '_BP' != substring($PROCNAME, string-length($PROCNAME) - 2)">
               <xsl:element name="Pool">
                 <xsl:element name="List_of_Tasks">
                   <xsl:attribute name="count">1</xsl:attribute>
