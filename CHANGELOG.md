@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.13.2-rc1] - 2023-06-15
+
+### Added
+
+- RS-964: [Documentation] [PRO] [S1] [S3] Missing build documentation
+
+### Changed
+
+- RS-932: [S3] SR1-NRT do not provide missing elements while there is a NOK status.
+- RS-973: [S3 PUG NRT] No L1/L2 data generated
+- RS-974: [OPS] S3B MW1 CAL Failed "[code 290] [exitCode 138]
+- RS-981: [OPS] PUG is not generating data for OL1 ERR
+- RS-988: [OPS] PUG is not generating data for L2 products
+- RS-989: S3 SL2 SL2.bin failed due to "Could not found the level 1 inputs products covering the given processing time window"
+- RS-998: S3 OL1-NTC Default timeout configuration to low
+
+### Removed
+
+- N/A
+
 ## [1.13.1-rc1] - 2023-05-17
 
 ### Added
