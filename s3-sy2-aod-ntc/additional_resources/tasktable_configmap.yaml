@@ -5,18 +5,18 @@ metadata:
   namespace: processing
 
 data:
-  TaskTable_S3A_SY2_AOD_01_06.xml: |
+  TaskTable_S3A_SY2_AOD_01_09.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <!-- edited with XML Spy v4.2 U (http://www.xmlspy.com) by DMS (DMS) -->
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3A_SY2_AOD</Processor_Name>
-      <Version>01.06</Version>
+      <Version>01.09</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
         <Cfg_File>
-          <File_Name>/usr/local/conf/S3IPF_SY2_AOD_01.06/S3A/S3IPF_SY2_AOD_Configuration.xml</File_Name>
+          <File_Name>/usr/local/conf/S3IPF_SY2_AOD_01.09/S3A/S3IPF_SY2_AOD_Configuration.xml</File_Name>
         </Cfg_File>
       </List_of_Cfg_Files>
       <List_of_Dyn_ProcParams count="4">
@@ -50,10 +50,10 @@ data:
           <List_of_Tasks count="1">
             <Task>
               <Name>SY2_AOD</Name>
-              <Version>01.06</Version>
+              <Version>01.09</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_SY2_AOD_01.06/bin/SY2_AOD.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_SY2_AOD_01.09/bin/SY2_AOD.bin</File_Name>
               <List_of_Inputs count="14">
                 <Input>
                   <Mode>ALWAYS</Mode>
@@ -323,79 +323,79 @@ data:
                <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
                <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-2</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-3</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-4</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_2-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_2-2</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_2-3</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY_1_BP_MAP_1-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_2-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_3-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-2</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-4</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-6</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_INV_LOC_1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>-->
+                                     </Breakpoint>-->
             </Task>
           </List_of_Tasks>
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_SY2_AOD_01_06.xml: |
+  TaskTable_S3B_SY2_AOD_01_09.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <!-- edited with XML Spy v4.2 U (http://www.xmlspy.com) by DMS (DMS) -->
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3B_SY2_AOD</Processor_Name>
-      <Version>01.06</Version>
+      <Version>01.09</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
         <Cfg_File>
-          <File_Name>/usr/local/conf/S3IPF_SY2_AOD_01.06/S3B/S3IPF_SY2_AOD_Configuration.xml</File_Name>
+          <File_Name>/usr/local/conf/S3IPF_SY2_AOD_01.09/S3B/S3IPF_SY2_AOD_Configuration.xml</File_Name>
         </Cfg_File>
       </List_of_Cfg_Files>
       <List_of_Dyn_ProcParams count="4">
@@ -429,10 +429,10 @@ data:
           <List_of_Tasks count="1">
             <Task>
               <Name>SY2_AOD</Name>
-              <Version>01.06</Version>
+              <Version>01.09</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_SY2_AOD_01.06/bin/SY2_AOD.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_SY2_AOD_01.09/bin/SY2_AOD.bin</File_Name>
               <List_of_Inputs count="14">
                 <Input>
                   <Mode>ALWAYS</Mode>
@@ -702,62 +702,62 @@ data:
                <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
                <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-2</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-3</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-4</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_2-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_2-2</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_2-3</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY_1_BP_MAP_1-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_2-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_3-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-2</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-4</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-6</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_INV_LOC_1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>-->
+                                     </Breakpoint>-->
             </Task>
           </List_of_Tasks>
         </Pool>
