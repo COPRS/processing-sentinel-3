@@ -103,7 +103,7 @@ This configuration section includes the values for the different tags.
 
 | Property | Details |
 |----------|---------|
-| ``app.preparation-worker.process.level`` | Process level for the preparation worker. Controls level specific logic. For S1 AIOP: ``L0`` |
+| ``app.preparation-worker.process.level`` | Process level for the preparation worker. Controls level specific logic. For S1 AIOP and S3 ACQ: ``L0`` |
 | ``app.preparation-worker.process.mode`` | Process mode for the preparation worker. Allowed values: ``PROD``, ``TEST`` (default: ``PROD``) |
 | ``app.preparation-worker.process.hostname`` | Hostname of the preparation worker (default: ``${HOSTNAME}``) |
 | ``app.preparation-worker.process.productType`` | ProductType of main inputs. Used for logging/reporting (default: ``EdrsSession``) |
@@ -136,7 +136,9 @@ This configuration section includes the values for the different tags.
 
 #### Product type specific configuration part
 
-##### AIOP Configuration
+##### AIOP and ACQ Configuration
+
+The following properties are required for EDRS sessions and are applicable for the S1 AIOP as well as the S3 ACQ workflow and required in both cases. Check the specific RS add-ons for getting an idea how to use these properties correctly for these scenarios.
 
 | Property | Details |
 |----------|---------|
@@ -190,6 +192,7 @@ This configuration section includes the values for the different tags.
 | Property | Details |
 |----------|---------|
 | ``app.preparation-worker.s3-synergy.dyn-proc-params`` | Map of static values for the dynamic processing parameters on the job order |
+
 
 ### Housekeeping
 
