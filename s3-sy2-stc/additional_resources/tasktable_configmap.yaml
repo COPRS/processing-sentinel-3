@@ -5,18 +5,18 @@ metadata:
   namespace: processing
 
 data:
-  TaskTable_S3A_SY2_06_23.xml: |
+  TaskTable_S3A_SY2_06_26.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <!-- edited with XML Spy v4.2 U (http://www.xmlspy.com) by DMS (DMS) -->
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3A_SY2</Processor_Name>
-      <Version>06.23</Version>
+      <Version>06.26</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="3">
         <Cfg_File>
-          <File_Name>/usr/local/conf/S3IPF_SY2_06.23/S3A/S3IPF_SY2_Configuration.xml</File_Name>
+          <File_Name>/usr/local/conf/S3IPF_SY2_06.26/S3A/S3IPF_SY2_Configuration.xml</File_Name>
         </Cfg_File>
         <Cfg_File>
           <File_Name>/usr/local/conf/S3IPF_/S3A/S3IPF_SY2_VGP_ProductMap.xml</File_Name>
@@ -69,10 +69,10 @@ data:
             <!-- =================================================================== -->
             <Task>
               <Name>SY2</Name>
-              <Version>06.23</Version>
+              <Version>06.26</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_SY2_06.23/bin/SY2.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_SY2_06.26/bin/SY2.bin</File_Name>
               <List_of_Inputs count="15">
                 <Input>
                   <Mode>ALWAYS</Mode>
@@ -366,65 +366,65 @@ data:
               </List_of_Outputs>
               <List_of_Breakpoints count="0"/>
               <!-- list of breakpoints is not exaustive;
-              <Breakpoint>
+               <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
-              <Breakpoint>
+                                     </Breakpoint>
+               <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-2</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-3</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-4</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_2-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_2-2</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_2-3</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY_1_BP_MAP_1-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_2-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_3-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-2</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-4</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-6</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_INV_LOC_1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>-->
+                                     </Breakpoint>-->
             </Task>
           </List_of_Tasks>
         </Pool>
@@ -491,7 +491,7 @@ data:
                             </Alternative>
                         </List_of_Alternatives>
                     </Input>
-              </List_of_Inputs>
+               </List_of_Inputs>
                 
                 <List_of_Outputs count="1">
                     <Output>
@@ -508,18 +508,18 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_SY2_06_23.xml: | 
+  TaskTable_S3B_SY2_06_26.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <!-- edited with XML Spy v4.2 U (http://www.xmlspy.com) by DMS (DMS) -->
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3B_SY2</Processor_Name>
-      <Version>06.23</Version>
+      <Version>06.26</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="3">
         <Cfg_File>
-          <File_Name>/usr/local/conf/S3IPF_SY2_06.23/S3B/S3IPF_SY2_Configuration.xml</File_Name>
+          <File_Name>/usr/local/conf/S3IPF_SY2_06.26/S3B/S3IPF_SY2_Configuration.xml</File_Name>
         </Cfg_File>
         <Cfg_File>
           <File_Name>/usr/local/conf/S3IPF_/S3B/S3IPF_SY2_VGP_ProductMap.xml</File_Name>
@@ -572,10 +572,10 @@ data:
             <!-- =================================================================== -->
             <Task>
               <Name>SY2</Name>
-              <Version>06.23</Version>
+              <Version>06.26</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_SY2_06.23/bin/SY2.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_SY2_06.26/bin/SY2.bin</File_Name>
               <List_of_Inputs count="15">
                 <Input>
                   <Mode>ALWAYS</Mode>
@@ -869,65 +869,65 @@ data:
               </List_of_Outputs>
               <List_of_Breakpoints count="0"/>
               <!-- list of breakpoints is not exaustive;
-              <Breakpoint>
+               <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
-              <Breakpoint>
+                                     </Breakpoint>
+               <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-2</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-3</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_1-4</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_2-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_2-2</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_PR_2-3</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY_1_BP_MAP_1-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_2-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_3-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-2</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-4</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_MAP_4-6</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>
+                                     </Breakpoint>
               <Breakpoint>
                                         <File_Name>SY1_BP_INV_LOC_1</File_Name>
                                     <File_Name_Type>Physical</File_Name_Type>
-                                    </Breakpoint>-->
+                                     </Breakpoint>-->
             </Task>
           </List_of_Tasks>
         </Pool>
@@ -994,7 +994,7 @@ data:
                             </Alternative>
                         </List_of_Alternatives>
                     </Input>
-              </List_of_Inputs>
+               </List_of_Inputs>
                 
                 <List_of_Outputs count="1">
                     <Output>
