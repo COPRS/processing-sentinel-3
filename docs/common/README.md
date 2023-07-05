@@ -125,6 +125,9 @@ This configuration section includes the values for the different tags.
 | ``app.preparation-worker.worker.type-overlap`` | Map of all overlap for different slice types in Sentinel-1 |
 | ``app.preparation-worker.worker.type-slice-length`` | Map of all lengths for different slice types in Sentinel-1 |
 | ``app.preparation-worker.worker.map-type-meta`` | Map for product types to corresponding metadata indexes, if the product type itself is not the same as the index |
+| ``app.preparation-worker.worker.product-mode`` | Mode for this preparation-worker, defining which inputs of the task tables are applicable |
+| ``app.preparation-worker.worker.pathTaskTableXslt`` | Path to the taskTableXslt (if applicable), which should be applied to the tasktables before reading them |
+| ``app.preparation-worker.worker.primaryCheckMaxTimelifeS`` | Maximum waiting time for the main input search |
 
 ##### Tasktable Configuration
 
