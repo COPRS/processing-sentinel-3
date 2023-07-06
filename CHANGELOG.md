@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - RS-994: [BUG] [S3-SR1-STC] JobProcessing failed
 - RS-1012: [BUG] S3-SL2-NTC fails with exit code 129 on S3A products
 - RS-1018: [BUG] [S3 SY2 AOD v1.13.2-rc1] SY2_AOD.bin failed with exit code 129
-
+- RS-1021: [BUG] [OPS] S3 PUG product output duration time not coherent
 
 ### Removed
 
