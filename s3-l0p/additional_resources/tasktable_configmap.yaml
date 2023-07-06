@@ -5,20 +5,20 @@ metadata:
   namespace: processing
 
 data:
-  TaskTable_S3A_L0_DO_DOP_06_14.xml: |
+  TaskTable_S3A_L0_DO_DOP_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3A_DO_DOP_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3A/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3A/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -67,12 +67,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -84,10 +84,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>DO_0_DOP</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/DO_0_DOP.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/DO_0_DOP.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- DORIS DOPPLER Granule -->
                 <Input id="[DO_0_DOP__G]">
@@ -155,8 +155,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -190,8 +190,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -240,20 +240,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3A_L0_DO_NAV_06_14.xml: |
+  TaskTable_S3A_L0_DO_NAV_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3A_DO_NAV_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3A/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3A/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -302,12 +302,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -319,10 +319,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>DO_0_NAV</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/DO_0_NAV.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/DO_0_NAV.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- DOPPLER NAV Granule -->
                 <Input id="[DO_0_NAV__G]">
@@ -390,8 +390,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -425,8 +425,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -475,20 +475,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3A_L0_GN_GNS_06_14.xml: |
+  TaskTable_S3A_L0_GN_GNS_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3A_GN_GNS_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3A/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3A/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -537,12 +537,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -554,10 +554,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>GN_0_GNS</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/GN_0_GNS.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/GN_0_GNS.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- GNSS Granule -->
                 <Input id="[GN_0_GNS__G]">
@@ -625,8 +625,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -660,8 +660,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -710,20 +710,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3A_L0_MW_MWR_06_14.xml: |
+  TaskTable_S3A_L0_MW_MWR_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3A_MW_MWR_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3A/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3A/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -772,12 +772,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -789,10 +789,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>MW_0_MWR</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/MW_0_MWR.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/MW_0_MWR.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- SLSTR Granule -->
                 <Input id="[MW_0_MWR__G]">
@@ -860,8 +860,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -895,8 +895,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -945,20 +945,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3A_L0_OL_CR__06_14.xml: |
+  TaskTable_S3A_L0_OL_CR__06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3A_OL_CR__L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3A/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3A/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -1007,17 +1007,17 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
         <Dyn_ProcParam>
           <Param_Name>ABORT_IF_EMPTY_OUTPUT</Param_Name>
           <Param_Type>String</Param_Type>
           <Param_Default>false</Param_Default>
         </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -1029,10 +1029,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>OL_0_CR_</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/OL_0_CR_.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/OL_0_CR_.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- OLCI Granule -->
                 <Input id="[OL_0_CR___G]">
@@ -1100,8 +1100,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -1135,8 +1135,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -1191,20 +1191,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3A_L0_OL_EFR_06_14.xml: |
+  TaskTable_S3A_L0_OL_EFR_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3A_OL_EFR_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3A/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3A/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -1253,17 +1253,17 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
         <Dyn_ProcParam>
           <Param_Name>ABORT_IF_EMPTY_OUTPUT</Param_Name>         <!-- Provided by PDGS-->
           <Param_Type>String</Param_Type>
           <Param_Default>false</Param_Default>
         </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -1275,10 +1275,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>OL_0_EFR</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/OL_0_EFR.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/OL_0_EFR.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- OLCI Granule -->
                 <Input id="[OL_0_EFR__G]">
@@ -1346,8 +1346,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -1381,8 +1381,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -1431,20 +1431,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3A_L0_SL_SLT_06_14.xml: |
+  TaskTable_S3A_L0_SL_SLT_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3A_SL_SLT_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3A/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3A/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -1493,12 +1493,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -1510,10 +1510,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>SL_0_SLT</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/SL_0_SLT.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/SL_0_SLT.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- SLSTR Granule -->
                 <Input id="[SL_0_SLT__G]">
@@ -1581,8 +1581,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -1616,8 +1616,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -1666,20 +1666,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3A_L0_SR_CAL_06_14.xml: |
+  TaskTable_S3A_L0_SR_CAL_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3A_SR_CAL_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3A/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3A/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -1728,12 +1728,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -1745,10 +1745,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>SR_0_CAL</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/SR_0_CAL.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/SR_0_CAL.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- SRAL CAL Granule -->
                 <Input id="[SR_0_CAL__G]">
@@ -1816,8 +1816,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -1851,8 +1851,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -1901,20 +1901,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3A_L0_SR_SRA_06_14.xml: |
+  TaskTable_S3A_L0_SR_SRA_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3A_SR_SRA_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3A/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3A/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -1963,12 +1963,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -1980,10 +1980,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>SR_0_SRA</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/SR_0_SRA.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/SR_0_SRA.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- SRAL SRA Granule -->
                 <Input id="[SR_0_SRA__G]">
@@ -2051,8 +2051,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -2086,8 +2086,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -2136,20 +2136,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3A_L0_TM_HKM_06_14.xml: |
+  TaskTable_S3A_L0_TM_HKM_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3A_TM_HKM_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3A/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3A/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -2198,12 +2198,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -2215,10 +2215,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>TM_0_HKM</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/TM_0_HKM.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/TM_0_HKM.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- HKTM Granule -->
                 <Input id="[TM_0_HKM__G]">
@@ -2286,8 +2286,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -2321,8 +2321,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -2371,20 +2371,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3A_L0_TM_HKM2_06_14.xml: |
+  TaskTable_S3A_L0_TM_HKM2_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3A_TM_HKM2_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3A/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3A/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -2433,12 +2433,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -2450,10 +2450,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>TM_0_HKM2</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/TM_0_HKM2.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/TM_0_HKM2.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- HKTM2 Granule -->
                 <Input id="[TM_0_HKM2_G]">
@@ -2521,8 +2521,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -2556,8 +2556,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -2606,20 +2606,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3A_L0_TM_NAT_06_14.xml: |
+  TaskTable_S3A_L0_TM_NAT_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3A_TM_NAT_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3A/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3A/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -2668,12 +2668,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -2685,10 +2685,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>TM_0_NAT</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/TM_0_NAT.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/TM_0_NAT.bin</File_Name>
               <List_of_Inputs count="4">
                 <!-- NAVATT Granule -->
                 <Input id="[TM_0_NAT__G]">
@@ -2741,8 +2741,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -2776,8 +2776,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -2826,20 +2826,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_L0_DO_DOP_06_14.xml: |
+  TaskTable_S3B_L0_DO_DOP_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3B_DO_DOP_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3B/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3B/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -2888,12 +2888,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -2905,10 +2905,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>DO_0_DOP</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/DO_0_DOP.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/DO_0_DOP.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- DORIS DOPPLER Granule -->
                 <Input id="[DO_0_DOP__G]">
@@ -2976,8 +2976,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -3011,8 +3011,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -3061,20 +3061,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_L0_DO_NAV_06_14.xml: |
+  TaskTable_S3B_L0_DO_NAV_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3B_DO_NAV_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3B/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3B/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -3123,12 +3123,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -3140,10 +3140,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>DO_0_NAV</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/DO_0_NAV.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/DO_0_NAV.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- DOPPLER NAV Granule -->
                 <Input id="[DO_0_NAV__G]">
@@ -3211,8 +3211,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -3246,8 +3246,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -3296,20 +3296,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_L0_GN_GNS_06_14.xml: |
+  TaskTable_S3B_L0_GN_GNS_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3B_GN_GNS_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3B/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3B/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -3358,12 +3358,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -3375,10 +3375,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>GN_0_GNS</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/GN_0_GNS.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/GN_0_GNS.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- GNSS Granule -->
                 <Input id="[GN_0_GNS__G]">
@@ -3446,8 +3446,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -3481,8 +3481,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -3531,20 +3531,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_L0_MW_MWR_06_14.xml: |
+  TaskTable_S3B_L0_MW_MWR_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3B_MW_MWR_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3B/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3B/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -3593,12 +3593,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -3610,10 +3610,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>MW_0_MWR</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/MW_0_MWR.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/MW_0_MWR.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- SLSTR Granule -->
                 <Input id="[MW_0_MWR__G]">
@@ -3681,8 +3681,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -3716,8 +3716,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -3766,20 +3766,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_L0_OL_CR__06_14.xml: |
+  TaskTable_S3B_L0_OL_CR__06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3B_OL_CR__L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3B/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3B/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -3828,17 +3828,17 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
         <Dyn_ProcParam>
           <Param_Name>ABORT_IF_EMPTY_OUTPUT</Param_Name>
           <Param_Type>String</Param_Type>
           <Param_Default>false</Param_Default>
         </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -3850,10 +3850,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>OL_0_CR_</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/OL_0_CR_.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/OL_0_CR_.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- OLCI Granule -->
                 <Input id="[OL_0_CR___G]">
@@ -3921,8 +3921,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -3956,8 +3956,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -4012,20 +4012,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_L0_OL_EFR_06_14.xml: |
+  TaskTable_S3B_L0_OL_EFR_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3B_OL_EFR_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3B/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3B/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -4074,17 +4074,17 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
         <Dyn_ProcParam>
           <Param_Name>ABORT_IF_EMPTY_OUTPUT</Param_Name>         <!-- Provided by PDGS-->
           <Param_Type>String</Param_Type>
           <Param_Default>false</Param_Default>
         </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -4096,10 +4096,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>OL_0_EFR</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/OL_0_EFR.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/OL_0_EFR.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- OLCI Granule -->
                 <Input id="[OL_0_EFR__G]">
@@ -4167,8 +4167,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -4202,8 +4202,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -4252,20 +4252,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_L0_SL_SLT_06_14.xml: |
+  TaskTable_S3B_L0_SL_SLT_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3B_SL_SLT_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3B/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3B/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -4314,12 +4314,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -4331,10 +4331,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>SL_0_SLT</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/SL_0_SLT.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/SL_0_SLT.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- SLSTR Granule -->
                 <Input id="[SL_0_SLT__G]">
@@ -4402,8 +4402,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -4437,8 +4437,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -4487,20 +4487,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_L0_SR_CAL_06_14.xml: |
+  TaskTable_S3B_L0_SR_CAL_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3B_SR_CAL_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3B/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3B/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -4549,12 +4549,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -4566,10 +4566,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>SR_0_CAL</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/SR_0_CAL.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/SR_0_CAL.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- SRAL CAL Granule -->
                 <Input id="[SR_0_CAL__G]">
@@ -4637,8 +4637,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -4672,8 +4672,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -4722,20 +4722,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_L0_SR_SRA_06_14.xml: |
+  TaskTable_S3B_L0_SR_SRA_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3B_SR_SRA_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3B/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3B/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -4784,12 +4784,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -4801,10 +4801,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>SR_0_SRA</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/SR_0_SRA.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/SR_0_SRA.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- SRAL SRA Granule -->
                 <Input id="[SR_0_SRA__G]">
@@ -4872,8 +4872,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -4907,8 +4907,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -4957,20 +4957,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_L0_TM_HKM_06_14.xml: |
+  TaskTable_S3B_L0_TM_HKM_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3B_TM_HKM_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3B/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3B/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -5019,12 +5019,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -5036,10 +5036,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>TM_0_HKM</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/TM_0_HKM.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/TM_0_HKM.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- HKTM Granule -->
                 <Input id="[TM_0_HKM__G]">
@@ -5107,8 +5107,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -5142,8 +5142,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -5192,20 +5192,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_L0_TM_HKM2_06_14.xml: |
+  TaskTable_S3B_L0_TM_HKM2_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3B_TM_HKM2_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3B/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3B/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -5254,12 +5254,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -5271,10 +5271,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>TM_0_HKM2</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/TM_0_HKM2.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/TM_0_HKM2.bin</File_Name>
               <List_of_Inputs count="5">
                 <!-- HKTM2 Granule -->
                 <Input id="[TM_0_HKM2_G]">
@@ -5342,8 +5342,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -5377,8 +5377,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -5427,20 +5427,20 @@ data:
         </Pool>
       </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_L0_TM_NAT_06_14.xml: |
+  TaskTable_S3B_L0_TM_NAT_06_15.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Processor_Name>S3B_TM_NAT_L0</Processor_Name>
-      <Version>06.14</Version>
+      <Version>06.15</Version>
       <Test>No</Test>
       <Min_Disk_Space units="MB">2048</Min_Disk_Space>
       <Max_Time units="sec">1800</Max_Time>
       <List_of_Cfg_Files count="1">
-        <Cfg_Files>
-          <File_Name>/usr/local/conf/S3IPF_L0_06.14/S3B/S3IPF_L0_Configuration.xml</File_Name>
-        </Cfg_Files>
+        <Cfg_File>
+          <File_Name>/usr/local/conf/S3IPF_L0_06.15/S3B/S3IPF_L0_Configuration.xml</File_Name>
+        </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParam count="10">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>granuleNumber</Param_Name>
           <Param_Type>number</Param_Type>
@@ -5489,12 +5489,12 @@ data:
           <Param_Type>String</Param_Type>
           <Param_Default>D</Param_Default>
         </Dyn_ProcParam>
-      <Dyn_ProcParam>
-        <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-        <Param_Type>String</Param_Type>
-        <Param_Default>002</Param_Default>
-      </Dyn_ProcParam>
-      </List_of_Dyn_ProcParam>
+    	<Dyn_ProcParam>
+    		<Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+    		<Param_Type>String</Param_Type>
+    		<Param_Default>002</Param_Default>
+    	</Dyn_ProcParam>
+      </List_of_Dyn_ProcParams>
       <Sensing_Time_flag>true</Sensing_Time_flag>
       <List_of_Pools count="1">
         <Pool>
@@ -5506,10 +5506,10 @@ data:
             <!-- =========================== -->
             <Task>
               <Name>TM_0_NAT</Name>
-              <Version>06.14</Version>
+              <Version>06.15</Version>
               <Critical>true</Critical>
               <Criticality_Level>1</Criticality_Level>
-              <File_Name>/usr/local/components/S3IPF_L0_06.14/bin/TM_0_NAT.bin</File_Name>
+              <File_Name>/usr/local/components/S3IPF_L0_06.15/bin/TM_0_NAT.bin</File_Name>
               <List_of_Inputs count="4">
                 <!-- NAVATT Granule -->
                 <Input id="[TM_0_NAT__G]">
@@ -5562,8 +5562,8 @@ data:
                       <Order>2</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
@@ -5597,8 +5597,8 @@ data:
                       <Order>1</Order>
                       <Origin>DB</Origin>
                       <Retrieval_Mode>LatestValCover</Retrieval_Mode>
-                      <T0>4.0</T0>
-                      <T1>4.0</T1>
+                      <T0>7000.0</T0>
+                      <T1>7000.0</T1>
                       <File_Type>AX___FRO_AX</File_Type>
                       <File_Name_Type>Physical</File_Name_Type>
                     </Alternative>
