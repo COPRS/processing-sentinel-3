@@ -86,7 +86,7 @@ You can find more information and installation instructions in this [repository]
 ## Build
 
 In order to build all the RS add-ons contained in this repository, please execute the following script from inside the repository:
-``
+```
 ./build_all.sh <target_dir> <version>
 ```
 The placeholder `<target_dir>` shall point to the location where you want to put the generated RS add-ons, e.g. `/tmp/rs-addons`. When the generation had been performed successfully, you can find the ZIPs containing the RS Add-ons at that location.
