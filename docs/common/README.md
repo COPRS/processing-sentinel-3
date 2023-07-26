@@ -230,6 +230,7 @@ The Cronbased-Trigger service is responsible to check the MetadataSearchControll
 | ``app.trigger.trigger.config.<productType>.cron`` |  Default: ``0 */15 * * * *`` |
 | ``app.trigger.trigger.config.<productType>.family`` | Default: ``S3_PUG`` |
 | ``app.trigger.trigger.config.<productType>.satelliteIds`` | Default: ``A,B`` |
+| ``app.trigger.trigger.config.<productType>.queryOffsetInS``  |Description/Default: |
 
 ### Execution Worker
 
