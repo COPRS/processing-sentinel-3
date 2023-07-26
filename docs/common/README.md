@@ -230,6 +230,7 @@ The Cronbased-Trigger service is responsible to check the MetadataSearchControll
 | ``app.trigger.trigger.config.<productType>.cron`` |  Default: ``0 */15 * * * *`` |
 | ``app.trigger.trigger.config.<productType>.family`` | Default: ``S3_PUG`` |
 | ``app.trigger.trigger.config.<productType>.satelliteIds`` | Default: ``A,B`` |
+| ``app.trigger.trigger.config.<productType>.queryOffsetInS``  | Adds the seconds that will be automatically added to a query as safety margin in the past. e.g. if 5 seconds are used, it will also include products that are added 5 seconds before the last interval stored. Default: 0 |
 
 ### Execution Worker
 
