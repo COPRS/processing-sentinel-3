@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.14.0-rc2] - 2023-07-31
+
+### Added
+
+- RS-778: Homogenisation of CIDL documentation
+
+### Changed
+
+- RS-1036: [BUG] [S3 SL1 v1.14.0-rc1] Error in stream parameters properties
+- RS-1038: [BUG] [S3 SL1 v1.14.0-rc1] Incorrect Tasktable delivered
+- RS-1042: [BUG] S3-PUG-NTC default configuration prevents addon from being deployed
+- RS-1044: [BUG] S3 PUG NTC missing SL_2_FRP products in filter, tasktable routing and pdu config
+
+### Removed
+
+- N/A
+
 ## [1.14.0-rc1] - 2023-07-06
 
 ### Added
