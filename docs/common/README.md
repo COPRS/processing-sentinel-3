@@ -130,6 +130,7 @@ This configuration section includes the values for the different tags.
 | ``app.preparation-worker.worker.product-mode`` | Mode for this preparation-worker, defining which inputs of the task tables are applicable |
 | ``app.preparation-worker.worker.pathTaskTableXslt`` | Path to the taskTableXslt (if applicable), which should be applied to the tasktables before reading them |
 | ``app.preparation-worker.worker.primaryCheckMaxTimelifeS`` | Maximum waiting time for the main input search |
+| ``app.preparation-worker.worker.useLatestOnly`` | Determine if duplicated input products (different creation times, but identical validation timewindow) whould be removed and only the most recent should be provided to the IPF. Default: false |
 
 ##### Tasktable Configuration
 
