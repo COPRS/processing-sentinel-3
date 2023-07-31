@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - RS-1038: [BUG] [S3 SL1 v1.14.0-rc1] Incorrect Tasktable delivered
 - RS-1042: [BUG] S3-PUG-NTC default configuration prevents addon from being deployed
 - RS-1044: [BUG] S3 PUG NTC missing SL_2_FRP products in filter, tasktable routing and pdu config
+- RS-1050: [BUG] [OPS] S3 PUG NTC Execution failed on too short product
 
 ### Removed
 
