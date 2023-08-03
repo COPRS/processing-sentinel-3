@@ -30,6 +30,26 @@ data:
         </Type>
       </xsl:template>
 
+      <xsl:template match="List_of_Pools">
+        <xsl:variable name="numberTasks" select="count(current()//Task) - 1" />
+        <xsl:element name="List_of_Pools">
+          <xsl:attribute name="count"><xsl:value-of select="$numberTasks" /></xsl:attribute>
+          <xsl:for-each select="current()//Task">
+            <xsl:variable name="PROCNAME" select="current()/Name[text()]" />
+            <xsl:if test="($PROCNAME != 'PUGReportGenerator') and ('_BP' != substring($PROCNAME, string-length($PROCNAME) - 2)) and ($PROCNAME != 'OLQC_Wrapper')">
+              <xsl:element name="Pool">
+                <xsl:element name="List_of_Tasks">
+                  <xsl:attribute name="count">1</xsl:attribute>
+                  <xsl:element name="Task">
+                    <xsl:apply-templates select="@*|node()" />
+                  </xsl:element>
+                </xsl:element>
+              </xsl:element>
+            </xsl:if>
+          </xsl:for-each>
+        </xsl:element>
+      </xsl:template>
+
       <!-- Copy Template -->
       <xsl:template match="@*|node()">
         <xsl:copy>

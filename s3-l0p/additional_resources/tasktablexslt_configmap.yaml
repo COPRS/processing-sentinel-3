@@ -18,6 +18,23 @@ data:
         </List_of_Dyn_ProcParam>
       </xsl:template>
 
+      <xsl:template match="Dyn_ProcParam">
+        <xsl:choose>
+          <xsl:when test="Param_Name[.='granulePosition']">
+            <Dyn_ProcParam>
+              <Param_Name>granulePosition</Param_Name>
+              <Param_Type>string</Param_Type>
+              <Param_Default>NONE</Param_Default>
+            </Dyn_ProcParam>
+          </xsl:when>
+          <xsl:otherwise>
+            <Dyn_ProcParam>
+              <xsl:apply-templates select="@*|node()"/>
+            </Dyn_ProcParam>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:template>
+
       <xsl:template match="Cfg_File">
         <Cfg_Files>
           <xsl:apply-templates select="@*|node()"/>

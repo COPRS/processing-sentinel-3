@@ -1,6 +1,8 @@
-:arrow_heading_up: Go back to the [Reference System Software repository](https://github.com/COPRS/reference-system-software) :arrow_heading_up:
-
+### Copernicus Reference System
 # Common Configuration Documentation
+### Reference System version V2.0
+---
+:arrow_heading_up: Go back to the [Reference System Software repository](https://github.com/COPRS/reference-system-software) :arrow_heading_up:
 
 ## Purpose
 
@@ -103,7 +105,7 @@ This configuration section includes the values for the different tags.
 
 | Property | Details |
 |----------|---------|
-| ``app.preparation-worker.process.level`` | Process level for the preparation worker. Controls level specific logic. For S1 AIOP: ``L0`` |
+| ``app.preparation-worker.process.level`` | Process level for the preparation worker. Controls level specific logic. For S1 AIOP and S3 ACQ: ``L0`` |
 | ``app.preparation-worker.process.mode`` | Process mode for the preparation worker. Allowed values: ``PROD``, ``TEST`` (default: ``PROD``) |
 | ``app.preparation-worker.process.hostname`` | Hostname of the preparation worker (default: ``${HOSTNAME}``) |
 | ``app.preparation-worker.process.productType`` | ProductType of main inputs. Used for logging/reporting (default: ``EdrsSession``) |
@@ -125,6 +127,10 @@ This configuration section includes the values for the different tags.
 | ``app.preparation-worker.worker.type-overlap`` | Map of all overlap for different slice types in Sentinel-1 |
 | ``app.preparation-worker.worker.type-slice-length`` | Map of all lengths for different slice types in Sentinel-1 |
 | ``app.preparation-worker.worker.map-type-meta`` | Map for product types to corresponding metadata indexes, if the product type itself is not the same as the index |
+| ``app.preparation-worker.worker.product-mode`` | Mode for this preparation-worker, defining which inputs of the task tables are applicable |
+| ``app.preparation-worker.worker.pathTaskTableXslt`` | Path to the taskTableXslt (if applicable), which should be applied to the tasktables before reading them |
+| ``app.preparation-worker.worker.primaryCheckMaxTimelifeS`` | Maximum waiting time for the main input search |
+| ``app.preparation-worker.worker.useLatestOnly`` | Determine if duplicated input products (different creation times, but identical validation timewindow) whould be removed and only the most recent should be provided to the IPF. Default: false |
 
 ##### Tasktable Configuration
 
@@ -136,7 +142,9 @@ This configuration section includes the values for the different tags.
 
 #### Product type specific configuration part
 
-##### AIOP Configuration
+##### AIOP and ACQ Configuration
+
+The following properties are required for EDRS sessions and are applicable for the S1 AIOP as well as the S3 ACQ workflow and required in both cases. Check the specific RS add-ons for getting an idea how to use these properties correctly for these scenarios.
 
 | Property | Details |
 |----------|---------|
@@ -182,14 +190,17 @@ This configuration section includes the values for the different tags.
 | ``app.preparation-worker.pdu.config.<product_type>.reference`` | Reference point for length and offset for PDU generation. Default: ORBIT. Allowed values: DUMP, ORBIT |
 | ``app.preparation-worker.pdu.config.<product_type>.length-in-s`` | Length of PDUs to be created. Double value. |
 | ``app.preparation-worker.pdu.config.<product_type>.offset-in-s`` | Offset of the start from the reference point. Double value |
-| ``app.preparation-worker.pdu.config.<product_type>.gap-threshhold-in-s`` | Thresshold for the gap handler to determine if two products are handled as continuous |
+| ``app.preparation-worker.pdu.config.<product_type>.gap-threshhold-in-s`` | Threshold for the gap handler to determine if two products are handled as continuous |
 | ``app.preparation-worker.pdu.config.<product_type>.dyn-proc-params`` | Map of static values for the dynamic processing parameters on the job order |
+| ``app.preparation-worker.pdu.config.<product_type>.minPDULengthThreshold`` | Minimum TimeInterval a given PDU processor can handle, in seconds. Default: 0.0 |
+
 
 #### S3Synergy Configuration
 
 | Property | Details |
 |----------|---------|
 | ``app.preparation-worker.s3-synergy.dyn-proc-params`` | Map of static values for the dynamic processing parameters on the job order |
+
 
 ### Housekeeping
 
@@ -222,6 +233,7 @@ The Cronbased-Trigger service is responsible to check the MetadataSearchControll
 | ``app.trigger.trigger.config.<productType>.cron`` |  Default: ``0 */15 * * * *`` |
 | ``app.trigger.trigger.config.<productType>.family`` | Default: ``S3_PUG`` |
 | ``app.trigger.trigger.config.<productType>.satelliteIds`` | Default: ``A,B`` |
+| ``app.trigger.trigger.config.<productType>.queryOffsetInS``  | Adds the seconds that will be automatically added to a query as safety margin in the past. e.g. if 5 seconds are used, it will also include products that are added 5 seconds before the last interval stored. Default: 0 |
 
 ### Execution Worker
 

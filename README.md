@@ -86,6 +86,18 @@ The chain itself will not work without other RS Core components. At least the a 
 
 You can find more information and installation instructions in this [repository](https://github.com/COPRS/production-common).
 
+## Build
+
+In order to build all the RS add-ons contained in this repository, please execute the following script from inside the repository:
+```
+./build_all.sh <target_dir> <version>
+```
+The placeholder `<target_dir>` shall point to the location where you want to put the generated RS add-ons, e.g. `/tmp/rs-addons`. When the generation had been performed successfully, you can find the ZIPs containing the RS Add-ons at that location.
+
+The placeholder `<version>` defines the version that shall be added to the RS Add-ons when being generated e.g. `1.2.3`.
+
+Be aware that this script will just ensure that the RS Add-ons are build. In order to rebuild the docker images that contains the CFI and the RS add-on servces needed to operate them, please consult [this](https://github.com/COPRS/production-common/blob/main/docs/howto/README.md) instruction.
+
 ## Deployment
 
 Each RS Add-on contains a description about the services for the specific processing chain that shall be deployed into the cluster as well as a reference to the docker images that shall be used and a factory default configuration.

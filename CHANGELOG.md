@@ -5,6 +5,80 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.14.0-rc2] - 2023-07-31
+
+### Added
+
+- RS-778: Homogenisation of CIDL documentation
+
+### Changed
+
+- RS-1036: [BUG] [S3 SL1 v1.14.0-rc1] Error in stream parameters properties
+- RS-1038: [BUG] [S3 SL1 v1.14.0-rc1] Incorrect Tasktable delivered
+- RS-1042: [BUG] S3-PUG-NTC default configuration prevents addon from being deployed
+- RS-1044: [BUG] S3 PUG NTC missing SL_2_FRP products in filter, tasktable routing and pdu config
+- RS-1050: [BUG] [OPS] S3 PUG NTC Execution failed on too short product
+
+### Removed
+
+- N/A
+
+## [1.14.0-rc1] - 2023-07-06
+
+### Added
+
+- RS-1023: Updating S3 L0p to version 06.15 (tt updated)
+
+### Changed
+
+- RS-578: Most S3 images was updated on Centos7. Tasktables was updated
+- RS-992: [BUG] [OPS] S3 PUG-NRT /usr/local/components/PUG-3.45/bin/PUGCoreProcessor failed fo OL_1_EFR Product
+- RS-994: [BUG] [S3-SR1-STC] JobProcessing failed
+- RS-1012: [BUG] S3-SL2-NTC fails with exit code 129 on S3A products
+- RS-1018: [BUG] [S3 SY2 AOD v1.13.2-rc1] SY2_AOD.bin failed with exit code 129
+- RS-1021: [BUG] [OPS] S3 PUG product output duration time not coherent
+
+### Removed
+
+- N/A
+
+## [1.13.2-rc1] - 2023-06-15
+
+### Added
+
+- RS-964: [Documentation] [PRO] [S1] [S3] Missing build documentation
+
+### Changed
+
+- RS-932: [S3] SR1-NRT do not provide missing elements while there is a NOK status.
+- RS-973: [S3 PUG NRT] No L1/L2 data generated
+- RS-974: [OPS] S3B MW1 CAL Failed "[code 290] [exitCode 138]
+- RS-981: [OPS] PUG is not generating data for OL1 ERR
+- RS-988: [OPS] PUG is not generating data for L2 products
+- RS-989: S3 SL2 SL2.bin failed due to "Could not found the level 1 inputs products covering the given processing time window"
+- RS-998: S3 OL1-NTC Default timeout configuration to low
+
+### Removed
+
+- N/A
+
+## [1.13.1-rc1] - 2023-05-17
+
+### Added
+
+- N/A
+
+### Changed
+
+- RS-894: [TRACE] S3-L0P task JobGenerator END trace is not stored on the Elastic Search.
+- RS-912: Updated xslt to fix tasktable for S3 SR1 NRT
+- RS-936: [S3 SR1 1.12 + WA 912] SR_1_SRA.bin failed with exit code 134
+
+
+### Removed
+
+- N/A
+
 ## [1.13.0-rc1] - 2023-03-30
 
 ### Added

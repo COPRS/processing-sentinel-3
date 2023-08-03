@@ -5,41 +5,41 @@ metadata:
   namespace: processing
 
 data:
-  TaskTable_S3A_SY2_VGS_06_11.xml: |
+  TaskTable_S3A_SY2_VGS_06_13.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Processor_Name>S3A_SY2_VGS</Processor_Name>
-        <Version>06.11</Version>
+        <Version>06.13</Version>
         <Test>No</Test>
         <Min_Disk_Space units="MB">2048</Min_Disk_Space>
         <Max_Time units="sec">1800</Max_Time>
         <List_of_Cfg_Files count="1">
             <Cfg_File>
-                <File_Name>/usr/local/conf/S3IPF_SY2_VGS_06.11/S3A/S3IPF_SY2_VGS_Configuration.xml</File_Name>
+                <File_Name>/usr/local/conf/S3IPF_SY2_VGS_06.13/S3A/S3IPF_SY2_VGS_Configuration.xml</File_Name>
             </Cfg_File>
         </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParams count="4">
-        <Dyn_ProcParam>
-          <Param_Name>facilityName</Param_Name>        <!-- Generation Centre -->
-          <Param_Type>String</Param_Type>
-          <Param_Default>MAR</Param_Default>
-        </Dyn_ProcParam>
-        <Dyn_ProcParam>
-          <Param_Name>orderType</Param_Name> <!-- Timeliness of the product -->
-          <Param_Type>String</Param_Type>
-          <Param_Default>NRT</Param_Default>
-        </Dyn_ProcParam>
-        <Dyn_ProcParam>
-          <Param_Name>hardwareName</Param_Name>          <!-- Platform (OPE,DEV...)-->
-          <Param_Type>String</Param_Type>
-          <Param_Default>D</Param_Default>
-        </Dyn_ProcParam>
-        <Dyn_ProcParam>
-          <Param_Name>baselineCollection</Param_Name>          <!-- 001, ...-->
-          <Param_Type>String</Param_Type>
-          <Param_Default>002</Param_Default>
-        </Dyn_ProcParam>
-      </List_of_Dyn_ProcParams>  
+        <List_of_Dyn_ProcParams count="4">
+            <Dyn_ProcParam>
+                <Param_Name>facilityName</Param_Name>        <!-- Generation Centre -->
+                <Param_Type>String</Param_Type>
+                <Param_Default>MAR</Param_Default>
+            </Dyn_ProcParam>
+            <Dyn_ProcParam>
+                <Param_Name>orderType</Param_Name> <!-- Timeliness of the product -->
+                <Param_Type>String</Param_Type>
+                <Param_Default>NRT</Param_Default>
+            </Dyn_ProcParam>
+            <Dyn_ProcParam>
+                <Param_Name>hardwareName</Param_Name>          <!-- Platform (OPE,DEV...)-->
+                <Param_Type>String</Param_Type>
+                <Param_Default>D</Param_Default>
+            </Dyn_ProcParam>
+            <Dyn_ProcParam>
+                <Param_Name>baselineCollection</Param_Name>          <!-- 001, ...-->
+                <Param_Type>String</Param_Type>
+                <Param_Default>002</Param_Default>
+            </Dyn_ProcParam>
+        </List_of_Dyn_ProcParams>  
         <Sensing_Time_flag>true</Sensing_Time_flag>
         <List_of_Pools count="1">
             <Pool>
@@ -51,10 +51,10 @@ data:
                     <!-- ================================ -->
                     <Task>
                         <Name>SY2_VGS</Name>
-                        <Version>06.11</Version>
+                        <Version>06.13</Version>
                         <Critical>true</Critical>
                         <Criticality_Level>1</Criticality_Level>
-                        <File_Name>/usr/local/components/S3IPF_SY2_VGS_06.11/bin/SY2_VGS.bin</File_Name>
+                        <File_Name>/usr/local/components/S3IPF_SY2_VGS_06.13/bin/SY2_VGS.bin</File_Name>
                         <List_of_Inputs count="4">
                             <Input>
                                 <Mode>ALWAYS</Mode>
@@ -82,7 +82,7 @@ data:
                                     </Alternative>
                                 </List_of_Alternatives>
                             </Input>
-                          
+                           
                             <Input>
                                 <Mode>ALWAYS</Mode>
                                 <Mandatory>Yes</Mandatory>
@@ -158,7 +158,7 @@ data:
                                     </Alternative>
                                 </List_of_Alternatives>
                             </Input>
-                            
+                             
                         </List_of_Inputs>
                         
                         <List_of_Outputs count="2">
@@ -177,47 +177,47 @@ data:
                             </Output>
                         </List_of_Outputs>
                         <List_of_Breakpoints count="0"/>
-
+    
                     </Task>
                 </List_of_Tasks>
             </Pool>
         </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_SY2_VGS_06_11.xml: |
+  TaskTable_S3B_SY2_VGS_06_13.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Processor_Name>S3B_SY2_VGS</Processor_Name>
-        <Version>06.11</Version>
+        <Version>06.13</Version>
         <Test>No</Test>
         <Min_Disk_Space units="MB">2048</Min_Disk_Space>
         <Max_Time units="sec">1800</Max_Time>
         <List_of_Cfg_Files count="1">
             <Cfg_File>
-                <File_Name>/usr/local/conf/S3IPF_SY2_VGS_06.11/S3B/S3IPF_SY2_VGS_Configuration.xml</File_Name>
+                <File_Name>/usr/local/conf/S3IPF_SY2_VGS_06.13/S3B/S3IPF_SY2_VGS_Configuration.xml</File_Name>
             </Cfg_File>
         </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParams count="4">
-        <Dyn_ProcParam>
-          <Param_Name>facilityName</Param_Name>        <!-- Generation Centre -->
-          <Param_Type>String</Param_Type>
-          <Param_Default>MAR</Param_Default>
-        </Dyn_ProcParam>
-        <Dyn_ProcParam>
-          <Param_Name>orderType</Param_Name> <!-- Timeliness of the product -->
-          <Param_Type>String</Param_Type>
-          <Param_Default>NRT</Param_Default>
-        </Dyn_ProcParam>
-        <Dyn_ProcParam>
-          <Param_Name>hardwareName</Param_Name>          <!-- Platform (OPE,DEV...)-->
-          <Param_Type>String</Param_Type>
-          <Param_Default>D</Param_Default>
-        </Dyn_ProcParam>
-        <Dyn_ProcParam>
-          <Param_Name>baselineCollection</Param_Name>          <!-- 001, ...-->
-          <Param_Type>String</Param_Type>
-          <Param_Default>002</Param_Default>
-        </Dyn_ProcParam>
-      </List_of_Dyn_ProcParams>  
+        <List_of_Dyn_ProcParams count="4">
+            <Dyn_ProcParam>
+                <Param_Name>facilityName</Param_Name>        <!-- Generation Centre -->
+                <Param_Type>String</Param_Type>
+                <Param_Default>MAR</Param_Default>
+            </Dyn_ProcParam>
+            <Dyn_ProcParam>
+                <Param_Name>orderType</Param_Name> <!-- Timeliness of the product -->
+                <Param_Type>String</Param_Type>
+                <Param_Default>NRT</Param_Default>
+            </Dyn_ProcParam>
+            <Dyn_ProcParam>
+                <Param_Name>hardwareName</Param_Name>          <!-- Platform (OPE,DEV...)-->
+                <Param_Type>String</Param_Type>
+                <Param_Default>D</Param_Default>
+            </Dyn_ProcParam>
+            <Dyn_ProcParam>
+                <Param_Name>baselineCollection</Param_Name>          <!-- 001, ...-->
+                <Param_Type>String</Param_Type>
+                <Param_Default>002</Param_Default>
+            </Dyn_ProcParam>
+        </List_of_Dyn_ProcParams>  
         <Sensing_Time_flag>true</Sensing_Time_flag>
         <List_of_Pools count="1">
             <Pool>
@@ -229,10 +229,10 @@ data:
                     <!-- ================================ -->
                     <Task>
                         <Name>SY2_VGS</Name>
-                        <Version>06.11</Version>
+                        <Version>06.13</Version>
                         <Critical>true</Critical>
                         <Criticality_Level>1</Criticality_Level>
-                        <File_Name>/usr/local/components/S3IPF_SY2_VGS_06.11/bin/SY2_VGS.bin</File_Name>
+                        <File_Name>/usr/local/components/S3IPF_SY2_VGS_06.13/bin/SY2_VGS.bin</File_Name>
                         <List_of_Inputs count="4">
                             <Input>
                                 <Mode>ALWAYS</Mode>
@@ -260,7 +260,7 @@ data:
                                     </Alternative>
                                 </List_of_Alternatives>
                             </Input>
-                          
+                           
                             <Input>
                                 <Mode>ALWAYS</Mode>
                                 <Mandatory>Yes</Mandatory>
@@ -336,7 +336,7 @@ data:
                                     </Alternative>
                                 </List_of_Alternatives>
                             </Input>
-                            
+                             
                         </List_of_Inputs>
                         
                         <List_of_Outputs count="2">
@@ -355,7 +355,7 @@ data:
                             </Output>
                         </List_of_Outputs>
                         <List_of_Breakpoints count="0"/>
-
+    
                     </Task>
                 </List_of_Tasks>
             </Pool>

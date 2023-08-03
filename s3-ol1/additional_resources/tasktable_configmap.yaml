@@ -5,41 +5,41 @@ metadata:
   namespace: processing
 
 data:
-  TaskTable_S3A_OL1_06_13.xml: |
+  TaskTable_S3A_OL1_06_17.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Processor_Name>S3A_OL1</Processor_Name>
-        <Version>06.13</Version>
+        <Version>06.17</Version>
         <Test>No</Test>
         <Min_Disk_Space units="MB">2048</Min_Disk_Space>
         <Max_Time units="sec">1800</Max_Time>
         <List_of_Cfg_Files count="1">
             <Cfg_File>
-                <File_Name>/usr/local/conf/S3IPF_OL1_06.13/S3A/S3IPF_OL1_Configuration.xml</File_Name>
+                <File_Name>/usr/local/conf/S3IPF_OL1_06.17/S3A/S3IPF_OL1_Configuration.xml</File_Name>
             </Cfg_File>
         </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParams count="4">
-        <Dyn_ProcParam>
-          <Param_Name>facilityName</Param_Name>        <!-- Generation Centre -->
-          <Param_Type>String</Param_Type>
-          <Param_Default>MAR</Param_Default>
-        </Dyn_ProcParam>
-        <Dyn_ProcParam>
-          <Param_Name>orderType</Param_Name> <!-- Timeliness of the product -->
-          <Param_Type>String</Param_Type>
-          <Param_Default>NRT</Param_Default>
-        </Dyn_ProcParam>
-        <Dyn_ProcParam>
-          <Param_Name>hardwareName</Param_Name>          <!-- Platform (OPE,DEV...)-->
-          <Param_Type>String</Param_Type>
-          <Param_Default>D</Param_Default>
-        </Dyn_ProcParam>
-        <Dyn_ProcParam>
-          <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-          <Param_Type>String</Param_Type>
-          <Param_Default>003</Param_Default>
-        </Dyn_ProcParam>
-      </List_of_Dyn_ProcParams>  
+        <List_of_Dyn_ProcParams count="4">
+            <Dyn_ProcParam>
+                <Param_Name>facilityName</Param_Name>        <!-- Generation Centre -->
+                <Param_Type>String</Param_Type>
+                <Param_Default>MAR</Param_Default>
+            </Dyn_ProcParam>
+            <Dyn_ProcParam>
+                <Param_Name>orderType</Param_Name> <!-- Timeliness of the product -->
+                <Param_Type>String</Param_Type>
+                <Param_Default>NRT</Param_Default>
+            </Dyn_ProcParam>
+            <Dyn_ProcParam>
+                <Param_Name>hardwareName</Param_Name>          <!-- Platform (OPE,DEV...)-->
+                <Param_Type>String</Param_Type>
+                <Param_Default>D</Param_Default>
+            </Dyn_ProcParam>
+            <Dyn_ProcParam>
+                <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+                <Param_Type>String</Param_Type>
+                <Param_Default>003</Param_Default>
+            </Dyn_ProcParam>
+        </List_of_Dyn_ProcParams>  
         <Sensing_Time_flag>true</Sensing_Time_flag>
         <List_of_Pools count="1">
             <Pool>
@@ -51,10 +51,10 @@ data:
                     <!-- ================================ -->
                     <Task>
                         <Name>OL1</Name>
-                        <Version>06.13</Version>
+                        <Version>06.17</Version>
                         <Critical>true</Critical>
                         <Criticality_Level>1</Criticality_Level>
-                        <File_Name>/usr/local/components/S3IPF_OL1_06.13/bin/OL1.bin</File_Name>
+                        <File_Name>/usr/local/components/S3IPF_OL1_06.17/bin/OL1.bin</File_Name>
                         <List_of_Inputs count="16">
                             <Input>
                                 <Mode>ALWAYS</Mode>
@@ -98,7 +98,7 @@ data:
                                     <Alternative>
                                         <Order>1</Order>
                                         <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersect</Retrieval_Mode>
+                                        <Retrieval_Mode>ValIntersect</Retrieval_Mode>
                                         <T0>8.8</T0>
                                         <T1>8.8</T1>
                                         <File_Type>TM_0_NAT___</File_Type>
@@ -467,6 +467,10 @@ data:
                             </Breakpoint>
                             <Breakpoint>
                                 <File_Name>BP_O1-RS_6-1.nc</File_Name>
+                                <File_Name_Type>Physical</File_Name_Type>
+                            </Breakpoint>
+                            <Breakpoint>
+                                <File_Name>BP_O1-RS_6-2.nc</File_Name>
                                 <File_Name_Type>Physical</File_Name_Type>
                             </Breakpoint>
                             <Breakpoint>
@@ -531,41 +535,41 @@ data:
             </Pool>
         </List_of_Pools>
     </Ipf_Task_Table>
-  TaskTable_S3B_OL1_06_13.xml: |
+  TaskTable_S3B_OL1_06_17.xml: |
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
     <Ipf_Task_Table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Processor_Name>S3B_OL1</Processor_Name>
-        <Version>06.13</Version>
+        <Version>06.17</Version>
         <Test>No</Test>
         <Min_Disk_Space units="MB">2048</Min_Disk_Space>
         <Max_Time units="sec">1800</Max_Time>
         <List_of_Cfg_Files count="1">
             <Cfg_File>
-                <File_Name>/usr/local/conf/S3IPF_OL1_06.13/S3B/S3IPF_OL1_Configuration.xml</File_Name>
+                <File_Name>/usr/local/conf/S3IPF_OL1_06.17/S3B/S3IPF_OL1_Configuration.xml</File_Name>
             </Cfg_File>
         </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParams count="4">
-        <Dyn_ProcParam>
-          <Param_Name>facilityName</Param_Name>        <!-- Generation Centre -->
-          <Param_Type>String</Param_Type>
-          <Param_Default>MAR</Param_Default>
-        </Dyn_ProcParam>
-        <Dyn_ProcParam>
-          <Param_Name>orderType</Param_Name> <!-- Timeliness of the product -->
-          <Param_Type>String</Param_Type>
-          <Param_Default>NRT</Param_Default>
-        </Dyn_ProcParam>
-        <Dyn_ProcParam>
-          <Param_Name>hardwareName</Param_Name>          <!-- Platform (OPE,DEV...)-->
-          <Param_Type>String</Param_Type>
-          <Param_Default>D</Param_Default>
-        </Dyn_ProcParam>
-        <Dyn_ProcParam>
-          <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
-          <Param_Type>String</Param_Type>
-          <Param_Default>003</Param_Default>
-        </Dyn_ProcParam>
-      </List_of_Dyn_ProcParams>  
+        <List_of_Dyn_ProcParams count="4">
+            <Dyn_ProcParam>
+                <Param_Name>facilityName</Param_Name>        <!-- Generation Centre -->
+                <Param_Type>String</Param_Type>
+                <Param_Default>MAR</Param_Default>
+            </Dyn_ProcParam>
+            <Dyn_ProcParam>
+                <Param_Name>orderType</Param_Name> <!-- Timeliness of the product -->
+                <Param_Type>String</Param_Type>
+                <Param_Default>NRT</Param_Default>
+            </Dyn_ProcParam>
+            <Dyn_ProcParam>
+                <Param_Name>hardwareName</Param_Name>          <!-- Platform (OPE,DEV...)-->
+                <Param_Type>String</Param_Type>
+                <Param_Default>D</Param_Default>
+            </Dyn_ProcParam>
+            <Dyn_ProcParam>
+                <Param_Name>baselineCollection</Param_Name>          <!-- Provided by PDGS-->
+                <Param_Type>String</Param_Type>
+                <Param_Default>003</Param_Default>
+            </Dyn_ProcParam>
+        </List_of_Dyn_ProcParams>  
         <Sensing_Time_flag>true</Sensing_Time_flag>
         <List_of_Pools count="1">
             <Pool>
@@ -577,10 +581,10 @@ data:
                     <!-- ================================ -->
                     <Task>
                         <Name>OL1</Name>
-                        <Version>06.13</Version>
+                        <Version>06.17</Version>
                         <Critical>true</Critical>
                         <Criticality_Level>1</Criticality_Level>
-                        <File_Name>/usr/local/components/S3IPF_OL1_06.13/bin/OL1.bin</File_Name>
+                        <File_Name>/usr/local/components/S3IPF_OL1_06.17/bin/OL1.bin</File_Name>
                         <List_of_Inputs count="16">
                             <Input>
                                 <Mode>ALWAYS</Mode>
@@ -624,7 +628,7 @@ data:
                                     <Alternative>
                                         <Order>1</Order>
                                         <Origin>DB</Origin>
-                      <Retrieval_Mode>ValIntersect</Retrieval_Mode>
+                                        <Retrieval_Mode>ValIntersect</Retrieval_Mode>
                                         <T0>8.8</T0>
                                         <T1>8.8</T1>
                                         <File_Type>TM_0_NAT___</File_Type>
@@ -993,6 +997,10 @@ data:
                             </Breakpoint>
                             <Breakpoint>
                                 <File_Name>BP_O1-RS_6-1.nc</File_Name>
+                                <File_Name_Type>Physical</File_Name_Type>
+                            </Breakpoint>
+                            <Breakpoint>
+                                <File_Name>BP_O1-RS_6-2.nc</File_Name>
                                 <File_Name_Type>Physical</File_Name_Type>
                             </Breakpoint>
                             <Breakpoint>
