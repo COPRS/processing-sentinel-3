@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.14.0] - 2023-08-22
+
+### Added
+
+- N/A
+
+### Changed
+
+- RS-1044: [BUG] Increase default gap thresshold for pug processor
+- RS-1052: [BUG] S3 PUG-NTC Execution failed with error code 139 for products SY_2_VG1
+- RS-1055: [BUG] Many Sentinel-3 Level-0 products are not generated (at the minimum for type SL_0_SLT, SR_0_CAL\_\_\_)
+- RS-1079: [BUG] S3 PUG-STC Execution failed with error code 139 for products SY_2_VG1
+
+### Removed
+
+- N/A
+
 ## [1.14.0-rc2] - 2023-07-31
 
 ### Added
@@ -73,7 +90,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - RS-894: [TRACE] S3-L0P task JobGenerator END trace is not stored on the Elastic Search.
 - RS-912: Updated xslt to fix tasktable for S3 SR1 NRT
 - RS-936: [S3 SR1 1.12 + WA 912] SR_1_SRA.bin failed with exit code 134
-
 
 ### Removed
 
