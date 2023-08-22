@@ -1636,7 +1636,7 @@ data:
           <!-- config for  OLQC Quality Checks QC-Check Configuration-->
         </Cfg_File>
       </List_of_Cfg_Files>
-      <List_of_Dyn_ProcParams count="12">
+      <List_of_Dyn_ProcParams count="10">
         <Dyn_ProcParam>
           <Param_Name>hardwareName</Param_Name>
           <Param_Type>string</Param_Type>
@@ -1683,16 +1683,6 @@ data:
                   <Param_Type>String</Param_Type>
                   <Param_Default>002</Param_Default>
               </Dyn_ProcParam>
-        <Dyn_ProcParam>
-          <Param_Name>pduLength</Param_Name>
-          <Param_Type>number</Param_Type>
-          <!--Param_Default>180</Param_Default-->
-        </Dyn_ProcParam>
-        <Dyn_ProcParam>
-          <Param_Name>MtdPDUFrameNumbers</Param_Name>
-          <Param_Type>number</Param_Type>
-          <!--Param_Default>0</Param_Default-->
-        </Dyn_ProcParam>
         <Dyn_ProcParam>
           <Param_Name>pduType</Param_Name>
           <Param_Type>String</Param_Type>
