@@ -418,3 +418,8 @@ For further information on using the deployment script, please consult its [manu
 | SY           | Synergy                                                      |
 | OBS          | Object Storage                                               |
 | OL           | Short for OLCI: Ocean and Land Colour Instrument             |
+
+
+<p align="center">
+ <img src="/docs/media/banner.jpg" width="800" height="50" />
+</p>
